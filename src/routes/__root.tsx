@@ -77,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Romancy — A Private Residence on Lake Como" },
+      { title: "Oro Shogran — A Private Retreat in the Kaghan Valley" },
       {
         name: "description",
         content:
-          "Romancy is an editorial luxury hotel on Lake Como. Reserve a suite, dine at Orangerie 1894, and step into a sanctuary of marble, silk, and quiet light.",
+          "Oro Shogran is a cliffside luxury retreat in Shogran, Kaghan Valley. Reserve a suite, gather by the bonfire, and step into a sanctuary of pine, stone and quiet Himalayan light.",
       },
-      { name: "author", content: "Romancy" },
-      { property: "og:title", content: "Romancy — A Private Residence on Lake Como" },
+      { name: "author", content: "Oro Shogran" },
+      { property: "og:title", content: "Oro Shogran — A Private Retreat in the Kaghan Valley" },
       {
         property: "og:description",
         content:
-          "An editorial luxury hotel on the shores of Lake Como. Suites, dining, and a sanctuary by design.",
+          "A cliffside luxury retreat in the heart of Shogran. Suites, mountain dining, and guided journeys through the Kaghan Valley.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

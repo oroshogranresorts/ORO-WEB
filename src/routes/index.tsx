@@ -1,401 +1,625 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroTerrace from "@/assets/hero-terrace.jpg";
-import heritageMarble from "@/assets/heritage-marble.jpg";
-import suiteAlabaster from "@/assets/suite-alabaster.jpg";
-import suiteBelvedere from "@/assets/suite-belvedere.jpg";
-import diningOrangerie from "@/assets/dining-orangerie.jpg";
+import { useState } from "react";
+import heroImg from "@/assets/oro-hero.jpg";
+import valleyImg from "@/assets/oro-valley.jpg";
+import suiteLuxury from "@/assets/oro-suite-luxury.jpg";
+import suiteFamily from "@/assets/oro-suite-family.jpg";
+import suiteDeluxe from "@/assets/oro-suite-deluxe.jpg";
+import bonfireImg from "@/assets/oro-bonfire.jpg";
+import cuisineImg from "@/assets/oro-cuisine.jpg";
+import jeepImg from "@/assets/oro-jeep.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const NAV = [
+  { label: "The Retreat", href: "#retreat" },
+  { label: "Suites", href: "#suites" },
+  { label: "Experiences", href: "#experiences" },
+  { label: "Dining", href: "#dining" },
+  { label: "Journal", href: "#journal" },
+  { label: "Contact", href: "#contact" },
+];
+
+const SUITES = [
+  {
+    tag: "01 — Signature",
+    name: "The Kaghan Suite",
+    img: suiteLuxury,
+    beds: "1 King",
+    sqm: "50 sqm",
+    view: "Panoramic Valley",
+    price: "₨ 30,500",
+    copy: "A cliffside signature suite. Fireplace, oak floors and a wall of glass framing the snowline.",
+  },
+  {
+    tag: "02 — Residence",
+    name: "Luxury Family",
+    img: suiteFamily,
+    beds: "2 Beds",
+    sqm: "48 sqm",
+    view: "Pine Forest",
+    price: "₨ 22,500",
+    copy: "Timber beams, hand-loom linens and morning light drawn through the deodars.",
+  },
+  {
+    tag: "03 — Retreat",
+    name: "The Deluxe Cabin",
+    img: suiteDeluxe,
+    beds: "2 Beds",
+    sqm: "40 sqm",
+    view: "Mountain Window",
+    price: "₨ 18,500",
+    copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya.",
+  },
+];
+
+const EXPERIENCES = [
+  { n: "I", title: "Bonfire Evenings", img: bonfireImg, copy: "Wool throws, cast-iron chai and the peaks lit blue by the moon." },
+  { n: "II", title: "The Guided Jeep", img: jeepImg, copy: "A private ascent through pine to Siri Paye and the meadows above the clouds." },
+  { n: "III", title: "Valley Table", img: cuisineImg, copy: "A menu drawn from the mountain — karahi, saag, warm naan, mountain herbs." },
+];
+
+const FACILITIES = [
+  "Cliffside Concierge",
+  "24-Hour Hot Water",
+  "Private Parking",
+  "Wireless Throughout",
+  "In-Room Dining",
+  "Guided Excursions",
+];
+
+const TESTIMONIALS = [
+  {
+    quote:
+      "A two-day stay with a scenic view I still cannot describe. The clouds sat below us. The service was quiet, precise, generous.",
+    name: "Faraz Memon",
+    from: "Karachi",
+  },
+  {
+    quote:
+      "Spotless rooms, warm staff, and a view of the mountains I will remember for a long time. Comfort, cleanliness, top-notch service.",
+    name: "Azeem Khalid",
+    from: "Lahore",
+  },
+  {
+    quote:
+      "The respect, warmth and care of the team were outstanding. Words fall short. A truly wonderful trip.",
+    name: "Majid Shamrez",
+    from: "Islamabad",
+  },
+];
+
 function Index() {
+  const [year] = useState(new Date().getFullYear());
+
   return (
     <div className="min-h-screen bg-rich-black font-body text-ivory selection:bg-gold/30">
       {/* Utility Bar */}
       <div className="border-b border-gold/15 py-3">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <div className="flex gap-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6">
+          <div className="flex min-w-0 gap-6 sm:gap-8">
             <a
-              href="tel:+390451234567"
-              className="text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold"
+              href="tel:+923479044301"
+              className="truncate text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold"
             >
-              +39 045 123 4567
+              +92 347 904 4301
             </a>
             <a
-              href="mailto:concierge@romancy.com"
-              className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold sm:inline"
+              href="mailto:contact@oroshogran.com"
+              className="hidden truncate text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold sm:inline"
             >
-              Concierge@Romancy.com
+              contact@oroshogran.com
             </a>
           </div>
-          <a
-            href="#"
-            className="text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold"
-          >
-            Member Access
-          </a>
+          <span className="shrink-0 text-[10px] font-medium uppercase tracking-[0.2em] text-gold/60">
+            Shogran · Kaghan Valley · 2,362 m
+          </span>
         </div>
       </div>
 
-      {/* Primary Nav */}
-      <nav className="sticky top-0 z-50 border-b border-gold/10 bg-rich-black/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <div className="flex items-center gap-12">
-            <span className="font-display text-2xl tracking-tight text-ivory">
-              Romancy
-            </span>
-            <div className="hidden gap-8 md:flex">
+      {/* Nav */}
+      <header className="sticky top-0 z-40 border-b border-gold/10 bg-rich-black/85 backdrop-blur-md">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 md:grid-cols-3">
+          <a href="#" className="font-display text-2xl leading-none tracking-tight text-ivory">
+            Oro <span className="text-gold">Shogran</span>
+          </a>
+          <nav className="hidden items-center justify-center gap-8 md:flex">
+            {NAV.map((n) => (
               <a
-                href="#estate"
-                className="text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-gold"
+                key={n.href}
+                href={n.href}
+                className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.22em] text-ivory/70 transition-colors hover:text-gold"
               >
-                The Estate
+                {n.label}
               </a>
-              <a
-                href="#residences"
-                className="text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-gold"
-              >
-                Residences
-              </a>
-              <a
-                href="#cuisine"
-                className="text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-gold"
-              >
-                Cuisine
-              </a>
-            </div>
-          </div>
-          <button
-            type="button"
-            className="flex items-center gap-2 bg-gold py-2 pl-3 pr-4 text-[11px] font-medium uppercase tracking-[0.2em] text-rich-black ring-1 ring-gold/20 transition-colors hover:bg-gold/90"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="size-4 shrink-0"
-              aria-hidden="true"
+            ))}
+          </nav>
+          <div className="flex justify-end">
+            <a
+              href="#reserve"
+              className="group relative inline-flex items-center gap-3 border border-gold/60 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold transition-all hover:bg-gold hover:text-rich-black"
             >
-              <path d="M4.5 7c.276 0 .5-.224.5-.5S4.776 6 4.5 6 4 6.224 4 6.5s.224.5.5.5Z" />
-              <path
-                fillRule="evenodd"
-                d="M3 3.5A1.5 1.5 0 0 1 4.5 2h7A1.5 1.5 0 0 1 13 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 12.5v-9Zm1.5-.5a.5.5 0 0 0-.5.5V11h8V3.5a.5.5 0 0 0-.5-.5h-7ZM4 12.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V12H4v.5Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Reserve Stay
-          </button>
+              Reserve
+              <span aria-hidden className="h-px w-6 bg-current transition-all group-hover:w-9" />
+            </a>
+          </div>
         </div>
-      </nav>
+      </header>
 
-      <main>
-        {/* Hero: Editorial Split */}
-        <section
-          id="estate"
-          className="grid min-h-[calc(100vh-80px)] grid-cols-1 lg:grid-cols-[42%_58%]"
-        >
-          <div className="flex flex-col justify-center border-r border-gold/10 p-8 lg:p-20">
-            <span className="mb-6 text-[10px] uppercase tracking-[0.3em] text-gold">
-              Lake Como • Italy
-            </span>
-            <h1 className="mb-8 text-balance font-display text-5xl leading-tight text-ivory lg:text-7xl">
-              A quiet rhythm
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="Oro Shogran cliffside retreat at golden hour"
+            className="h-full w-full object-cover"
+            width={1600}
+            height={1008}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-rich-black/70 via-rich-black/25 to-rich-black" />
+          <div className="absolute inset-0 bg-gradient-to-r from-rich-black/70 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-between px-6 py-24">
+          <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.32em] text-gold/80">
+            <span className="h-px w-10 bg-gold/60" />
+            Est. 2019 · Kaghan Valley
+          </div>
+
+          <div className="max-w-3xl">
+            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.4em] text-gold">
+              A Private Mountain Retreat
+            </p>
+            <h1 className="font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.95] tracking-tight text-ivory">
+              Where the clouds
               <br />
-              of refined living.
+              <span className="italic text-gold">rest below you.</span>
             </h1>
-            <p className="mb-12 max-w-[40ch] text-pretty leading-relaxed text-ivory/60">
-              Nestled in the foothills of the Italian Alps, Romancy is an
-              editorial expression of light, marble, and the hushed tones of
-              dawn on the water.
+            <p className="mt-8 max-w-xl text-base font-light leading-relaxed text-ivory/75 sm:text-lg">
+              A cliffside sanctuary in Shogran — five stories of warm stone, oak
+              and quiet light, held between the pines and the Himalaya.
             </p>
 
-            {/* Booking Widget */}
-            <div className="border border-gold/20 bg-surface/50 p-6 ring-1 ring-black/5">
-              <div className="mb-4 grid grid-cols-2 gap-4">
-                <div>
-                  <label className="mb-2 block text-[9px] uppercase tracking-widest text-gold/60">
-                    Arrival
-                  </label>
-                  <div className="border-b border-gold/30 pb-2 text-sm">
-                    12 October
-                  </div>
-                </div>
-                <div>
-                  <label className="mb-2 block text-[9px] uppercase tracking-widest text-gold/60">
-                    Departure
-                  </label>
-                  <div className="border-b border-gold/30 pb-2 text-sm">
-                    18 October
-                  </div>
-                </div>
-              </div>
-              <button
-                type="button"
-                className="w-full border border-gold/40 py-3 text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-gold/5"
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <a
+                href="#suites"
+                className="group inline-flex items-center gap-3 bg-gold px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-rich-black transition-all hover:bg-ivory"
               >
-                Check Availability
-              </button>
+                Explore The Suites
+                <span aria-hidden className="h-px w-6 bg-current transition-all group-hover:w-10" />
+              </a>
+              <a
+                href="#retreat"
+                className="text-[11px] font-medium uppercase tracking-[0.28em] text-ivory/80 underline decoration-gold/40 decoration-1 underline-offset-8 transition-colors hover:text-gold"
+              >
+                The Story
+              </a>
             </div>
           </div>
-          <div className="relative min-h-[500px] lg:min-h-full">
-            <img
-              src={heroTerrace}
-              alt="Romancy terrace at dusk overlooking Lake Como"
-              width={1600}
-              height={1200}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+
+          {/* Booking Widget */}
+          <div
+            id="reserve"
+            className="mt-16 grid grid-cols-2 gap-px overflow-hidden border border-gold/25 bg-rich-black/60 backdrop-blur-lg sm:grid-cols-4 lg:grid-cols-[1fr_1fr_1fr_1fr_auto]"
+          >
+            {[
+              ["Arrival", "Select date"],
+              ["Departure", "Select date"],
+              ["Guests", "2 Adults"],
+              ["Suite", "Any residence"],
+            ].map(([label, value]) => (
+              <div key={label} className="bg-rich-black/70 p-5">
+                <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">
+                  {label}
+                </div>
+                <div className="mt-2 font-display text-lg text-ivory">{value}</div>
+              </div>
+            ))}
+            <button className="col-span-2 bg-gold p-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory sm:col-span-4 lg:col-span-1">
+              Check Availability
+            </button>
           </div>
-        </section>
+        </div>
 
-        {/* Heritage Story */}
-        <section className="py-24 lg:py-32">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col items-end gap-20 lg:flex-row">
-              <div className="w-full lg:w-1/2">
-                <img
-                  src={heritageMarble}
-                  alt="Neoclassical marble detail inside the villa"
-                  width={900}
-                  height={1200}
-                  loading="lazy"
-                  className="aspect-[3/4] w-full rounded-[min(1vw,12px)] object-cover"
-                />
-              </div>
-              <div className="w-full pb-12 lg:w-1/2">
-                <span className="mb-8 block text-[10px] uppercase tracking-[0.4em] text-gold">
-                  01 — The Heritage
-                </span>
-                <h2 className="mb-8 text-balance font-display text-4xl lg:text-5xl">
-                  The weight of history
-                  <br />
-                  in every stone.
-                </h2>
-                <p className="mb-8 max-w-[48ch] text-pretty leading-relaxed text-ivory/70">
-                  Originally commissioned in 1894, Romancy has served as a
-                  sanctuary for poets, composers, and those who seek a
-                  deliberate pace. Our restoration honors the original
-                  neoclassical architecture while introducing a modern silence.
-                </p>
-                <a
-                  href="#"
-                  className="inline-block border-b border-gold pb-1 text-[10px] uppercase tracking-[0.2em] transition-colors hover:text-gold"
-                >
-                  Read the Chronology
-                </a>
-              </div>
-            </div>
+        {/* marquee */}
+        <div className="relative border-y border-gold/15 bg-rich-black/90 py-4">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 text-[10px] font-medium uppercase tracking-[0.4em] text-ivory/60">
+            <span>Kaghan Valley</span>
+            <span className="text-gold">✦</span>
+            <span>2,362 Metres</span>
+            <span className="text-gold">✦</span>
+            <span>Siri Paye Meadows</span>
+            <span className="text-gold">✦</span>
+            <span>Pine & Deodar</span>
+            <span className="text-gold">✦</span>
+            <span>Since 2019</span>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Asymmetric Suite Spreads */}
-        <section
-          id="residences"
-          className="border-y border-gold/10 bg-surface/30 py-24"
-        >
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mb-20 flex items-baseline justify-between">
-              <h2 className="font-display text-4xl">The Residences</h2>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-gold">
-                Selected Collection
-              </span>
-            </div>
-
-            <div className="space-y-32">
-              {/* Suite 01 */}
-              <div className="group flex flex-col gap-12 lg:flex-row lg:gap-24">
-                <div className="w-full lg:w-3/5">
-                  <img
-                    src={suiteAlabaster}
-                    alt="The Alabaster Suite — bedroom facing Lake Como"
-                    width={1400}
-                    height={900}
-                    loading="lazy"
-                    className="aspect-[3/2] w-full rounded-[min(1vw,12px)] object-cover"
-                  />
-                </div>
-                <div className="w-full pt-12 lg:w-2/5">
-                  <div className="mb-6 border-t border-gold/30 pt-4">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gold/60">
-                      01 / The Alabaster Suite
-                    </span>
-                  </div>
-                  <h3 className="mb-6 font-display text-3xl">
-                    Morning light and curated stillness.
-                  </h3>
-                  <div className="mb-8 flex items-center justify-between border-b border-gold/10 pb-4">
-                    <span className="text-xs text-ivory/50">
-                      Lake Facing • 85 sqm
-                    </span>
-                    <span className="text-sm text-gold">From 1,450 EUR</span>
-                  </div>
-                  <p className="mb-8 max-w-[40ch] text-sm leading-relaxed text-ivory/60">
-                    A masterwork of texture, featuring hand-carved stone baths
-                    and private balconies overlooking the silent wake of the
-                    ferry.
-                  </p>
-                </div>
-              </div>
-
-              {/* Suite 02 */}
-              <div className="flex flex-col gap-12 lg:flex-row-reverse lg:gap-24">
-                <div className="w-full lg:w-3/5">
-                  <img
-                    src={suiteBelvedere}
-                    alt="The Belvedere Wing — panoramic lounge with velvet chairs"
-                    width={1400}
-                    height={900}
-                    loading="lazy"
-                    className="aspect-[3/2] w-full rounded-[min(1vw,12px)] object-cover"
-                  />
-                </div>
-                <div className="w-full pt-12 lg:w-2/5">
-                  <div className="mb-6 border-t border-gold/30 pt-4">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gold/60">
-                      02 / The Belvedere Wing
-                    </span>
-                  </div>
-                  <h3 className="mb-6 font-display text-3xl">
-                    The elevation of architectural intent.
-                  </h3>
-                  <div className="mb-8 flex items-center justify-between border-b border-gold/10 pb-4">
-                    <span className="text-xs text-ivory/50">
-                      Panoramic • 120 sqm
-                    </span>
-                    <span className="text-sm text-gold">From 2,800 EUR</span>
-                  </div>
-                  <p className="mb-8 max-w-[40ch] text-sm leading-relaxed text-ivory/60">
-                    Spread across the upper floors, these dual-level residences
-                    offer 270-degree views of the Grigna mountain range.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Dining Section */}
-        <section id="cuisine" className="py-24 lg:py-40">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-              <div className="order-2 flex flex-col justify-center lg:order-1">
-                <span className="mb-8 block text-[10px] uppercase tracking-[0.4em] text-gold">
-                  Gastronomy
-                </span>
-                <h2 className="mb-8 font-display text-4xl lg:text-5xl">
-                  Orangerie 1894
-                </h2>
-                <p className="mb-12 max-w-[48ch] text-pretty leading-relaxed text-ivory/70">
-                  Chef Matteo Rossi presents a menu defined by the seasons of
-                  the Lombardy region. Dining is held in our historic
-                  glasshouse, under the shade of century-old citrus trees.
-                </p>
-                <div className="grid grid-cols-2 gap-8 border-t border-gold/20 pt-12">
-                  <div>
-                    <span className="mb-2 block text-[10px] uppercase tracking-widest text-gold">
-                      Breakfast
-                    </span>
-                    <p className="text-xs text-ivory/60">07:00 — 11:00</p>
-                  </div>
-                  <div>
-                    <span className="mb-2 block text-[10px] uppercase tracking-widest text-gold">
-                      Dinner
-                    </span>
-                    <p className="text-xs text-ivory/60">19:30 — 23:00</p>
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2">
-                <img
-                  src={diningOrangerie}
-                  alt="Plated tasting course at Orangerie 1894"
-                  width={1000}
-                  height={1250}
-                  loading="lazy"
-                  className="aspect-[4/5] w-full rounded-[min(1vw,12px)] object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gold/15 bg-rich-black pb-12 pt-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-24 grid grid-cols-1 gap-16 lg:grid-cols-[2fr_1fr_1fr]">
-            <div>
-              <span className="mb-8 block font-display text-3xl">Romancy</span>
-              <p className="mb-12 max-w-[30ch] text-sm leading-relaxed text-ivory/50">
-                A private residence on the shores of Lake Como. Membership by
-                invitation, sanctuary by design.
+      {/* THE RETREAT / STORY */}
+      <section id="retreat" className="relative overflow-hidden py-32">
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-24">
+          <div className="lg:col-span-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+              — The Retreat
+            </p>
+            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl">
+              Serenity, held between
+              <span className="italic text-gold"> pine and peak.</span>
+            </h2>
+            <div className="mt-10 space-y-6 text-base font-light leading-relaxed text-ivory/70">
+              <p>
+                Nestled in the heart of the majestic Kaghan Valley, Oro Shogran
+                offers an unforgettable escape into nature's paradise —
+                surrounded by lush meadows, snow-capped peaks and skies so
+                clear you can hear them.
+              </p>
+              <p>
+                Every room, every terrace, every fire is set with the same
+                intent: to give guests a place to be quiet, together, in the
+                mountains.
               </p>
             </div>
+
+            <div className="mt-12 grid grid-cols-3 gap-8 border-t border-gold/20 pt-8">
+              {[
+                ["12", "Private Suites"],
+                ["2,362m", "Elevation"],
+                ["24/7", "Concierge"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <div className="font-display text-3xl text-gold">{v}</div>
+                  <div className="mt-2 text-[10px] font-medium uppercase tracking-[0.25em] text-ivory/60">
+                    {l}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative lg:col-span-7">
+            <div className="relative aspect-[5/6] overflow-hidden">
+              <img
+                src={valleyImg}
+                alt="Siri Paye meadow and Himalayan peaks"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                width={1400}
+                height={900}
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
+            </div>
+            <div className="absolute -bottom-8 -left-8 hidden max-w-xs border border-gold/30 bg-rich-black/95 p-8 backdrop-blur lg:block">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                Coordinates
+              </div>
+              <div className="mt-3 font-display text-2xl text-ivory">
+                34.63°N · 73.45°E
+              </div>
+              <div className="mt-2 text-xs font-light text-ivory/60">
+                Shogran, Kaghan Valley, Pakistan
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SUITES */}
+      <section id="suites" className="relative border-t border-gold/10 bg-rich-black py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid items-end gap-8 sm:grid-cols-2">
             <div>
-              <h4 className="mb-8 text-[10px] uppercase tracking-widest text-gold">
-                Navigational
-              </h4>
-              <ul className="space-y-4 text-xs text-ivory/60">
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Our Philosophy
+              <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+                — Suites & Residences
+              </p>
+              <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl">
+                Rooms with a
+                <span className="italic text-gold"> view of the sky.</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-base font-light leading-relaxed text-ivory/65 sm:justify-self-end">
+              Twelve residences carved into the cliff. Each with a private
+              window onto the valley, each dressed in linen, wool and warm
+              wood.
+            </p>
+          </div>
+
+          <div className="mt-20 grid gap-12 lg:grid-cols-3 lg:gap-8">
+            {SUITES.map((s, i) => (
+              <article
+                key={s.name}
+                className={`group relative ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-32" : ""}`}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                    loading="lazy"
+                    width={1200}
+                    height={1500}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-rich-black/80 via-transparent to-transparent" />
+                  <div className="absolute left-6 top-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                    {s.tag}
+                  </div>
+                  <div className="absolute inset-x-6 bottom-6">
+                    <h3 className="font-display text-3xl leading-tight text-ivory">
+                      {s.name}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex items-center justify-between border-b border-gold/15 pb-4 text-[10px] font-medium uppercase tracking-[0.25em] text-ivory/60">
+                  <span>{s.beds}</span>
+                  <span>{s.sqm}</span>
+                  <span>{s.view}</span>
+                </div>
+
+                <p className="mt-5 text-sm font-light leading-relaxed text-ivory/70">
+                  {s.copy}
+                </p>
+
+                <div className="mt-6 flex items-baseline justify-between">
+                  <div>
+                    <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-ivory/50">
+                      From / night
+                    </div>
+                    <div className="mt-1 font-display text-2xl text-gold">
+                      {s.price}
+                    </div>
+                  </div>
+                  <a
+                    href="#reserve"
+                    className="text-[10px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors hover:text-gold"
+                  >
+                    Reserve →
                   </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Suites & Rates
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCES */}
+      <section id="experiences" className="relative border-t border-gold/10 py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+              — The Hours
+            </p>
+            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl">
+              A day, composed by
+              <span className="italic text-gold"> the mountain.</span>
+            </h2>
+          </div>
+
+          <div className="mt-20 space-y-24">
+            {EXPERIENCES.map((e, i) => (
+              <div
+                key={e.title}
+                className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={e.img}
+                    alt={e.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    width={1400}
+                    height={1000}
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
+                </div>
+                <div>
+                  <div className="font-display text-6xl leading-none text-gold/40">
+                    {e.n}
+                  </div>
+                  <h3 className="mt-6 font-display text-4xl leading-tight text-ivory sm:text-5xl">
+                    {e.title}
+                  </h3>
+                  <p className="mt-6 max-w-md text-base font-light leading-relaxed text-ivory/70">
+                    {e.copy}
+                  </p>
+                  <a
+                    href="#reserve"
+                    className="mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold transition-colors hover:text-ivory"
+                  >
+                    Arrange
+                    <span aria-hidden className="h-px w-8 bg-current" />
                   </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Private Events
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Press Inquiry
-                  </a>
-                </li>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FACILITIES STRIP */}
+      <section className="border-y border-gold/15 bg-rich-black/60 py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+            {FACILITIES.map((f, i) => (
+              <div key={f} className="flex items-center gap-5">
+                <span className="font-display text-xl text-gold/50">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-ivory/80">
+                  {f}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="journal" className="relative py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+              — Guest Journal
+            </p>
+            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl">
+              Told by those who
+              <span className="italic text-gold"> came & stayed.</span>
+            </h2>
+          </div>
+
+          <div className="mt-20 grid gap-6 md:grid-cols-3">
+            {TESTIMONIALS.map((t, i) => (
+              <figure
+                key={t.name}
+                className={`relative border border-gold/15 bg-rich-black/60 p-10 transition-colors hover:border-gold/40 ${i === 1 ? "md:-translate-y-6" : ""}`}
+              >
+                <div className="font-display text-6xl leading-none text-gold/60">
+                  &ldquo;
+                </div>
+                <blockquote className="mt-4 font-display text-xl leading-[1.5] text-ivory/90">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-10 border-t border-gold/15 pt-5">
+                  <div className="text-sm font-medium text-gold">{t.name}</div>
+                  <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.3em] text-ivory/50">
+                    {t.from}
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DINING BAND */}
+      <section id="dining" className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={cuisineImg}
+            alt="Valley table"
+            className="h-full w-full object-cover"
+            loading="lazy"
+            width={1400}
+            height={1000}
+          />
+          <div className="absolute inset-0 bg-rich-black/80" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-6 py-32 text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+            — The Valley Table
+          </p>
+          <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-7xl">
+            Cooked by the fire,
+            <br />
+            <span className="italic text-gold">served with the view.</span>
+          </h2>
+          <p className="mx-auto mt-8 max-w-xl text-base font-light leading-relaxed text-ivory/75">
+            Traditional Pakistani mountain cuisine — karahi, saag, warm naan,
+            cardamom chai — prepared fresh each morning and served on brass
+            with a horizon of pine and snow.
+          </p>
+          <a
+            href="#reserve"
+            className="mt-10 inline-flex items-center gap-3 border border-gold px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold transition-colors hover:bg-gold hover:text-rich-black"
+          >
+            Reserve a Table
+          </a>
+        </div>
+      </section>
+
+      {/* CONTACT / FOOTER */}
+      <footer id="contact" className="border-t border-gold/15 bg-rich-black">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid gap-16 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <div className="font-display text-4xl leading-tight text-ivory">
+                Oro <span className="text-gold">Shogran</span>
+              </div>
+              <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-ivory/60">
+                A serene mountain escape offering cozy stays, breathtaking
+                views, and warm hospitality in the heart of Shogran.
+              </p>
+              <div className="mt-10 flex gap-3">
+                {["EN", "FR", "UR"].map((l) => (
+                  <button
+                    key={l}
+                    className="border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold"
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-3">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                Address
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-ivory/75">
+                Oro Shogran
+                <br />
+                Shogran, Kaghan Valley
+                <br />
+                Khyber Pakhtunkhwa, Pakistan
+              </p>
+              <a
+                href="https://www.google.com/maps/dir//Shogran+kaghan+valley"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-block text-[10px] font-semibold uppercase tracking-[0.3em] text-gold underline decoration-1 underline-offset-8 transition-colors hover:text-ivory"
+              >
+                Get Directions →
+              </a>
+            </div>
+
+            <div className="lg:col-span-2">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                Shortcuts
+              </div>
+              <ul className="mt-5 space-y-3 text-sm text-ivory/75">
+                {NAV.map((n) => (
+                  <li key={n.href}>
+                    <a href={n.href} className="transition-colors hover:text-gold">
+                      {n.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div>
-              <h4 className="mb-8 text-[10px] uppercase tracking-widest text-gold">
-                Connect
-              </h4>
-              <ul className="space-y-4 text-xs text-ivory/60">
+
+            <div className="lg:col-span-2">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                Contact
+              </div>
+              <ul className="mt-5 space-y-3 text-sm text-ivory/75">
+                <li>
+                  <a href="tel:+923479044301" className="transition-colors hover:text-gold">
+                    +92 347 904 4301
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@oroshogran.com" className="transition-colors hover:text-gold">
+                    info@oroshogran.com
+                  </a>
+                </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-gold">
                     Instagram
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Vogue Editorial
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-gold">
-                    Concierge Desk
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-between gap-6 border-t border-gold/10 pt-12 md:flex-row">
-            <p className="text-[9px] uppercase tracking-[0.2em] text-ivory/30">
-              © 2024 Romancy International Hotels S.p.A.
-            </p>
-            <div className="flex gap-8 text-[9px] uppercase tracking-[0.2em] text-ivory/30">
-              <a href="#" className="hover:text-gold">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-gold">
-                Cookie Policy
-              </a>
-              <a href="#" className="hover:text-gold">
-                Terms of Service
-              </a>
+
+          <div className="mt-24 flex flex-col items-start justify-between gap-4 border-t border-gold/15 pt-8 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40 sm:flex-row sm:items-center">
+            <div>© {year} Oro Shogran · All Rights Reserved</div>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-gold">Privacy</a>
+              <a href="#" className="hover:text-gold">Terms</a>
+              <a href="#" className="hover:text-gold">Press</a>
             </div>
           </div>
         </div>
