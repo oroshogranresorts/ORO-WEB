@@ -130,7 +130,7 @@ function Index() {
               <a
                 key={n.href}
                 href={n.href}
-                className="text-[11px] font-medium uppercase tracking-[0.22em] text-ivory/70 transition-colors hover:text-gold"
+                className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.22em] text-ivory/70 transition-colors hover:text-gold"
               >
                 {n.label}
               </a>
