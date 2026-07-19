@@ -61,6 +61,16 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@theme {
+  --color-rich-black: #0E0E10;
+  --color-surface: #1A1A1D;
+  --color-gold: #C9A66B;
+  --color-ivory: #F5EFE6;
+  --color-dark-gold: #8A6A3B;
+  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-body: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
