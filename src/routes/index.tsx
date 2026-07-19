@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 import aboutAsset from "@/assets/oro/about.jpg.asset.json";
@@ -13,6 +13,7 @@ import srv4Asset from "@/assets/oro/srv4.jpg.asset.json";
 import t1Asset from "@/assets/oro/t1.jpg.asset.json";
 import t2Asset from "@/assets/oro/t2.jpg.asset.json";
 import t3Asset from "@/assets/oro/t3.jpg.asset.json";
+import { SiteLayout } from "@/components/site/Layout";
 
 const heroImg = hero1Asset.url;
 const valleyImg = hero2Asset.url;
@@ -28,15 +29,6 @@ const jeepImg = srv4Asset.url;
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-const NAV = [
-  { label: "Home", href: "#top" },
-  { label: "About", href: "#retreat" },
-  { label: "Rooms", href: "#suites" },
-  { label: "Facilities", href: "#facilities" },
-  { label: "Journal", href: "#journal" },
-  { label: "Contact", href: "#contact" },
-];
 
 const SUITES = [
   {
