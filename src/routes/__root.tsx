@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Romancy — A Private Residence on Lake Como" },
+      {
+        name: "description",
+        content:
+          "Romancy is an editorial luxury hotel on Lake Como. Reserve a suite, dine at Orangerie 1894, and step into a sanctuary of marble, silk, and quiet light.",
+      },
+      { name: "author", content: "Romancy" },
+      { property: "og:title", content: "Romancy — A Private Residence on Lake Como" },
+      {
+        property: "og:description",
+        content:
+          "An editorial luxury hotel on the shores of Lake Como. Suites, dining, and a sanctuary by design.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -92,6 +99,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Sans:wght@300;400;500&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
