@@ -7,10 +7,30 @@ import { RoomGrid } from "@/components/site/RoomGrid";
 export const Route = createFileRoute("/rooms/luxury")({
   head: () => ({
     meta: [
-      { title: "Luxury Rooms — Oro Shogran" },
-      { name: "description", content: "Luxury family rooms and suites at Oro Shogran, Kaghan Valley — private balconies, mountain views." },
-      { property: "og:title", content: "Luxury Rooms — Oro Shogran" },
-      { property: "og:description", content: "Private balconies, mountain views and refined comfort in the Kaghan Valley." },
+      { title: "Luxury Rooms in Shogran | Oro Shogran Family Suites" },
+      { name: "description", content: "Luxury family rooms and suites at Oro Shogran, Kaghan Valley — private balconies, fireplaces and Siri Paye views. Book the best hotel in Shogran online." },
+      { name: "keywords", content: "Luxury Hotel in Shogran, Luxury Rooms Shogran, Family Suites Shogran, Mountain View Hotel Shogran, Hotels near Siri Paye, Best Resort in Shogran" },
+      { property: "og:title", content: "Luxury Rooms in Shogran — Oro Shogran" },
+      { property: "og:description", content: "Family suites with private balconies and Kaghan Valley views. Reserve at Oro Shogran, the best luxury hotel in Shogran." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/rooms/luxury" },
+      { property: "og:image", content: hero.url },
+      { name: "twitter:image", content: hero.url },
+    ],
+    links: [{ rel: "canonical", href: "/rooms/luxury" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Rooms", item: "/rooms" },
+            { "@type": "ListItem", position: 3, name: "Luxury Rooms", item: "/rooms/luxury" },
+          ],
+        }),
+      },
     ],
   }),
   component: LuxuryRooms,
