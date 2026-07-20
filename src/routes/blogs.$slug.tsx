@@ -153,7 +153,7 @@ function BlogDetail() {
       </section>
 
       {/* Body */}
-      <article className="mx-auto max-w-3xl px-6 py-12 md:py-10 md:py-14">
+      <article className="mx-auto max-w-3xl px-6 py-12 md:py-14">
         {/* Key takeaways */}
         {blog.takeaways && blog.takeaways.length > 0 && (
           <aside className="mb-14 border border-gold/25 bg-gold/[0.03] p-8">
@@ -358,7 +358,7 @@ function BlogDetail() {
       </article>
 
       {/* Related */}
-      <section className="border-t border-gold/10 py-12 md:py-10 md:py-14">
+      <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Keep reading</p>
           <h2 className="mt-4 font-display text-4xl text-ivory sm:text-5xl">More from the mountain</h2>
@@ -386,7 +386,7 @@ function BlogDetail() {
 function BlogNotFound() {
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-3xl px-6 py-14 md:py-10 md:py-14 text-center">
+      <section className="mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
         <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— 404</p>
         <h1 className="mt-6 font-display text-5xl text-ivory">This story hasn't been written yet.</h1>
         <p className="mt-6 text-ivory/70">The post you were looking for is not on the shelf.</p>
@@ -401,7 +401,7 @@ function BlogNotFound() {
 function BlogError({ reset }: { reset: () => void }) {
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-3xl px-6 py-14 md:py-10 md:py-14 text-center">
+      <section className="mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
         <h1 className="font-display text-4xl text-ivory">Something went wrong loading this story.</h1>
         <button onClick={reset} className="mt-8 border border-gold/50 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-rich-black">
           Try again

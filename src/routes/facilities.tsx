@@ -77,7 +77,7 @@ function Facilities() {
       />
 
       {/* Feature Experiences */}
-      <section className="py-12 md:py-10 md:py-14">
+      <section className="py-12 md:py-14">
         <div className="mx-auto max-w-7xl space-y-24 px-6">
           {EXPERIENCES.map((e, i) => (
             <div key={e.title} className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -96,7 +96,7 @@ function Facilities() {
       </section>
 
       {/* FACILITIES GRID */}
-      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Every Detail</p>
@@ -117,7 +117,7 @@ function Facilities() {
       </section>
 
       {/* A DAY AT ORO */}
-      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— A Day at Oro</p>
@@ -141,7 +141,7 @@ function Facilities() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
-        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-10 md:py-14 text-center">
+        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
           <h2 className="font-display text-5xl leading-[1.05] text-ivory">Plan your stay.</h2>
           <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
             Contact Us →

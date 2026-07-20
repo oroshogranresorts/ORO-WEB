@@ -290,7 +290,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       {/* Footer */}
       <footer className="border-t border-gold/15 bg-rich-black">
-        <div className="mx-auto max-w-7xl px-6 py-12 md:py-10 md:py-14">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-4">

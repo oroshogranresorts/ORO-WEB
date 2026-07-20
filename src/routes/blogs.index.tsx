@@ -66,7 +66,7 @@ function Blogs() {
       />
 
       {/* FEATURED */}
-      <section className="py-12 md:py-10 md:py-14">
+      <section className="py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Featured story</p>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
@@ -90,7 +90,7 @@ function Blogs() {
       </section>
 
       {/* GRID */}
-      <section className="border-t border-gold/10 py-12 md:py-10 md:py-14">
+      <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="font-display text-4xl text-ivory sm:text-5xl">More from the blogs</h2>
 

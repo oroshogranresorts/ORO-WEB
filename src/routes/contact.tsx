@@ -94,7 +94,7 @@ function Contact() {
       />
 
       {/* CONTACT + FORM */}
-      <section className="py-12 md:py-10 md:py-14">
+      <section className="py-12 md:py-14">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-24">
           {/* Contact details */}
           <aside className="lg:col-span-4">
@@ -235,7 +235,7 @@ function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Before you write</p>
