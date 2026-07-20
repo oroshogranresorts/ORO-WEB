@@ -174,16 +174,14 @@ img:hover {
    and auto-apply to common image wrappers we already use. */
 .img-shine,
 a:has(> img),
-figure:has(> img),
-.group:has(> img) {
+figure:has(> img) {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 .img-shine::after,
 a:has(> img)::after,
-figure:has(> img)::after,
-.group:has(> img)::after {
+figure:has(> img)::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -202,7 +200,6 @@ figure:has(> img)::after,
 }
 .img-shine:hover::after,
 a:has(> img):hover::after,
-figure:has(> img):hover::after,
-.group:has(> img):hover::after {
+figure:has(> img):hover::after {
   transform: translateX(120%);
 }
