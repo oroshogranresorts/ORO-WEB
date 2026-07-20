@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
-import { BLOGS, AUTHOR, getBlog } from "@/lib/blogs";
+import { BLOGS, AUTHOR, getBlog, type Blog, type BlogSection } from "@/lib/blogs";
 
 export const Route = createFileRoute("/blogs/$slug")({
   loader: ({ params }) => {
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/blogs/$slug")({
 });
 
 function BlogDetail() {
-  const { blog } = Route.useLoaderData();
+  const { blog } = Route.useLoaderData() as { blog: Blog };
   const related = BLOGS.filter((b) => b.slug !== blog.slug).slice(0, 3);
 
   return (
@@ -68,7 +68,7 @@ function BlogDetail() {
         </p>
 
         <div className="mt-14 space-y-14">
-          {blog.sections.map((s, i) => (
+          {blog.sections.map((s: BlogSection, i: number) => (
             <div key={s.heading}>
               <div className="flex items-center gap-4">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-gold">
@@ -78,7 +78,7 @@ function BlogDetail() {
               </div>
               <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl">{s.heading}</h2>
               <div className="mt-6 space-y-5 text-base font-light leading-[1.85] text-ivory/80 sm:text-lg">
-                {s.body.map((p, j) => (
+                {s.body.map((p: string, j: number) => (
                   <p key={j}>{p}</p>
                 ))}
               </div>
