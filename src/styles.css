@@ -62,11 +62,11 @@
 }
 
 @theme {
-  --color-rich-black: #0E0E10;
-  --color-surface: #1A1A1D;
-  --color-gold: #C9A66B;
-  --color-ivory: #F5EFE6;
-  --color-dark-gold: #8A6A3B;
+  --color-rich-black: #0A0A0A;
+  --color-surface: #161616;
+  --color-gold: #D4A94A;
+  --color-ivory: #F3E9D2;
+  --color-dark-gold: #8B6A1F;
   --font-display: "DM Serif Display", ui-serif, Georgia, serif;
   --font-body: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
 }
