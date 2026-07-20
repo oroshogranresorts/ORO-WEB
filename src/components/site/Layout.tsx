@@ -128,8 +128,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-gold/10 bg-rich-black/85 backdrop-blur-md">
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 md:grid-cols-3">
-          <Link to="/" className="font-display text-2xl leading-none tracking-tight text-ivory">
-            Oro <span className="text-gold">Shogran</span>
+          <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-3">
+            <img
+              src={oroIconAsset.url}
+              alt="Oro Shogran"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain"
+            />
+            <span className="font-display text-2xl leading-none tracking-tight text-ivory">
+              Oro <span className="text-gold">Shogran</span>
+            </span>
           </Link>
           <nav className="hidden items-center justify-center gap-8 md:flex">
             {NAV.map((n) => (
