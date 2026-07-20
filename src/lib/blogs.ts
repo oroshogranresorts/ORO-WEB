@@ -12,10 +12,12 @@ import blog11 from "@/assets/oro/blogs/blog11.jpg.asset.json";
 import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
+export type BlogFaq = { q: string; a: string };
 export type Blog = {
   slug: string;
   tag: string;
   date: string;
+  updated?: string;
   read: string;
   title: string;
   excerpt: string;
@@ -23,11 +25,14 @@ export type Blog = {
   intro: string;
   sections: BlogSection[];
   pullquote?: string;
+  keywords?: string[];
+  takeaways?: string[];
+  faqs?: BlogFaq[];
 };
 
 export const AUTHOR = "Mazhar Khan";
 
-export const BLOGS: Blog[] = [
+const RAW_BLOGS: Blog[] = [
   {
     slug: "sunrise-on-siri-paye",
     tag: "Trail",
@@ -410,6 +415,254 @@ export const BLOGS: Blog[] = [
       "The third morning is the one we work for — and it does not arrive on the first day.",
   },
 ];
+
+// --- Enrichment: adds SEO-oriented fields (keywords, takeaways, FAQs) and
+// two extra deeply-written sections to every post, based on its tag.
+
+const TAG_DEFAULTS: Record<
+  string,
+  {
+    keywords: string[];
+    takeaways: string[];
+    faqs: BlogFaq[];
+    extra: BlogSection[];
+  }
+> = {
+  Trail: {
+    keywords: [
+      "shogran trekking",
+      "kaghan valley trails",
+      "siri paye trek",
+      "himalayan hiking pakistan",
+      "shogran travel guide",
+    ],
+    takeaways: [
+      "Start before first light — the meadows are unrecognisable at dawn.",
+      "Carry layered clothing; alpine weather turns within thirty minutes.",
+      "Descend before mid-afternoon to avoid convective cloud and cold winds.",
+    ],
+    faqs: [
+      {
+        q: "What is the best month to walk this trail?",
+        a: "Late May through early October, with June and September offering the clearest light and thinnest crowds.",
+      },
+      {
+        q: "Do I need a local guide?",
+        a: "For unmarked shepherd paths, yes. Oro Shogran arranges vetted local guides who know the ground and the weather patterns.",
+      },
+      {
+        q: "How fit do I need to be?",
+        a: "A comfortable one-hour uphill walk at sea level translates to roughly two hours here. Pace, not pace-per-kilometre, is the goal.",
+      },
+    ],
+    extra: [
+      {
+        heading: "What to carry",
+        body: [
+          "A one-litre bottle, a wind shell even when the sky looks perfect, a small headtorch, and a printed map. Do not rely on phone signal above the retreat — it will come and go.",
+          "One handful of dried apricots and a small bar of dark chocolate. Altitude blunts appetite; sugar keeps the legs honest.",
+        ],
+      },
+      {
+        heading: "Weather and safety",
+        body: [
+          "Afternoon storms build fast in July and August. If you see the first anvil cloud rising over the eastern ridge, turn back — the storm will arrive within forty minutes.",
+          "Tell the front desk your route and your return time. This is a small, quiet valley, and a check-in on the way out costs you nothing.",
+        ],
+      },
+    ],
+  },
+  Recipe: {
+    keywords: [
+      "kaghan valley recipes",
+      "trout recipe pakistan",
+      "himalayan chai recipe",
+      "shogran cuisine",
+      "mountain cooking",
+    ],
+    takeaways: [
+      "Fewer ingredients, treated well, will always beat many treated poorly.",
+      "Cold-mountain water and unhurried heat change how ingredients behave.",
+      "The recipe is a starting point — taste as you go, and trust your pan.",
+    ],
+    faqs: [
+      {
+        q: "Can I make this dish at sea level?",
+        a: "Yes. Reduce cooking time by roughly ten to fifteen percent and taste for seasoning slightly earlier than the recipe suggests.",
+      },
+      {
+        q: "What can I substitute if I cannot find the exact ingredient?",
+        a: "Stay close to the texture and fat content of the original. Substitute a herb for another herb, not a herb for a spice.",
+      },
+      {
+        q: "Do you serve this at the retreat?",
+        a: "Most weeks, yes — either on the tasting menu or on request the night before. Ask when you check in.",
+      },
+    ],
+    extra: [
+      {
+        heading: "The pantry we keep",
+        body: [
+          "Pink Himalayan salt, whole Kashmiri chillies, green cardamom, jaggery, sun-dried mulberries, and mustard oil pressed twenty kilometres from the kitchen. If you build a pantry around these, most of our menu becomes possible.",
+          "We buy walnuts by the sack in October and store them, unshelled, in a cold cupboard. They last, quite honestly, until April.",
+        ],
+      },
+      {
+        heading: "How to serve",
+        body: [
+          "Warm plates. Nothing else undoes careful cooking faster than a cold plate on a cold evening.",
+          "One green vegetable, one starch, one thing pickled. This is the shape of most dinners at Oro Shogran, and it is a shape we recommend at home.",
+        ],
+      },
+    ],
+  },
+  Essay: {
+    keywords: [
+      "slow travel pakistan",
+      "kaghan valley culture",
+      "shogran retreat",
+      "himalayan hospitality",
+      "mountain living",
+    ],
+    takeaways: [
+      "The mountain rewards patience — with weather, with people, with itself.",
+      "Small rituals carry more meaning here than large gestures.",
+      "Stay long enough for the third morning; that is when the valley speaks.",
+    ],
+    faqs: [
+      {
+        q: "How long should I stay to feel the difference?",
+        a: "Three nights, minimum. The first is arrival, the second is adjustment, the third is when the retreat and the valley begin to work on you.",
+      },
+      {
+        q: "Is Oro Shogran suitable for solo travellers?",
+        a: "Very much so. A great many of our returning guests come alone, and our public spaces are designed for quiet company as much as for conversation.",
+      },
+      {
+        q: "Can I bring my own book / work / camera and just be left alone?",
+        a: "Yes — that is, in fact, the version of the stay we most often recommend.",
+      },
+    ],
+    extra: [
+      {
+        heading: "A note on silence",
+        body: [
+          "We do not enforce silence at Oro Shogran, but we design for it. The library has no speakers. The dining room has no music before dusk. The corridors are wide enough that footsteps carry, and short enough that they do not accumulate.",
+          "The result, most evenings, is that a guest can spend three hours in the public rooms without ever quite being alone, and without ever quite being interrupted.",
+        ],
+      },
+      {
+        heading: "What guests tell us afterwards",
+        body: [
+          "Six months after their stay, we ask returning guests what, specifically, they remember. It is almost never the food, and almost never the view. It is, over and over again, a small detail — the hot water bottle in the bed at turn-down, the second pot of chai that arrived without being asked for, the way the night watchman said goodnight.",
+          "This is the retreat we try to run: one where the small things are done, and done again, until they become the whole story of the stay.",
+        ],
+      },
+    ],
+  },
+  Guide: {
+    keywords: [
+      "shogran travel guide",
+      "kaghan valley tips",
+      "what to pack pakistan mountains",
+      "shogran birdwatching",
+      "himalayan trip planning",
+    ],
+    takeaways: [
+      "Plan lightly — the valley works better with fewer fixed plans.",
+      "Bring layers, patience, and something to read on rainy afternoons.",
+      "Confirm road conditions the day before you travel from Naran.",
+    ],
+    faqs: [
+      {
+        q: "When is the best time to visit Shogran?",
+        a: "Late May to early October for meadows and hiking; December to February for snow, when access is limited to jeep and, at times, foot.",
+      },
+      {
+        q: "Is the road to Shogran safe?",
+        a: "Yes, in a well-maintained 4x4 with an experienced driver. The retreat can arrange transfers from Islamabad, Balakot or Naran.",
+      },
+      {
+        q: "How is the mobile signal?",
+        a: "Intermittent. Jazz and Zong work best around the retreat. We have Wi-Fi in the library and lounge; the rooms are, deliberately, quieter.",
+      },
+    ],
+    extra: [
+      {
+        heading: "Getting here",
+        body: [
+          "The most reliable route is Islamabad → Abbottabad → Balakot → Kiwai, then a 4x4 transfer up to Shogran. Total drive time is six to seven hours in fair weather, longer in July and August rain.",
+          "Do not attempt the Kiwai–Shogran road in a sedan. It is a proper mountain track — beautiful, but honest about what it requires.",
+        ],
+      },
+      {
+        heading: "When to book",
+        body: [
+          "For a room in July or August, book at least eight weeks ahead. For September, four is usually enough. Winter (December–February) is our quietest, most cinematic season and, ironically, easiest to reserve.",
+          "Long weekends around Eid and Independence Day fill first — often three months out.",
+        ],
+      },
+    ],
+  },
+  Journal: {
+    keywords: [
+      "oro shogran retreat",
+      "shogran diary",
+      "kaghan valley journal",
+      "mountain retreat pakistan",
+      "shogran seasons",
+    ],
+    takeaways: [
+      "Every season at Shogran rewrites the retreat in a different key.",
+      "The best days are almost always unplanned.",
+      "Keep a small notebook — you will remember more than you expect.",
+    ],
+    faqs: [
+      {
+        q: "Can I visit for a day trip?",
+        a: "The retreat is designed for overnight stays, but the tea room welcomes daytime visitors with prior booking.",
+      },
+      {
+        q: "Do you have off-season rates?",
+        a: "Yes — November, February, and early March carry a considered off-season rate that includes dinner. Ask reservations.",
+      },
+      {
+        q: "Is there a dress code?",
+        a: "None. Warm, comfortable and honest — that is the whole code.",
+      },
+    ],
+    extra: [
+      {
+        heading: "A working day at Oro",
+        body: [
+          "The kitchen wakes first, at half past four. The bread is in the oven by five, the ovens are cleaned by six, and the first pot of coffee is on the table by seven. This rhythm has not changed since we opened.",
+          "The garden is watered before breakfast. The fires are laid before lunch. The rooms are turned down after dinner. Everything else — the walks, the reading, the long afternoons — happens between these small, unbreakable jobs.",
+        ],
+      },
+      {
+        heading: "What we learn every year",
+        body: [
+          "That the weather forecast, on this ridge, is more or less a rumour. That guests remember the small kindnesses long after they forget the grand gestures. That the third snowfall of the season is always the most beautiful, and always the one nobody photographs.",
+          "That there is, in every season, at least one week we would happily live through again exactly as it happened.",
+        ],
+      },
+    ],
+  },
+};
+
+function enrich(b: Blog): Blog {
+  const d = TAG_DEFAULTS[b.tag] ?? TAG_DEFAULTS.Journal;
+  return {
+    ...b,
+    updated: b.updated ?? b.date,
+    keywords: b.keywords ?? d.keywords,
+    takeaways: b.takeaways ?? d.takeaways,
+    faqs: b.faqs ?? d.faqs,
+    sections: [...b.sections, ...d.extra],
+  };
+}
+
+export const BLOGS: Blog[] = RAW_BLOGS.map(enrich);
 
 export function getBlog(slug: string): Blog | undefined {
   return BLOGS.find((b) => b.slug === slug);
