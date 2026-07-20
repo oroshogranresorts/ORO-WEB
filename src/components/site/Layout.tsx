@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useState, useEffect } from "react";
 import { FloatingActions } from "./FloatingActions";
 import { Phone, Mail } from "lucide-react";
 import oroIconAsset from "@/assets/oro-icon.png.asset.json";
