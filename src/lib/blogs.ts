@@ -13,6 +13,7 @@ import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
 export type BlogFaq = { q: string; a: string };
+export type BlogFact = { label: string; value: string };
 export type Blog = {
   slug: string;
   tag: string;
@@ -28,6 +29,9 @@ export type Blog = {
   keywords?: string[];
   takeaways?: string[];
   faqs?: BlogFaq[];
+  quickFacts?: BlogFact[];
+  conclusion?: string[];
+  furtherReading?: string[];
 };
 
 export const AUTHOR = "Mazhar Khan";
