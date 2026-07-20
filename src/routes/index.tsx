@@ -132,17 +132,7 @@ function Home() {
           </div>
 
           {/* Booking Widget */}
-          <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden border border-gold/25 bg-rich-black/60 backdrop-blur-lg sm:grid-cols-4 lg:grid-cols-[1fr_1fr_1fr_1fr_auto]">
-            {[["Check in", "Select date"], ["Check out", "Select date"], ["Guests", "2 Persons"], ["Beds / Baths", "Any"]].map(([label, value]) => (
-              <div key={label} className="bg-rich-black/70 p-5">
-                <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">{label}</div>
-                <div className="mt-2 font-display text-lg text-ivory">{value}</div>
-              </div>
-            ))}
-            <Link to="/contact" className="col-span-2 flex items-center justify-center bg-gold p-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory sm:col-span-4 lg:col-span-1">
-              Enquire
-            </Link>
-          </div>
+          <BookingWidget />
         </div>
 
         <div className="relative border-y border-gold/15 bg-rich-black/90 py-4">
