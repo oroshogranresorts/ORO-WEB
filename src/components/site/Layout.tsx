@@ -394,6 +394,21 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       </footer>
       <FloatingActions />
+      {/* Giant ORO wordmark — faded from bottom */}
+      <div aria-hidden className="pointer-events-none relative overflow-hidden bg-rich-black">
+        <div
+          className="select-none text-center font-display font-bold leading-[0.8] tracking-tight text-gold"
+          style={{
+            fontSize: "clamp(6rem, 26vw, 22rem)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 100%)",
+            maskImage:
+              "linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 100%)",
+          }}
+        >
+          ORO
+        </div>
+      </div>
     </div>
   );
 }
