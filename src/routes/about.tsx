@@ -194,6 +194,35 @@ function About() {
         </div>
       </section>
 
+      {/* TIMINGS */}
+      <section className="border-t border-gold/10 py-32">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Timings For</p>
+            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+              Oro <span className="italic text-gold">Shogran</span>
+            </h2>
+            <p className="mt-6 text-base font-light text-ivory/70">Open every day, all day — the mountain never closes.</p>
+          </div>
+          <ul className="mx-auto mt-16 max-w-xl divide-y divide-gold/15 border-y border-gold/15">
+            {[
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ].map((d) => (
+              <li key={d} className="flex items-center justify-between py-4 text-sm font-light text-ivory/80">
+                <span className="font-medium uppercase tracking-[0.24em] text-ivory">{d}</span>
+                <span className="tracking-wide text-gold">12:00 AM – 11:59 PM</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
