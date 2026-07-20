@@ -1,14 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
 
-export const NAV = [
+type NavItem = {
+  label: string;
+  to: string;
+  children?: { label: string; to: string }[];
+};
+
+export const NAV: NavItem[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Rooms", to: "/rooms" },
+  {
+    label: "Rooms",
+    to: "/rooms",
+    children: [
+      { label: "Luxury Rooms", to: "/rooms/luxury" },
+      { label: "Deluxe Rooms", to: "/rooms/deluxe" },
+    ],
+  },
   { label: "Facilities", to: "/facilities" },
   { label: "Blogs", to: "/blogs" },
   { label: "Contact", to: "/contact" },
-] as const;
+];
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -41,16 +54,45 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </Link>
           <nav className="hidden items-center justify-center gap-8 md:flex">
             {NAV.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                activeOptions={{ exact: true }}
-                activeProps={{ className: "text-gold" }}
-                inactiveProps={{ className: "text-ivory/70" }}
-                className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.22em] transition-colors hover:text-gold"
-              >
-                {n.label}
-              </Link>
+              n.children ? (
+                <div key={n.to} className="group relative">
+                  <Link
+                    to={n.to}
+                    activeProps={{ className: "text-gold" }}
+                    inactiveProps={{ className: "text-ivory/70" }}
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.22em] transition-colors hover:text-gold"
+                  >
+                    {n.label}
+                    <span aria-hidden className="text-gold/70 transition-transform group-hover:rotate-180">▾</span>
+                  </Link>
+                  <div className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="border border-gold/20 bg-rich-black/95 py-2 shadow-2xl backdrop-blur-md">
+                      {n.children.map((c) => (
+                        <Link
+                          key={c.to}
+                          to={c.to}
+                          activeProps={{ className: "text-gold bg-gold/5" }}
+                          inactiveProps={{ className: "text-ivory/80" }}
+                          className="block whitespace-nowrap px-5 py-3 text-[11px] font-medium uppercase tracking-[0.22em] transition-colors hover:bg-gold/10 hover:text-gold"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  activeOptions={{ exact: true }}
+                  activeProps={{ className: "text-gold" }}
+                  inactiveProps={{ className: "text-ivory/70" }}
+                  className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.22em] transition-colors hover:text-gold"
+                >
+                  {n.label}
+                </Link>
+              )
             ))}
           </nav>
           <div className="flex items-center justify-end gap-3">
@@ -72,17 +114,34 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div className="border-t border-gold/10 bg-rich-black/95 md:hidden">
             <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
               {NAV.map((n) => (
-                <Link
-                  key={n.to}
-                  to={n.to}
-                  onClick={() => setOpen(false)}
-                  activeOptions={{ exact: true }}
-                  activeProps={{ className: "text-gold" }}
-                  inactiveProps={{ className: "text-ivory/80" }}
-                  className="py-2 text-[12px] font-medium uppercase tracking-[0.28em]"
-                >
-                  {n.label}
-                </Link>
+                <div key={n.to}>
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    activeOptions={{ exact: true }}
+                    activeProps={{ className: "text-gold" }}
+                    inactiveProps={{ className: "text-ivory/80" }}
+                    className="block py-2 text-[12px] font-medium uppercase tracking-[0.28em]"
+                  >
+                    {n.label}
+                  </Link>
+                  {n.children && (
+                    <div className="ml-4 mb-1 flex flex-col gap-1 border-l border-gold/20 pl-4">
+                      {n.children.map((c) => (
+                        <Link
+                          key={c.to}
+                          to={c.to}
+                          onClick={() => setOpen(false)}
+                          activeProps={{ className: "text-gold" }}
+                          inactiveProps={{ className: "text-ivory/70" }}
+                          className="py-1.5 text-[11px] font-medium uppercase tracking-[0.26em]"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
           </div>
