@@ -453,8 +453,7 @@ function BookingWidget() {
                     Reserve on WhatsApp
                   </a>
                   <Link
-                    to="/rooms/$slug"
-                    params={{ slug: match.slug }}
+                    to={match.slug === "luxury-family-rooms" ? "/rooms/luxury" : "/rooms/deluxe"}
                     className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors hover:text-gold"
                   >
                     View Room →
