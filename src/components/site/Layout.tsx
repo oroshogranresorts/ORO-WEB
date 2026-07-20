@@ -50,6 +50,32 @@ function SocialIcons({ className = "", size = 14 }: { className?: string; size?:
   );
 }
 
+const MARQUEE_POINTS = [
+  "Oro Shogran",
+  "Luxury Mountain Retreat",
+  "Shogran · Kaghan Valley",
+  "24/7 Hot Water & Front Desk",
+  "Bonfire Evenings",
+  "Guided Jeep Tours",
+  "Panoramic Alpine Views",
+];
+
+function MarqueeStrip() {
+  const loop = [...MARQUEE_POINTS, ...MARQUEE_POINTS];
+  return (
+    <div className="overflow-hidden border-b border-gold/15 bg-gold/[0.04] py-2.5">
+      <div className="flex w-max animate-marquee whitespace-nowrap">
+        {loop.map((p, i) => (
+          <span key={i} className="flex items-center gap-6 px-6 text-[12px] font-medium uppercase tracking-[0.32em] text-ivory/70">
+            {p}
+            <span aria-hidden className="text-gold">✦</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 type NavItem = {
   label: string;
   to: string;
@@ -79,22 +105,25 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-rich-black font-body text-ivory selection:bg-gold/30">
       {/* Utility Bar */}
-      <div className="border-b border-gold/15 py-3">
+      <div className="border-b border-gold/15 py-4">
         <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-6">
-          <div className="flex min-w-0 gap-6 sm:gap-8">
-            <a href="tel:+923479044301" className="truncate text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold">
+          <div className="flex min-w-0 items-center gap-6 sm:gap-8">
+            <a href="tel:+923479044301" className="truncate text-[13px] font-medium uppercase tracking-[0.2em] text-gold/85 transition-colors hover:text-gold">
               +92 347 904 4301
             </a>
-            <a href="mailto:contact@oroshogran.com" className="hidden truncate text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold sm:inline">
+            <a href="mailto:contact@oroshogran.com" className="hidden truncate text-[13px] font-medium uppercase tracking-[0.2em] text-gold/85 transition-colors hover:text-gold sm:inline">
               contact@oroshogran.com
             </a>
           </div>
-          <SocialIcons size={14} className="justify-self-center" />
-          <span className="justify-self-end shrink-0 text-[10px] font-medium uppercase tracking-[0.2em] text-gold/60 hidden md:inline">
+          <SocialIcons size={18} className="justify-self-center" />
+          <span className="justify-self-end shrink-0 text-[13px] font-medium uppercase tracking-[0.2em] text-gold/70 hidden md:inline">
             Shogran · Kaghan Valley
           </span>
         </div>
       </div>
+
+      {/* Marquee strip */}
+      <MarqueeStrip />
 
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-gold/10 bg-rich-black/85 backdrop-blur-md">
