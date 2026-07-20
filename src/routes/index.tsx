@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
 import { SiteLayout } from "@/components/site/Layout";
+import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 import aboutAsset from "@/assets/oro/about.jpg.asset.json";
