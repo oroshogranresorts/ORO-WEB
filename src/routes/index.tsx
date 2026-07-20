@@ -93,6 +93,12 @@ const TESTIMONIALS = [
 
 function Home() {
   return (
+    <HomeInner />
+  );
+}
+
+function HomeInner() {
+  return (
     <SiteLayout>
       {/* HERO */}
       <section className="relative overflow-hidden">
