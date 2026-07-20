@@ -118,7 +118,7 @@ function Contact() {
                   Shogran, Kaghan Valley<br />
                   Khyber Pakhtunkhwa, Pakistan
                 </p>
-                <a href="https://www.google.com/maps/dir//Shogran+kaghan+valley/@34.6397103,73.376915,28865m/data=!3m1!1e3" target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs uppercase tracking-[0.28em] text-gold transition-colors hover:text-ivory">Get Directions →</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Oro+Shogran&destination_place_id=ChIJmZlkywYC3jgRAy4HKPeT_sI" target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs uppercase tracking-[0.28em] text-gold transition-colors hover:text-ivory">Get Directions →</a>
               </div>
               <div>
                 <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Front Desk Hours</div>
@@ -185,7 +185,7 @@ function Contact() {
           <div className="relative aspect-[16/9] w-full overflow-hidden border border-gold/15">
             <iframe
               title="Oro Shogran location"
-              src="https://www.google.com/maps?q=Shogran+kaghan+valley&output=embed"
+              src="https://www.google.com/maps?q=Oro+Shogran,+Shogran,+Kaghan+Valley&ll=34.639738,73.4593162&z=15&output=embed"
               loading="lazy"
               className="h-full w-full grayscale-[.4] invert-[.85] contrast-[.9]"
             />

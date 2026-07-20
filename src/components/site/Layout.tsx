@@ -179,7 +179,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 <br />
                 Khyber Pakhtunkhwa, Pakistan
               </p>
-              <a href="https://www.google.com/maps/dir//Shogran+kaghan+valley/@34.6397103,73.376915,28865m/data=!3m1!1e3" target="_blank" rel="noreferrer" className="mt-6 inline-block text-[10px] font-semibold uppercase tracking-[0.3em] text-gold underline decoration-1 underline-offset-8 transition-colors hover:text-ivory">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Oro+Shogran&destination_place_id=ChIJmZlkywYC3jgRAy4HKPeT_sI" target="_blank" rel="noreferrer" className="mt-6 inline-block text-[10px] font-semibold uppercase tracking-[0.3em] text-gold underline decoration-1 underline-offset-8 transition-colors hover:text-ivory">
                 Get Directions →
               </a>
             </div>
