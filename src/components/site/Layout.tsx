@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
 import { FloatingActions } from "./FloatingActions";
+import { Phone, Mail } from "lucide-react";
 
 const SOCIAL = {
   instagram: "https://www.instagram.com/oro_shogran?utm_source=qr",
@@ -253,9 +254,24 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div className="lg:col-span-2">
               <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Contact Us</div>
               <ul className="mt-5 space-y-3 text-sm text-ivory/75">
-                <li><a href="tel:+923479044301" className="transition-colors hover:text-gold">+92 347 904 4301</a></li>
-                <li><a href="mailto:info@oroshogran.com" className="transition-colors hover:text-gold">info@oroshogran.com</a></li>
-                <li><a href="mailto:contact@oroshogran.com" className="transition-colors hover:text-gold">contact@oroshogran.com</a></li>
+                <li>
+                  <a href="tel:+923479044301" className="inline-flex items-center gap-2.5 transition-colors hover:text-gold">
+                    <Phone className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
+                    +92 347 904 4301
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@oroshogran.com" className="inline-flex items-center gap-2.5 transition-colors hover:text-gold">
+                    <Mail className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
+                    info@oroshogran.com
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@oroshogran.com" className="inline-flex items-center gap-2.5 transition-colors hover:text-gold">
+                    <Mail className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
+                    contact@oroshogran.com
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
