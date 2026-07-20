@@ -87,7 +87,7 @@ function Facilities() {
               </div>
               <div>
                 <div className="font-display text-3xl sm:text-4xl sm:text-5xl md:text-6xl leading-none text-gold/40">{e.n}</div>
-                <h3 className="mt-6 font-display text-3xl sm:text-4xl leading-tight text-ivory sm:text-5xl">{e.title}</h3>
+                <h3 className="mt-6 font-display text-3xl sm:text-4xl leading-tight text-ivory md:text-5xl">{e.title}</h3>
                 <p className="mt-6 max-w-md text-base font-light leading-relaxed text-ivory/70">{e.copy}</p>
               </div>
             </div>

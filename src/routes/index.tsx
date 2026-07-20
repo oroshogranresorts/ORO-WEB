@@ -232,7 +232,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-24">
           <div className="lg:col-span-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Welcome to Oro Shogran</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory sm:text-6xl">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">
               Where Nature Meets<span className="italic text-gold"> Hospitality.</span>
             </h2>
             <div className="mt-10 space-y-6 text-base font-light leading-relaxed text-ivory/70">
@@ -268,7 +268,7 @@ function Home() {
           <div className="grid items-end gap-8 sm:grid-cols-2">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Best For Your Family</p>
-              <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory sm:text-6xl">
+              <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">
                 Our Favorite<span className="italic text-gold"> Rooms.</span>
               </h2>
             </div>
@@ -310,7 +310,7 @@ function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Service</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory sm:text-6xl">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">
               A day, composed by<span className="italic text-gold"> the mountain.</span>
             </h2>
           </div>
@@ -340,7 +340,7 @@ function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Guest Feedback</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory sm:text-6xl">Testimonials</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">Testimonials</h2>
           </div>
           <div className="mt-12 md:mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {TESTIMONIALS.map((t, i) => (
@@ -366,7 +366,7 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/70 to-rich-black/40" />
         <div className="relative mx-auto max-w-4xl px-6 py-14 md:py-14 text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Reserve your stay</p>
-          <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory sm:text-6xl">
+          <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">
             The valley is<span className="italic text-gold"> waiting.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-base font-light leading-relaxed text-ivory/70">
