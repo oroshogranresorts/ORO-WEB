@@ -50,6 +50,32 @@ function SocialIcons({ className = "", size = 14 }: { className?: string; size?:
   );
 }
 
+const MARQUEE_POINTS = [
+  "Oro Shogran",
+  "Luxury Mountain Retreat",
+  "Shogran · Kaghan Valley",
+  "24/7 Hot Water & Front Desk",
+  "Bonfire Evenings",
+  "Guided Jeep Tours",
+  "Panoramic Alpine Views",
+];
+
+function MarqueeStrip() {
+  const loop = [...MARQUEE_POINTS, ...MARQUEE_POINTS];
+  return (
+    <div className="overflow-hidden border-b border-gold/15 bg-gold/[0.04] py-2.5">
+      <div className="flex w-max animate-marquee whitespace-nowrap">
+        {loop.map((p, i) => (
+          <span key={i} className="flex items-center gap-6 px-6 text-[12px] font-medium uppercase tracking-[0.32em] text-ivory/70">
+            {p}
+            <span aria-hidden className="text-gold">✦</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 type NavItem = {
   label: string;
   to: string;
