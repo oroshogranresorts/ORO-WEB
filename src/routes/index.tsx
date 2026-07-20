@@ -301,3 +301,170 @@ function Home() {
     </SiteLayout>
   );
 }
+
+function todayISO(offset = 0) {
+  const d = new Date();
+  d.setDate(d.getDate() + offset);
+  return d.toISOString().slice(0, 10);
+}
+
+function matchRoom(guests: number, bedsPref: string) {
+  // bedsPref: "any" | "1" | "2" | "3"
+  if (bedsPref === "3" || guests >= 5) {
+    return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suit")!;
+  }
+  if (guests >= 3) {
+    return ROOM_LISTINGS.find((r) => r.slug === "luxury-family-rooms")!;
+  }
+  return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-rooms")!;
+}
+
+function BookingWidget() {
+  const [checkIn, setCheckIn] = useState(todayISO(1));
+  const [checkOut, setCheckOut] = useState(todayISO(2));
+  const [guests, setGuests] = useState(2);
+  const [beds, setBeds] = useState("any");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const nights = useMemo(() => {
+    const a = new Date(checkIn).getTime();
+    const b = new Date(checkOut).getTime();
+    if (isNaN(a) || isNaN(b)) return 0;
+    return Math.max(0, Math.round((b - a) / (1000 * 60 * 60 * 24)));
+  }, [checkIn, checkOut]);
+
+  const match = useMemo(() => matchRoom(guests, beds), [guests, beds]);
+  const pricePerNight = useMemo(() => Number(match.price.replace(/[^0-9.]/g, "")), [match]);
+  const total = nights > 0 ? pricePerNight * nights : 0;
+  const fmt = new Intl.NumberFormat("en-PK", { maximumFractionDigits: 0 });
+
+  function onEnquire(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    if (!checkIn || !checkOut) return setError("Please choose both dates.");
+    if (nights <= 0) return setError("Check-out must be after check-in.");
+    setSubmitted(true);
+  }
+
+  const waMsg = encodeURIComponent(
+    `Assalam-o-Alaikum Oro Shogran,\n\nI would like to enquire about a stay:\n• Room: ${match.name}\n• Check-in: ${checkIn}\n• Check-out: ${checkOut}\n• Nights: ${nights}\n• Guests: ${guests}\n• Estimated total: PKR ${fmt.format(total)}\n\nKindly confirm availability. Shukriya!`
+  );
+  const waLink = `https://wa.me/923479044301?text=${waMsg}`;
+
+  return (
+    <div className="mt-16">
+      <form
+        onSubmit={onEnquire}
+        className="grid grid-cols-2 gap-px overflow-hidden border border-gold/25 bg-rich-black/60 backdrop-blur-lg sm:grid-cols-4 lg:grid-cols-[1fr_1fr_1fr_1fr_auto]"
+      >
+        <label className="block bg-rich-black/70 p-5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">Check in</div>
+          <input
+            type="date"
+            value={checkIn}
+            min={todayISO(0)}
+            onChange={(e) => setCheckIn(e.target.value)}
+            className="mt-2 w-full bg-transparent font-display text-lg text-ivory outline-none [color-scheme:dark]"
+          />
+        </label>
+        <label className="block bg-rich-black/70 p-5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">Check out</div>
+          <input
+            type="date"
+            value={checkOut}
+            min={checkIn || todayISO(1)}
+            onChange={(e) => setCheckOut(e.target.value)}
+            className="mt-2 w-full bg-transparent font-display text-lg text-ivory outline-none [color-scheme:dark]"
+          />
+        </label>
+        <label className="block bg-rich-black/70 p-5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">Guests</div>
+          <select
+            value={guests}
+            onChange={(e) => setGuests(Number(e.target.value))}
+            className="mt-2 w-full bg-transparent font-display text-lg text-ivory outline-none"
+          >
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <option key={n} value={n} className="bg-rich-black text-ivory">
+                {n} {n === 1 ? "Person" : "Persons"}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="block bg-rich-black/70 p-5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-gold">Beds</div>
+          <select
+            value={beds}
+            onChange={(e) => setBeds(e.target.value)}
+            className="mt-2 w-full bg-transparent font-display text-lg text-ivory outline-none"
+          >
+            <option value="any" className="bg-rich-black text-ivory">Any</option>
+            <option value="1" className="bg-rich-black text-ivory">1 Bed</option>
+            <option value="2" className="bg-rich-black text-ivory">2 Beds</option>
+            <option value="3" className="bg-rich-black text-ivory">3+ Beds</option>
+          </select>
+        </label>
+        <button
+          type="submit"
+          className="col-span-2 flex items-center justify-center bg-gold p-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory sm:col-span-4 lg:col-span-1"
+        >
+          Enquire
+        </button>
+      </form>
+
+      {error && (
+        <div className="mt-4 border border-red-400/40 bg-red-500/10 p-4 text-[11px] font-medium uppercase tracking-[0.25em] text-red-200">
+          {error}
+        </div>
+      )}
+
+      {submitted && !error && (
+        <div className="mt-6 border border-gold/30 bg-rich-black/70 backdrop-blur-lg">
+          <div className="grid gap-0 md:grid-cols-[minmax(0,220px)_1fr]">
+            <div className="relative aspect-[4/3] md:aspect-auto">
+              <img src={match.image} alt={match.name} className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-rich-black/60" />
+            </div>
+            <div className="p-6 sm:p-8">
+              <div className="flex flex-wrap items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                <span>Suggested for you</span>
+                <span className="h-px flex-1 bg-gold/30" />
+                <span className="text-ivory/60">{nights} night{nights === 1 ? "" : "s"} · {guests} guest{guests === 1 ? "" : "s"}</span>
+              </div>
+              <h3 className="mt-3 font-display text-3xl text-ivory">{match.name}</h3>
+              <p className="mt-2 text-sm font-light leading-relaxed text-ivory/70">{match.blurb}</p>
+
+              <div className="mt-5 flex flex-wrap items-end justify-between gap-4 border-t border-gold/15 pt-5">
+                <div>
+                  <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-ivory/50">Estimated total</div>
+                  <div className="mt-1 font-display text-3xl text-gold">₨ {fmt.format(total)}</div>
+                  <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.25em] text-ivory/50">
+                    ₨ {fmt.format(pricePerNight)} / night
+                  </div>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={waLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-rich-black transition-colors hover:bg-ivory"
+                  >
+                    Reserve on WhatsApp
+                  </a>
+                  <Link
+                    to="/rooms/$slug"
+                    params={{ slug: match.slug }}
+                    className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors hover:text-gold"
+                  >
+                    View Room →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
