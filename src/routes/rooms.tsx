@@ -8,10 +8,44 @@ import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 export const Route = createFileRoute("/rooms")({
   head: () => ({
     meta: [
-      { title: "Rooms & Suites — Oro Shogran" },
-      { name: "description", content: "Three curated suite categories at Oro Shogran — Luxury Family, Deluxe Family Suit and Deluxe Family Rooms, each with mountain-view design and warm hospitality." },
-      { property: "og:title", content: "Rooms & Suites — Oro Shogran" },
-      { property: "og:description", content: "Warm timber, hand-loom linens and windows framing the Kaghan Valley." },
+      { title: "Rooms & Suites in Shogran | Oro Shogran Family Hotel" },
+      { name: "description", content: "Three suite categories at Oro Shogran, a luxury family hotel in Shogran — mountain-view rooms, fireplaces and warm linens from ₨18,500 per night." },
+      { name: "keywords", content: "Rooms in Shogran, Suites in Shogran, Family Hotel in Shogran, Luxury Hotel in Shogran, Shogran Accommodation, Mountain View Hotel Shogran, Hotels in Kaghan Valley" },
+      { property: "og:title", content: "Rooms & Suites in Shogran — Oro Shogran" },
+      { property: "og:description", content: "Mountain-view family rooms and suites at Oro Shogran, Kaghan Valley — from ₨18,500 per night." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/rooms" },
+      { property: "og:image", content: room1Asset.url },
+      { name: "twitter:image", content: room1Asset.url },
+    ],
+    links: [{ rel: "canonical", href: "/rooms" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Rooms & Suites — Oro Shogran",
+          url: "/rooms",
+          description: "Family rooms and suites at Oro Shogran, a luxury hotel in Shogran, Kaghan Valley.",
+          hasPart: [
+            { "@type": "HotelRoom", name: "Luxury Family Rooms", occupancy: { "@type": "QuantitativeValue", maxValue: 4 }, offers: { "@type": "Offer", price: "22500", priceCurrency: "PKR" } },
+            { "@type": "HotelRoom", name: "Deluxe Family Suit", occupancy: { "@type": "QuantitativeValue", maxValue: 4 }, offers: { "@type": "Offer", price: "30500", priceCurrency: "PKR" } },
+            { "@type": "HotelRoom", name: "Deluxe Family Rooms", occupancy: { "@type": "QuantitativeValue", maxValue: 4 }, offers: { "@type": "Offer", price: "18500", priceCurrency: "PKR" } },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Rooms", item: "/rooms" },
+          ],
+        }),
+      },
     ],
   }),
   component: Rooms,
