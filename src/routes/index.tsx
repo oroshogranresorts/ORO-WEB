@@ -13,30 +13,38 @@ function TiltImage({ src, alt }: { src: string; alt: string }) {
     const r = el.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width;
     const py = (e.clientY - r.top) / r.height;
-    const rx = (0.5 - py) * 14;
-    const ry = (px - 0.5) * 16;
+    const rx = (0.5 - py) * 16;
+    const ry = (px - 0.5) * 18;
     setStyle({
-      transform: `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`,
+      transform: `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.04)`,
       transition: "transform 120ms ease-out",
     });
     setGlare({ x: px * 100, y: py * 100, on: true });
   };
   const onLeave = () => {
     setStyle({
-      transform: "perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)",
+      transform: "rotateX(0deg) rotateY(0deg) scale(1)",
       transition: "transform 500ms cubic-bezier(0.22,1,0.36,1)",
     });
     setGlare((g) => ({ ...g, on: false }));
   };
 
   return (
-    <div className="[perspective:1200px]" style={{ transformStyle: "preserve-3d" }}>
+    <div
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ perspective: "1200px" }}
+      className="group relative"
+    >
       <div
         ref={ref}
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
-        className="group relative aspect-[5/6] overflow-hidden will-change-transform"
-        style={{ ...style, transformStyle: "preserve-3d", boxShadow: "0 40px 80px -30px rgba(0,0,0,0.7), 0 20px 40px -20px rgba(212,169,74,0.15)" }}
+        className="relative aspect-[5/6] overflow-hidden will-change-transform"
+        style={{
+          ...style,
+          transformStyle: "preserve-3d",
+          boxShadow:
+            "0 40px 80px -30px rgba(0,0,0,0.7), 0 20px 40px -20px rgba(212,169,74,0.15)",
+        }}
       >
         <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" width={1400} height={900} />
         {/* Shine / reflection */}
