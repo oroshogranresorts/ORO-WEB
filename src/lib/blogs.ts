@@ -1,15 +1,15 @@
-import srv1 from "@/assets/oro/srv1.jpg.asset.json";
-import srv2 from "@/assets/oro/srv2.jpg.asset.json";
-import srv3 from "@/assets/oro/srv3.jpg.asset.json";
-import srv4 from "@/assets/oro/srv4.jpg.asset.json";
-import hero1 from "@/assets/oro/hero1.jpg.asset.json";
-import hero2 from "@/assets/oro/hero2.jpg.asset.json";
-import room1 from "@/assets/oro/room1.jpg.asset.json";
-import room2 from "@/assets/oro/room2.jpg.asset.json";
-import room3 from "@/assets/oro/room3.jpg.asset.json";
-import about from "@/assets/oro/about.jpg.asset.json";
-import t1 from "@/assets/oro/t1.jpg.asset.json";
-import t2 from "@/assets/oro/t2.jpg.asset.json";
+import blog1 from "@/assets/oro/blogs/blog1.jpg.asset.json";
+import blog2 from "@/assets/oro/blogs/blog2.jpg.asset.json";
+import blog3 from "@/assets/oro/blogs/blog3.jpg.asset.json";
+import blog4 from "@/assets/oro/blogs/blog4.jpg.asset.json";
+import blog5 from "@/assets/oro/blogs/blog5.jpg.asset.json";
+import blog6 from "@/assets/oro/blogs/blog6.jpg.asset.json";
+import blog7 from "@/assets/oro/blogs/blog7.jpg.asset.json";
+import blog8 from "@/assets/oro/blogs/blog8.jpg.asset.json";
+import blog9 from "@/assets/oro/blogs/blog9.jpg.asset.json";
+import blog10 from "@/assets/oro/blogs/blog10.jpg.asset.json";
+import blog11 from "@/assets/oro/blogs/blog11.jpg.asset.json";
+import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
 export type Blog = {
