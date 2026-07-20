@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoomsRouteImport } from './routes/rooms'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -19,6 +20,11 @@ import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
 import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoomsRoute = RoomsRouteImport.update({
   id: '/rooms',
   path: '/rooms',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/facilities'
     | '/rooms'
+    | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/facilities'
     | '/rooms'
+    | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/facilities'
     | '/rooms'
+    | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
@@ -141,12 +153,20 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FacilitiesRoute: typeof FacilitiesRoute
   RoomsRoute: typeof RoomsRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogsSlugRoute: typeof BlogsSlugRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rooms': {
       id: '/rooms'
       path: '/rooms'
@@ -231,6 +251,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FacilitiesRoute: FacilitiesRoute,
   RoomsRoute: RoomsRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogsSlugRoute: BlogsSlugRoute,
   BlogsIndexRoute: BlogsIndexRoute,
 }
