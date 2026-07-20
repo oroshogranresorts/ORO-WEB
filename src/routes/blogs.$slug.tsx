@@ -361,7 +361,7 @@ function BlogDetail() {
       <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Keep reading</p>
-          <h2 className="mt-4 font-display text-3xl sm:text-4xl text-ivory sm:text-5xl">More from the mountain</h2>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl text-ivory">More from the mountain</h2>
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <Link to="/blogs/$slug" params={{ slug: p.slug }} key={p.slug} className="group flex flex-col">

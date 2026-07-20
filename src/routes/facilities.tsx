@@ -86,7 +86,7 @@ function Facilities() {
                 <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
               </div>
               <div>
-                <div className="font-display text-3xl sm:text-4xl sm:text-5xl md:text-6xl leading-none text-gold/40">{e.n}</div>
+                <div className="font-display text-4xl sm:text-5xl md:text-6xl leading-none text-gold/40">{e.n}</div>
                 <h3 className="mt-6 font-display text-3xl sm:text-4xl leading-tight text-ivory md:text-5xl">{e.title}</h3>
                 <p className="mt-6 max-w-md text-base font-light leading-relaxed text-ivory/70">{e.copy}</p>
               </div>

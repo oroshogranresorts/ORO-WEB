@@ -92,7 +92,7 @@ function Blogs() {
       {/* GRID */}
       <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-display text-3xl sm:text-4xl text-ivory sm:text-5xl">More from the blogs</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-ivory">More from the blogs</h2>
 
           <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((p) => (
