@@ -102,17 +102,26 @@ function Contact() {
 
             <div className="mt-10 space-y-8 text-sm">
               <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Reservations</div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                  <span className="flex h-9 w-9 items-center justify-center border border-gold/30 text-gold"><PhoneIcon className="h-4 w-4" /></span>
+                  Reservations
+                </div>
                 <a href="tel:+923479044301" className="mt-3 block font-display text-2xl text-ivory transition-colors hover:text-gold">+92 347 904 4301</a>
                 <a href="https://wa.me/923479044301" target="_blank" rel="noreferrer" className="mt-2 inline-block text-xs uppercase tracking-[0.28em] text-ivory/60 transition-colors hover:text-gold">Message on WhatsApp →</a>
               </div>
               <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Email</div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                  <span className="flex h-9 w-9 items-center justify-center border border-gold/30 text-gold"><MailIcon className="h-4 w-4" /></span>
+                  Email
+                </div>
                 <a href="mailto:info@oroshogran.com" className="mt-3 block text-ivory transition-colors hover:text-gold">info@oroshogran.com</a>
                 <a href="mailto:contact@oroshogran.com" className="mt-1 block text-ivory transition-colors hover:text-gold">contact@oroshogran.com</a>
               </div>
               <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Address</div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                  <span className="flex h-9 w-9 items-center justify-center border border-gold/30 text-gold"><MapPin className="h-4 w-4" /></span>
+                  Address
+                </div>
                 <p className="mt-3 leading-relaxed text-ivory/75">
                   ORO SHOGRAN<br />
                   Shogran, Kaghan Valley<br />
@@ -121,7 +130,10 @@ function Contact() {
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Oro+Shogran&destination_place_id=ChIJmZlkywYC3jgRAy4HKPeT_sI" target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs uppercase tracking-[0.28em] text-gold transition-colors hover:text-ivory">Get Directions →</a>
               </div>
               <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Front Desk Hours</div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
+                  <span className="flex h-9 w-9 items-center justify-center border border-gold/30 text-gold"><Clock className="h-4 w-4" /></span>
+                  Front Desk Hours
+                </div>
                 <p className="mt-3 leading-relaxed text-ivory/75">24 hours a day, every day of the year.</p>
               </div>
             </div>
