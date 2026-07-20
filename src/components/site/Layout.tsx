@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
+import { FloatingActions } from "./FloatingActions";
 
 type NavItem = {
   label: string;
@@ -225,6 +226,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </footer>
+      <FloatingActions />
     </div>
   );
 }
