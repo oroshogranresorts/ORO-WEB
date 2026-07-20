@@ -12,10 +12,12 @@ import blog11 from "@/assets/oro/blogs/blog11.jpg.asset.json";
 import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
+export type BlogFaq = { q: string; a: string };
 export type Blog = {
   slug: string;
   tag: string;
   date: string;
+  updated?: string;
   read: string;
   title: string;
   excerpt: string;
@@ -23,11 +25,14 @@ export type Blog = {
   intro: string;
   sections: BlogSection[];
   pullquote?: string;
+  keywords?: string[];
+  takeaways?: string[];
+  faqs?: BlogFaq[];
 };
 
 export const AUTHOR = "Mazhar Khan";
 
-export const BLOGS: Blog[] = [
+const RAW_BLOGS: Blog[] = [
   {
     slug: "sunrise-on-siri-paye",
     tag: "Trail",
