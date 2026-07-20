@@ -185,10 +185,7 @@ function Home() {
             </div>
           </div>
           <div className="relative lg:col-span-7">
-            <div className="relative aspect-[5/6] overflow-hidden">
-              <img src={aboutAsset.url} alt="Oro Shogran valley" className="h-full w-full object-cover" loading="lazy" width={1400} height={900} />
-              <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
-            </div>
+            <TiltImage src={aboutAsset.url} alt="Oro Shogran valley" />
             <div className="absolute -bottom-8 -left-8 hidden max-w-xs border border-gold/30 bg-rich-black/95 p-8 backdrop-blur lg:block">
               <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Address</div>
               <div className="mt-3 font-display text-xl text-ivory">Shogran, Kaghan Valley</div>
