@@ -83,7 +83,7 @@ function About() {
       />
 
       {/* INTRO */}
-      <section className="py-32">
+      <section className="py-14 md:py-10 md:py-14">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Philosophy</p>
@@ -116,7 +116,7 @@ function About() {
       </section>
 
       {/* VALUES */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— What we believe</p>
@@ -135,7 +135,7 @@ function About() {
       </section>
 
       {/* SPLIT IMAGE STORY */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div className="relative aspect-[4/5] overflow-hidden">
             <img src={srv3Asset.url} alt="Kitchen" className="h-full w-full object-cover" loading="lazy" />
@@ -174,7 +174,7 @@ function About() {
       </section>
 
       {/* TIMELINE */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— A short history</p>
@@ -195,7 +195,7 @@ function About() {
       </section>
 
       {/* TIMINGS */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Timings For</p>
@@ -227,7 +227,7 @@ function About() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
-        <div className="relative mx-auto max-w-3xl px-6 py-32 text-center">
+        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-10 md:py-14 text-center">
           <h2 className="font-display text-5xl leading-[1.05] text-ivory">Come and stay awhile.</h2>
           <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Three suite categories, a fire always lit, and a valley that will change the pace of everything.</p>
           <Link to="/rooms" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">

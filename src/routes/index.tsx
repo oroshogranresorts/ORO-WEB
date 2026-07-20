@@ -184,7 +184,7 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-rich-black/70 via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-between px-6 py-24">
+        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-between px-6 py-12 md:py-10 md:py-14">
           <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.32em] text-gold/80">
             <span className="h-px w-10 bg-gold/60" />
             Luxury in the Mountains
@@ -228,7 +228,7 @@ function Home() {
       </section>
 
       {/* ABOUT TEASER */}
-      <section className="relative overflow-hidden py-32">
+      <section className="relative overflow-hidden py-14 md:py-10 md:py-14">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-24">
           <div className="lg:col-span-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Welcome to Oro Shogran</p>
@@ -263,7 +263,7 @@ function Home() {
       </section>
 
       {/* SUITES */}
-      <section className="relative border-t border-gold/10 bg-rich-black py-32">
+      <section className="relative border-t border-gold/10 bg-rich-black py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-end gap-8 sm:grid-cols-2">
             <div>
@@ -306,7 +306,7 @@ function Home() {
       </section>
 
       {/* EXPERIENCES PREVIEW */}
-      <section className="relative border-t border-gold/10 py-32">
+      <section className="relative border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Service</p>
@@ -336,7 +336,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative border-t border-gold/10 py-32">
+      <section className="relative border-t border-gold/10 py-14 md:py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Guest Feedback</p>
@@ -364,7 +364,7 @@ function Home() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/70 to-rich-black/40" />
-        <div className="relative mx-auto max-w-4xl px-6 py-32 text-center">
+        <div className="relative mx-auto max-w-4xl px-6 py-14 md:py-10 md:py-14 text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Reserve your stay</p>
           <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl">
             The valley is<span className="italic text-gold"> waiting.</span>
