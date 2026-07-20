@@ -12,9 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RoomsRouteImport } from './routes/rooms'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
 import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
@@ -34,11 +34,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsRoute = BlogsRouteImport.update({
-  id: '/blogs',
-  path: '/blogs',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -47,6 +42,11 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsIndexRoute = BlogsIndexRouteImport.update({
+  id: '/blogs/',
+  path: '/blogs/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoomsLuxuryRoute = RoomsLuxuryRouteImport.update({
@@ -68,80 +68,80 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
+  '/blogs/': typeof BlogsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
+  '/blogs': typeof BlogsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
+  '/blogs/': typeof BlogsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blogs'
     | '/contact'
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
+    | '/blogs/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blogs'
     | '/contact'
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
+    | '/blogs'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blogs'
     | '/contact'
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
+    | '/blogs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogsRoute: typeof BlogsRouteWithChildren
   ContactRoute: typeof ContactRoute
   FacilitiesRoute: typeof FacilitiesRoute
   RoomsRoute: typeof RoomsRouteWithChildren
+  BlogsIndexRoute: typeof BlogsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -167,13 +167,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs': {
-      id: '/blogs'
-      path: '/blogs'
-      fullPath: '/blogs'
-      preLoaderRoute: typeof BlogsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -186,6 +179,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs/': {
+      id: '/blogs/'
+      path: '/blogs'
+      fullPath: '/blogs/'
+      preLoaderRoute: typeof BlogsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rooms/luxury': {
@@ -212,16 +212,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogsRouteChildren {
-  BlogsSlugRoute: typeof BlogsSlugRoute
-}
-
-const BlogsRouteChildren: BlogsRouteChildren = {
-  BlogsSlugRoute: BlogsSlugRoute,
-}
-
-const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
-
 interface RoomsRouteChildren {
   RoomsDeluxeRoute: typeof RoomsDeluxeRoute
   RoomsLuxuryRoute: typeof RoomsLuxuryRoute
@@ -237,11 +227,21 @@ const RoomsRouteWithChildren = RoomsRoute._addFileChildren(RoomsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogsRoute: BlogsRouteWithChildren,
   ContactRoute: ContactRoute,
   FacilitiesRoute: FacilitiesRoute,
   RoomsRoute: RoomsRouteWithChildren,
+  BlogsIndexRoute: BlogsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
