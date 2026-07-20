@@ -1,5 +1,64 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useRef } from "react";
+
+function TiltImage({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [style, setStyle] = useState<React.CSSProperties>({});
+  const [glare, setGlare] = useState({ x: 50, y: 50, on: false });
+
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    const rx = (0.5 - py) * 14;
+    const ry = (px - 0.5) * 16;
+    setStyle({
+      transform: `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`,
+      transition: "transform 120ms ease-out",
+    });
+    setGlare({ x: px * 100, y: py * 100, on: true });
+  };
+  const onLeave = () => {
+    setStyle({
+      transform: "perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)",
+      transition: "transform 500ms cubic-bezier(0.22,1,0.36,1)",
+    });
+    setGlare((g) => ({ ...g, on: false }));
+  };
+
+  return (
+    <div className="[perspective:1200px]" style={{ transformStyle: "preserve-3d" }}>
+      <div
+        ref={ref}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        className="group relative aspect-[5/6] overflow-hidden will-change-transform"
+        style={{ ...style, transformStyle: "preserve-3d", boxShadow: "0 40px 80px -30px rgba(0,0,0,0.7), 0 20px 40px -20px rgba(212,169,74,0.15)" }}
+      >
+        <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" width={1400} height={900} />
+        {/* Shine / reflection */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 mix-blend-overlay transition-opacity duration-300"
+          style={{
+            opacity: glare.on ? 1 : 0,
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.55), rgba(255,255,255,0) 45%)`,
+          }}
+        />
+        {/* Diagonal sheen sweep on hover */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -inset-x-1/2 top-0 h-full -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-[1100ms] ease-out group-hover:translate-x-full"
+        />
+        {/* Gold edge glow */}
+        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/10 transition-all duration-500 group-hover:ring-gold/50 group-hover:shadow-[inset_0_0_60px_rgba(212,169,74,0.25)]" />
+      </div>
+    </div>
+  );
+}
 import { SiteLayout } from "@/components/site/Layout";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
@@ -185,10 +244,7 @@ function Home() {
             </div>
           </div>
           <div className="relative lg:col-span-7">
-            <div className="relative aspect-[5/6] overflow-hidden">
-              <img src={aboutAsset.url} alt="Oro Shogran valley" className="h-full w-full object-cover" loading="lazy" width={1400} height={900} />
-              <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
-            </div>
+            <TiltImage src={aboutAsset.url} alt="Oro Shogran valley" />
             <div className="absolute -bottom-8 -left-8 hidden max-w-xs border border-gold/30 bg-rich-black/95 p-8 backdrop-blur lg:block">
               <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Address</div>
               <div className="mt-3 font-display text-xl text-ivory">Shogran, Kaghan Valley</div>
