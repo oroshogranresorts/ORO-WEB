@@ -2,6 +2,53 @@ import { Link } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
 import { FloatingActions } from "./FloatingActions";
 
+const SOCIAL = {
+  instagram: "https://www.instagram.com/oro_shogran?utm_source=qr",
+  facebook: "https://www.facebook.com/share/1EqrwSGJX1/?mibextid=wwXIfr",
+  tiktok: "https://www.tiktok.com/@oro.shogran?_r=1&_t=ZS-97FtBDhHOn1",
+};
+
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M13.5 21v-7.5h2.53l.38-2.94H13.5V8.7c0-.85.24-1.43 1.46-1.43h1.56V4.65c-.27-.04-1.19-.12-2.27-.12-2.25 0-3.79 1.37-3.79 3.9v2.18H7.9v2.94h2.56V21h3.04Z" />
+    </svg>
+  );
+}
+function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M19.6 8.32a6.3 6.3 0 0 1-3.68-1.18v6.94a5.42 5.42 0 1 1-4.68-5.37v2.75a2.7 2.7 0 1 0 1.94 2.6V3h2.74a3.6 3.6 0 0 0 3.68 3.53v1.79Z" />
+    </svg>
+  );
+}
+
+function SocialIcons({ className = "", size = 14 }: { className?: string; size?: number }) {
+  const cls = "text-gold/80 transition-colors hover:text-gold";
+  return (
+    <div className={`flex items-center gap-4 ${className}`}>
+      <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className={cls}>
+        <InstagramIcon width={size} height={size} />
+      </a>
+      <a href={SOCIAL.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className={cls}>
+        <FacebookIcon width={size} height={size} />
+      </a>
+      <a href={SOCIAL.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok" className={cls}>
+        <TikTokIcon width={size} height={size} />
+      </a>
+    </div>
+  );
+}
+
 type NavItem = {
   label: string;
   to: string;
@@ -32,7 +79,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-rich-black font-body text-ivory selection:bg-gold/30">
       {/* Utility Bar */}
       <div className="border-b border-gold/15 py-3">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-6">
           <div className="flex min-w-0 gap-6 sm:gap-8">
             <a href="tel:+923479044301" className="truncate text-[10px] font-medium uppercase tracking-[0.2em] text-gold/80 transition-colors hover:text-gold">
               +92 347 904 4301
@@ -41,7 +88,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               contact@oroshogran.com
             </a>
           </div>
-          <span className="shrink-0 text-[10px] font-medium uppercase tracking-[0.2em] text-gold/60">
+          <SocialIcons size={14} className="justify-self-center" />
+          <span className="justify-self-end shrink-0 text-[10px] font-medium uppercase tracking-[0.2em] text-gold/60 hidden md:inline">
             Shogran · Kaghan Valley
           </span>
         </div>
@@ -164,9 +212,16 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 views and warm hospitality in the heart of Shogran, Kaghan
                 Valley.
               </p>
-              <div className="mt-10 flex gap-3">
-                <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold">Instagram</a>
-                <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold">Facebook</a>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold">
+                  <InstagramIcon width={14} height={14} /> Instagram
+                </a>
+                <a href={SOCIAL.facebook} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold">
+                  <FacebookIcon width={14} height={14} /> Facebook
+                </a>
+                <a href={SOCIAL.tiktok} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:border-gold hover:text-gold">
+                  <TikTokIcon width={14} height={14} /> TikTok
+                </a>
               </div>
             </div>
 
