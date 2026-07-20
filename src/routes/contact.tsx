@@ -6,10 +6,66 @@ import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Reservations — Oro Shogran" },
-      { name: "description", content: "Reserve your stay at Oro Shogran. Reach us by phone, WhatsApp or email — a warm reply within the day, from Shogran, Kaghan Valley." },
-      { property: "og:title", content: "Contact & Reservations — Oro Shogran" },
-      { property: "og:description", content: "Speak to our team directly — reservations, jeep tours and enquiries." },
+      { title: "Book Oro Shogran | Best Hotel in Shogran, Kaghan Valley" },
+      { name: "description", content: "Reserve your stay at Oro Shogran, the best family hotel in Shogran, Kaghan Valley. Call, WhatsApp or email — a warm reply within the day, every day." },
+      { name: "keywords", content: "Book Oro Shogran, Reserve Hotel Shogran, Best Hotel in Shogran, Shogran Accommodation, Hotels in Kaghan Valley, Contact Oro Shogran, Hotel booking Kaghan Valley" },
+      { property: "og:title", content: "Book Oro Shogran — Best Hotel in Shogran" },
+      { property: "og:description", content: "Reserve a mountain-view suite at Oro Shogran. Phone, WhatsApp or email — a warm reply within the day." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/contact" },
+      { property: "og:image", content: hero2Asset.url },
+      { name: "twitter:image", content: hero2Asset.url },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact & Reservations — Oro Shogran",
+          url: "/contact",
+          mainEntity: {
+            "@type": "LodgingBusiness",
+            name: "Oro Shogran",
+            telephone: "+92-347-904-4301",
+            email: "info@oroshogran.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Shogran",
+              addressLocality: "Shogran",
+              addressRegion: "Khyber Pakhtunkhwa",
+              addressCountry: "PK",
+            },
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "How do I reach Shogran?", acceptedAnswer: { "@type": "Answer", text: "Shogran is a ~7 hour drive from Islamabad via Balakot and Kiwai. The last stretch is a 45-minute jeep ride — we can arrange this from Kiwai on arrival." } },
+            { "@type": "Question", name: "Is the property open in winter?", acceptedAnswer: { "@type": "Answer", text: "Yes — we operate year-round. From late December through early March, the road may require a 4x4; we arrange transfers from Kiwai as part of a winter package." } },
+            { "@type": "Question", name: "Do you accept card payments?", acceptedAnswer: { "@type": "Answer", text: "We accept Visa and Mastercard, bank transfer and cash (PKR). A 30% deposit confirms your reservation; the balance is paid on departure." } },
+            { "@type": "Question", name: "What is your cancellation policy?", acceptedAnswer: { "@type": "Answer", text: "Full refund up to 14 days before arrival. 50% refund between 7 and 14 days. Non-refundable within 7 days — we're happy to move dates once, free of charge." } },
+            { "@type": "Question", name: "Do you welcome children?", acceptedAnswer: { "@type": "Answer", text: "Absolutely — our family rooms are built for it. High chairs, cribs and a simpler children's menu are all available on request." } },
+            { "@type": "Question", name: "Can you help arrange jeep tours?", acceptedAnswer: { "@type": "Answer", text: "Yes. Half-day and full-day tours to Siri Paye, Sharan Forest, Naran and Lake Saif ul Malook are arranged through our concierge, with vetted local drivers." } },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Contact", item: "/contact" },
+          ],
+        }),
+      },
     ],
   }),
   component: Contact,
