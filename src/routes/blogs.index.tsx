@@ -3,7 +3,7 @@ import { SiteLayout, PageHero } from "@/components/site/Layout";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 import { BLOGS, AUTHOR } from "@/lib/blogs";
 
-export const Route = createFileRoute("/blogs")({
+export const Route = createFileRoute("/blogs/")({
   head: () => ({
     meta: [
       { title: "Blogs — Field Notes from Oro Shogran" },
