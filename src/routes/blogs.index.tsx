@@ -6,10 +6,48 @@ import { BLOGS, AUTHOR } from "@/lib/blogs";
 export const Route = createFileRoute("/blogs/")({
   head: () => ({
     meta: [
-      { title: "Blogs — Field Notes from Oro Shogran" },
-      { name: "description", content: "Trail notes, seasonal recipes, small guides and quiet essays from Oro Shogran in the Kaghan Valley." },
-      { property: "og:title", content: "Blogs — Oro Shogran" },
-      { property: "og:description", content: "Field notes, recipes and slow essays from the mountain." },
+      { title: "Shogran Travel Blog | Kaghan Valley Guides & Stories" },
+      { name: "description", content: "Travel guides, recipes and journal entries from Shogran and the Kaghan Valley — trails to Siri Paye, mountain food and the seasons at Oro Shogran hotel." },
+      { name: "keywords", content: "Shogran travel blog, Kaghan Valley guide, Siri Paye trek, Makra Peak hike, things to do in Shogran, Oro Shogran journal" },
+      { property: "og:title", content: "Shogran & Kaghan Valley Travel Blog — Oro Shogran" },
+      { property: "og:description", content: "Guides, recipes and journal entries from Shogran, Kaghan Valley — written from the mountain by our team." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/blogs" },
+      { property: "og:image", content: hero2Asset.url },
+      { name: "twitter:image", content: hero2Asset.url },
+    ],
+    links: [{ rel: "canonical", href: "/blogs" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Oro Shogran Journal",
+          url: "/blogs",
+          description: "Travel guides, recipes and journal entries from Shogran and the Kaghan Valley.",
+          author: { "@type": "Person", name: AUTHOR },
+          blogPost: BLOGS.map((b) => ({
+            "@type": "BlogPosting",
+            headline: b.title,
+            url: `/blogs/${b.slug}`,
+            image: b.image,
+            datePublished: new Date(b.date).toISOString(),
+            author: { "@type": "Person", name: AUTHOR },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Blogs", item: "/blogs" },
+          ],
+        }),
+      },
     ],
   }),
   component: Blogs,

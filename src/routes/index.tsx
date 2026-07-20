@@ -17,10 +17,60 @@ import t3Asset from "@/assets/oro/t3.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Oro Shogran — Luxury Mountain Retreat in Kaghan Valley" },
-      { name: "description", content: "A cinematic luxury retreat in Shogran, Kaghan Valley. Warm hospitality, mountain-view suites, bonfires, jeep tours and local cuisine." },
-      { property: "og:title", content: "Oro Shogran — Luxury Mountain Retreat" },
-      { property: "og:description", content: "Where serenity meets luxury — a mountain escape in the heart of Kaghan Valley." },
+      { title: "Best Hotel in Shogran | Oro Shogran — Kaghan Valley Retreat" },
+      { name: "description", content: "Stay at Oro Shogran, the best hotel in Shogran, Kaghan Valley. Mountain-view family suites, jeep tours to Siri Paye, bonfires and warm local hospitality." },
+      { name: "keywords", content: "Best Hotel in Shogran, ORO Shogran, Hotel in Shogran, Luxury Hotel in Shogran, Family Hotel in Shogran, Best Resort in Shogran, Hotels in Kaghan Valley, Shogran Accommodation, Mountain View Hotel Shogran, Hotels near Siri Paye, Hotels near Makra Peak" },
+      { property: "og:title", content: "Best Hotel in Shogran — Oro Shogran, Kaghan Valley" },
+      { property: "og:description", content: "Luxury family hotel in Shogran, Kaghan Valley — mountain-view suites, bonfires and guided jeep tours to Siri Paye and Makra Peak." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: hero1Asset.url },
+      { name: "twitter:title", content: "Best Hotel in Shogran — Oro Shogran" },
+      { name: "twitter:description", content: "Luxury family retreat in the Kaghan Valley — mountain-view suites, jeep tours and bonfires." },
+      { name: "twitter:image", content: hero1Asset.url },
+    ],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: hero1Asset.url, fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          "@id": "/#hotel",
+          name: "Oro Shogran",
+          description: "Best hotel in Shogran — a luxury family retreat in the Kaghan Valley, Khyber Pakhtunkhwa, Pakistan.",
+          image: [hero1Asset.url, hero2Asset.url, aboutAsset.url],
+          telephone: "+92-347-904-4301",
+          priceRange: "₨18,500 – ₨30,500",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Shogran",
+            addressLocality: "Shogran",
+            addressRegion: "Khyber Pakhtunkhwa",
+            addressCountry: "PK",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: 34.6397, longitude: 73.4577 },
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.7", reviewCount: "184" },
+          makesOffer: [
+            { "@type": "Offer", name: "Luxury Family Rooms", price: "22500", priceCurrency: "PKR" },
+            { "@type": "Offer", name: "Deluxe Family Suit", price: "30500", priceCurrency: "PKR" },
+            { "@type": "Offer", name: "Deluxe Family Rooms", price: "18500", priceCurrency: "PKR" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+          ],
+        }),
+      },
     ],
   }),
   component: Home,

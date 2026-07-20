@@ -77,21 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Oro Shogran — A Private Retreat in the Kaghan Valley" },
-      {
-        name: "description",
-        content:
-          "Oro Shogran is a cliffside luxury retreat in Shogran, Kaghan Valley. Reserve a suite, gather by the bonfire, and step into a sanctuary of pine, stone and quiet Himalayan light.",
-      },
       { name: "author", content: "Oro Shogran" },
-      { property: "og:title", content: "Oro Shogran — A Private Retreat in the Kaghan Valley" },
-      {
-        property: "og:description",
-        content:
-          "A cliffside luxury retreat in the heart of Shogran. Suites, mountain dining, and guided journeys through the Kaghan Valley.",
-      },
+      { name: "theme-color", content: "#0B0B0B" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { property: "og:site_name", content: "Oro Shogran" },
+      { property: "og:locale", content: "en_US" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@oroshogran" },
+      { name: "geo.region", content: "PK-KP" },
+      { name: "geo.placename", content: "Shogran, Kaghan Valley" },
+      { name: "geo.position", content: "34.6397;73.4577" },
+      { name: "ICBM", content: "34.6397, 73.4577" },
     ],
     links: [
       {
@@ -104,6 +101,87 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Sans:wght@300;400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Hotel",
+          name: "Oro Shogran",
+          alternateName: "ORO Shogran Hotel & Resort",
+          description:
+            "Luxury family hotel in Shogran, Kaghan Valley — mountain-view suites, guided jeep tours to Siri Paye, bonfires and slow local cuisine.",
+          url: "/",
+          telephone: "+92-347-904-4301",
+          email: "info@oroshogran.com",
+          priceRange: "₨₨",
+          starRating: { "@type": "Rating", ratingValue: "4.6" },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Shogran",
+            addressLocality: "Shogran",
+            addressRegion: "Khyber Pakhtunkhwa",
+            addressCountry: "PK",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 34.6397,
+            longitude: 73.4577,
+          },
+          areaServed: ["Shogran", "Kaghan Valley", "Siri Paye", "Makra Peak", "Naran"],
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
+            { "@type": "LocationFeatureSpecification", name: "24/7 Hot Water", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Bonfire", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Guided Jeep Tours", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Mountain View", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Family Rooms", value: true },
+            { "@type": "LocationFeatureSpecification", name: "On-site Parking", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Room Service", value: true },
+          ],
+          checkinTime: "14:00",
+          checkoutTime: "11:00",
+          numberOfRooms: 12,
+          petsAllowed: false,
+          smokingAllowed: false,
+          sameAs: [
+            "https://www.facebook.com/oroshogran",
+            "https://www.instagram.com/oroshogran",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Oro Shogran",
+          url: "/",
+          logo: "/favicon.ico",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+92-347-904-4301",
+            contactType: "reservations",
+            areaServed: "PK",
+            availableLanguage: ["English", "Urdu"],
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Oro Shogran",
+          url: "/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "/blogs?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
       },
     ],
   }),

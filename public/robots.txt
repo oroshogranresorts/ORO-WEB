@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /lovable/
+
+Sitemap: /sitemap.xml

@@ -9,10 +9,29 @@ import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 export const Route = createFileRoute("/facilities")({
   head: () => ({
     meta: [
-      { title: "Facilities & Experiences — Oro Shogran" },
-      { name: "description", content: "Guided jeep tours, mountain bonfires, local cuisine, 24/7 hot water, high-speed Wi-Fi and warm concierge — every comfort of a modern retreat in the Kaghan Valley." },
-      { property: "og:title", content: "Facilities & Experiences — Oro Shogran" },
-      { property: "og:description", content: "Bonfires under the stars, jeep trails to Siri Paye, and a warm fire on your return." },
+      { title: "Hotel Facilities in Shogran | Jeep Tours & Bonfires" },
+      { name: "description", content: "Bonfires, guided jeep tours to Siri Paye and Makra Peak, 24/7 hot water and slow mountain dining at Oro Shogran, a luxury family hotel in Shogran, Kaghan." },
+      { name: "keywords", content: "Hotel Facilities Shogran, Bonfire Shogran hotel, Jeep tour Siri Paye, Hotels near Siri Paye, Hotels near Makra Peak, Wi-Fi hotel Shogran, Kaghan Valley experiences" },
+      { property: "og:title", content: "Facilities & Experiences — Oro Shogran, Shogran" },
+      { property: "og:description", content: "Bonfires under the stars, guided jeep trails to Siri Paye and Makra Peak, mountain cuisine and 24/7 hot water at Oro Shogran." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/facilities" },
+      { property: "og:image", content: srv2Asset.url },
+      { name: "twitter:image", content: srv2Asset.url },
+    ],
+    links: [{ rel: "canonical", href: "/facilities" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Facilities", item: "/facilities" },
+          ],
+        }),
+      },
     ],
   }),
   component: Facilities,

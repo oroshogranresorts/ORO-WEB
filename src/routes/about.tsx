@@ -8,10 +8,49 @@ import srv3Asset from "@/assets/oro/srv3.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Oro Shogran | Story, Values & Team" },
-      { name: "description", content: "The story, philosophy and people behind Oro Shogran — a family-run luxury retreat in the Kaghan Valley." },
-      { property: "og:title", content: "About Oro Shogran" },
-      { property: "og:description", content: "A family-run luxury retreat where hospitality meets the Himalaya." },
+      { title: "About Oro Shogran | Luxury Hotel in Shogran, Kaghan" },
+      { name: "description", content: "Meet the family behind Oro Shogran — a luxury hotel in Shogran, Kaghan Valley, built on quiet hospitality, local craft and love of the Himalayan slopes." },
+      { name: "keywords", content: "About Oro Shogran, Luxury Hotel in Shogran, Family Hotel in Shogran, Kaghan Valley hotel story, Shogran resort owners" },
+      { property: "og:title", content: "About Oro Shogran — Luxury Family Hotel in Shogran" },
+      { property: "og:description", content: "A family-run luxury hotel in Shogran, Kaghan Valley — quiet hospitality, local craft and warmth on the Himalayan slopes." },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "/about" },
+      { property: "og:image", content: aboutAsset.url },
+      { name: "twitter:image", content: aboutAsset.url },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Oro Shogran",
+          url: "/about",
+          description: "The story, philosophy and team behind Oro Shogran — a luxury family hotel in Shogran, Kaghan Valley.",
+          mainEntity: {
+            "@type": "LodgingBusiness",
+            name: "Oro Shogran",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Shogran",
+              addressRegion: "Khyber Pakhtunkhwa",
+              addressCountry: "PK",
+            },
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "/about" },
+          ],
+        }),
+      },
     ],
   }),
   component: About,
