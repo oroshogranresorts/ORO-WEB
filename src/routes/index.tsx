@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SiteLayout } from "@/components/site/Layout";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
@@ -92,12 +92,27 @@ const TESTIMONIALS = [
 ];
 
 function Home() {
+  const heroImages = [hero1Asset.url, hero2Asset.url, aboutAsset.url, srv1Asset.url, srv2Asset.url];
+  const [heroIdx, setHeroIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setHeroIdx((i) => (i + 1) % heroImages.length), 5000);
+    return () => clearInterval(id);
+  }, [heroImages.length]);
   return (
     <SiteLayout>
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={hero1Asset.url} alt="Oro Shogran" className="h-full w-full object-cover" width={1600} height={1008} />
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt="Oro Shogran"
+              width={1600}
+              height={1008}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-in-out ${i === heroIdx ? "opacity-100" : "opacity-0"}`}
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-b from-rich-black/70 via-rich-black/25 to-rich-black" />
           <div className="absolute inset-0 bg-gradient-to-r from-rich-black/70 via-transparent to-transparent" />
         </div>
