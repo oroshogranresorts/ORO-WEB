@@ -103,6 +103,55 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const year = new Date().getFullYear();
 
+  // Smooth scroll (Lenis) + scroll-triggered reveals
+  useEffect(() => {
+    let lenis: any;
+    let rafId = 0;
+    let cancelled = false;
+
+    (async () => {
+      const { default: Lenis } = await import("lenis");
+      if (cancelled) return;
+      lenis = new Lenis({
+        duration: 0.9,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+        smoothWheel: true,
+        wheelMultiplier: 1.1,
+        touchMultiplier: 1.4,
+      });
+      const raf = (time: number) => {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+      rafId = requestAnimationFrame(raf);
+    })();
+
+    // Reveal on scroll
+    const targets = document.querySelectorAll<HTMLElement>(
+      "main section, main [data-reveal]"
+    );
+    targets.forEach((el) => el.classList.add("reveal"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    targets.forEach((el) => io.observe(el));
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      lenis?.destroy?.();
+      io.disconnect();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-rich-black font-body text-ivory selection:bg-gold/30">
       {/* Utility Bar */}
