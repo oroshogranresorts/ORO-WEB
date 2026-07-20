@@ -282,15 +282,6 @@ function Home() {
               <article key={s.name} className={`group relative ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-32" : ""}`}>
                 <div className="img-shine relative aspect-[4/5] overflow-hidden">
                   <img src={s.img} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
-                  {/* Cursor glare */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-0 mix-blend-overlay transition-opacity duration-300 group-hover:opacity-100"
-                    style={{
-                      background:
-                        "radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.55), rgba(255,255,255,0) 45%)",
-                    }}
-                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-rich-black/80 via-transparent to-transparent" />
                   <div className="absolute left-6 top-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{s.tag}</div>
                   <div className="absolute inset-x-6 bottom-6"><h3 className="font-display text-3xl leading-tight text-ivory">{s.name}</h3></div>
