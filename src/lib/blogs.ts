@@ -13,6 +13,7 @@ import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
 export type BlogFaq = { q: string; a: string };
+export type BlogFact = { label: string; value: string };
 export type Blog = {
   slug: string;
   tag: string;
@@ -28,6 +29,9 @@ export type Blog = {
   keywords?: string[];
   takeaways?: string[];
   faqs?: BlogFaq[];
+  quickFacts?: BlogFact[];
+  conclusion?: string[];
+  furtherReading?: string[];
 };
 
 export const AUTHOR = "Mazhar Khan";
@@ -426,6 +430,9 @@ const TAG_DEFAULTS: Record<
     takeaways: string[];
     faqs: BlogFaq[];
     extra: BlogSection[];
+    quickFacts: BlogFact[];
+    conclusion: string[];
+    furtherReading: string[];
   }
 > = {
   Trail: {
@@ -470,6 +477,37 @@ const TAG_DEFAULTS: Record<
           "Tell the front desk your route and your return time. This is a small, quiet valley, and a check-in on the way out costs you nothing.",
         ],
       },
+      {
+        heading: "Reading the mountain",
+        body: [
+          "Watch the shepherds, not the sky. If the Gujjar families are moving their buffalo down at three in the afternoon, the weather is turning — regardless of what your phone says.",
+          "Listen for the wind in the deodars before you leave a ridge. A rising, hollow note through the tops usually means a front is fifteen minutes out. A steady low murmur means you have another hour.",
+          "Above three thousand metres, distance flatters itself. What looks like a twenty-minute climb is often an hour. Halve the pace you'd keep at home; you will still arrive.",
+        ],
+      },
+      {
+        heading: "After the walk",
+        body: [
+          "Back at the retreat, change immediately. Damp base-layers at altitude cool the body faster than most people expect — the difference between a warm evening and an early night is a single dry merino tee.",
+          "Ask the kitchen for hot ginger water with a squeeze of lemon before dinner. It settles the chest and, entirely coincidentally, tastes very good.",
+          "Write down the route while it is fresh — the branches you took, the water source, the stone cairn that was, or was not, where the map said it would be. The next guest to walk this line will thank you.",
+        ],
+      },
+    ],
+    quickFacts: [
+      { label: "Best months", value: "May – October" },
+      { label: "Difficulty", value: "Moderate" },
+      { label: "Elevation gain", value: "300 – 700 m" },
+      { label: "Start time", value: "Before sunrise" },
+    ],
+    conclusion: [
+      "A walk in the Kaghan is never only a walk. It is an argument, quietly made, that pace is a form of attention — and that attention is the only real souvenir of a mountain.",
+      "Whenever you go, go slowly. The valley will meet you at exactly the speed you agree to meet it.",
+    ],
+    furtherReading: [
+      "packing-for-a-kaghan-spring",
+      "old-shepherds-path-to-sharan",
+      "birds-of-the-deodar-forest",
     ],
   },
   Recipe: {
@@ -514,6 +552,37 @@ const TAG_DEFAULTS: Record<
           "One green vegetable, one starch, one thing pickled. This is the shape of most dinners at Oro Shogran, and it is a shape we recommend at home.",
         ],
       },
+      {
+        heading: "Sourcing at home",
+        body: [
+          "If you can, buy from a single farmer or a single shop and keep going back. The recipe improves faster with a consistent ingredient than with a perfect one.",
+          "Whole spices, not ground. Ground spices lose their edge in six weeks; whole cardamom, cumin and coriander hold for a year in a cold jar.",
+          "Ferment one thing in your kitchen — yoghurt, a chilli pickle, a jar of lemons in salt. It changes what your food can do.",
+        ],
+      },
+      {
+        heading: "Common mistakes",
+        body: [
+          "Rushing the fat. Butter, ghee and mustard oil each have a moment they want to be used — before that moment they are heavy, after it they are burnt. Learn the smell of each at its right temperature and every dish improves overnight.",
+          "Over-salting at the start. Season lightly, taste at the end. Salt is a scalpel, not a hammer.",
+          "Treating chai as an afterthought. It is not. It is a course, and it earns the same attention as the meal that preceded it.",
+        ],
+      },
+    ],
+    quickFacts: [
+      { label: "Serves", value: "2 – 4" },
+      { label: "Difficulty", value: "Approachable" },
+      { label: "Kit", value: "One heavy pan" },
+      { label: "Best paired with", value: "Steamed rice, cold yoghurt" },
+    ],
+    conclusion: [
+      "Mountain cooking is not about being clever. It is about being quiet — hearing the fat, watching the water, trusting the ingredient to be more interesting than the technique.",
+      "Make this once for yourself before you make it for anyone else. That is when it becomes yours.",
+    ],
+    furtherReading: [
+      "the-kitchen-garden-in-june",
+      "chai-at-4000-metres",
+      "trout-brown-butter-walnut",
     ],
   },
   Essay: {
@@ -558,6 +627,35 @@ const TAG_DEFAULTS: Record<
           "This is the retreat we try to run: one where the small things are done, and done again, until they become the whole story of the stay.",
         ],
       },
+      {
+        heading: "Time, at altitude",
+        body: [
+          "The hours behave differently here. Not slower, exactly — thicker. A morning between six and nine, in the right kind of weather, can hold the emotional weight of an ordinary weekend.",
+          "We think this is partly the light and partly the silence, but mostly it is that there is nothing, at Oro Shogran, that you are obliged to do. Duty at altitude is very light, and the mind takes the space this leaves.",
+        ],
+      },
+      {
+        heading: "What we are still learning",
+        body: [
+          "That a hotel, at its best, is a piece of architecture designed for one specific emotion — welcome — and that everything else must be quietly arranged around that single line.",
+          "That good service is invisible service. That the finest compliment a guest ever pays is to forget, for an entire afternoon, that they are a guest.",
+          "That the mountain is, in the end, the co-author of every stay. We only manage the margins.",
+        ],
+      },
+    ],
+    quickFacts: [
+      { label: "Read time", value: "A slow evening" },
+      { label: "Pairs with", value: "A pot of chai, a warm blanket" },
+      { label: "Best read at", value: "Oro Shogran, on the terrace" },
+    ],
+    conclusion: [
+      "If there is a single argument this essay wants to make, it is small: that the way we host each other still matters, and that a small hotel on a ridge in the Kaghan Valley is as good a place as any to make the case.",
+      "Come and see. Stay three nights. Judge us on the third morning.",
+    ],
+    furtherReading: [
+      "the-night-the-bonfire-stayed-lit",
+      "a-quiet-argument-for-slow-travel",
+      "how-we-built-the-retreat",
     ],
   },
   Guide: {
@@ -602,6 +700,36 @@ const TAG_DEFAULTS: Record<
           "Long weekends around Eid and Independence Day fill first — often three months out.",
         ],
       },
+      {
+        heading: "Money, signal, and small logistics",
+        body: [
+          "Cash still matters in the upper valley. Draw what you need in Balakot; the last reliable ATM before the retreat is there. We accept card, but many of the small stalls and guides do not.",
+          "Buy a Jazz or Zong SIM in Islamabad if you plan to stay in touch — Ufone and Telenor coverage above Kiwai is patchy. The retreat's Wi-Fi is honest but not fast; treat it as email, not video.",
+          "Bring a small first-aid kit — plasters, paracetamol, an anti-histamine, altitude-friendly rehydration salts. We keep a full kit at the desk, but you will want yours in your daypack.",
+        ],
+      },
+      {
+        heading: "What to plan, what to leave open",
+        body: [
+          "Plan your arrival, your first dinner, and one anchor experience — a jeep to Siri Paye, a guided walk, a long lunch. Leave the rest of the days empty on purpose.",
+          "Some of the best afternoons at Oro Shogran are the ones nobody scheduled: a nap, a slow book, an hour in the garden, dinner where it wasn't supposed to be.",
+        ],
+      },
+    ],
+    quickFacts: [
+      { label: "Nearest airport", value: "Islamabad (ISB)" },
+      { label: "Drive time", value: "6 – 7 hours" },
+      { label: "Vehicle", value: "4x4 essential above Kiwai" },
+      { label: "Currency", value: "PKR — carry cash" },
+    ],
+    conclusion: [
+      "The best trips to Shogran are the lightly planned ones. Fix the arrival, book the room, keep the daypack honest — and let the valley write the rest of the itinerary.",
+      "When you are ready to book, our reservations team answers in under a working day and knows the road, the weather, and the good jeep drivers by name.",
+    ],
+    furtherReading: [
+      "packing-for-a-kaghan-spring",
+      "birds-of-the-deodar-forest",
+      "a-short-history-of-the-kaghan-valley",
     ],
   },
   Journal: {
@@ -646,6 +774,34 @@ const TAG_DEFAULTS: Record<
           "That there is, in every season, at least one week we would happily live through again exactly as it happened.",
         ],
       },
+      {
+        heading: "The people who make this",
+        body: [
+          "Kamran in the kitchen. Ismail on the night watch. Nazir at the wheel of the jeep. Bashir on the wall. The retreat is, in the end, the sum of a small number of people who have decided to be very good at a small number of things.",
+          "If any of them is ever kind to you during your stay — and they will be — please tell us. Their pride in this work is one of the quiet reasons the place holds together.",
+        ],
+      },
+      {
+        heading: "A word to returning guests",
+        body: [
+          "If you have stayed with us before, you already know: the retreat changes, slowly, from season to season. A new stone in the courtyard. A tree we could not save. A room we finally finished. A dish that has, at last, become itself.",
+          "Come back in a different season than the one you first knew. It is, more or less, a different retreat — and, more or less, exactly the same one.",
+        ],
+      },
+    ],
+    quickFacts: [
+      { label: "Season", value: "Year-round" },
+      { label: "Best written from", value: "The terrace, mid-morning" },
+      { label: "Reading pace", value: "Unhurried" },
+    ],
+    conclusion: [
+      "A journal, in the end, is a promise to remember. We keep this one on your behalf — so that the small, particular days here are not lost to the general blur of a busy year.",
+      "Come and add a day of your own to it. That is, quite honestly, what the retreat is for.",
+    ],
+    furtherReading: [
+      "first-snowfall-from-the-terrace",
+      "the-kitchen-garden-in-june",
+      "the-night-the-bonfire-stayed-lit",
     ],
   },
 };
@@ -659,6 +815,9 @@ function enrich(b: Blog): Blog {
     takeaways: b.takeaways ?? d.takeaways,
     faqs: b.faqs ?? d.faqs,
     sections: [...b.sections, ...d.extra],
+    quickFacts: b.quickFacts ?? d.quickFacts,
+    conclusion: b.conclusion ?? d.conclusion,
+    furtherReading: b.furtherReading ?? d.furtherReading,
   };
 }
 

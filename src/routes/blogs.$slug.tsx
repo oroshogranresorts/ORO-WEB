@@ -106,6 +106,10 @@ export const Route = createFileRoute("/blogs/$slug")({
 function BlogDetail() {
   const { blog } = Route.useLoaderData() as { blog: Blog };
   const related = BLOGS.filter((b) => b.slug !== blog.slug).slice(0, 3);
+  const furtherReads = (blog.furtherReading ?? [])
+    .map((slug) => BLOGS.find((b) => b.slug === slug))
+    .filter((b): b is Blog => Boolean(b) && b!.slug !== blog.slug)
+    .slice(0, 3);
 
   return (
     <SiteLayout>
@@ -197,6 +201,22 @@ function BlogDetail() {
           {blog.intro}
         </p>
 
+        {/* Quick facts strip */}
+        {blog.quickFacts && blog.quickFacts.length > 0 && (
+          <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-gold/20 bg-gold/20 sm:grid-cols-4">
+            {blog.quickFacts.map((f) => (
+              <div key={f.label} className="bg-rich-black p-5">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold/80">
+                  {f.label}
+                </dt>
+                <dd className="mt-2 font-display text-lg leading-snug text-ivory">
+                  {f.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
         <div className="mt-14 space-y-14">
           {blog.sections.map((s: BlogSection, i: number) => (
             <section key={s.heading} id={slugifyHeading(s.heading)} className="scroll-mt-24">
@@ -222,6 +242,35 @@ function BlogDetail() {
           ))}
         </div>
 
+        {/* Conclusion */}
+        {blog.conclusion && blog.conclusion.length > 0 && (
+          <section className="mt-20 border-t border-gold/15 pt-14">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— In closing</p>
+            <h2 className="mt-4 font-display text-3xl text-ivory sm:text-4xl">
+              A last thought before you go
+            </h2>
+            <div className="mt-6 space-y-5 text-base font-light leading-[1.85] text-ivory/80 sm:text-lg">
+              {blog.conclusion.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 border border-gold bg-gold px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-transparent hover:text-gold"
+              >
+                Reserve your stay
+              </Link>
+              <Link
+                to="/rooms"
+                className="inline-flex items-center gap-3 border border-gold/40 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold transition-colors hover:bg-gold hover:text-rich-black"
+              >
+                See our suites
+              </Link>
+            </div>
+          </section>
+        )}
+
         {/* FAQ */}
         {blog.faqs && blog.faqs.length > 0 && (
           <section className="mt-24 border-t border-gold/15 pt-14" id="faqs">
@@ -241,6 +290,34 @@ function BlogDetail() {
                 </div>
               ))}
             </dl>
+          </section>
+        )}
+
+        {/* Further reading (curated by tag) */}
+        {furtherReads.length > 0 && (
+          <section className="mt-20 border-t border-gold/15 pt-14">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Further reading</p>
+            <h2 className="mt-4 font-display text-3xl text-ivory sm:text-4xl">
+              If you liked this piece
+            </h2>
+            <ul className="mt-8 divide-y divide-gold/15">
+              {furtherReads.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    to="/blogs/$slug"
+                    params={{ slug: r.slug }}
+                    className="group flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                  >
+                    <span className="font-display text-xl leading-snug text-ivory transition-colors group-hover:text-gold sm:text-2xl">
+                      {r.title}
+                    </span>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-ivory/50">
+                      {r.tag} · {r.read}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 
