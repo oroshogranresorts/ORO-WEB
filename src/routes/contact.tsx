@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
+import { Phone as PhoneIcon, Mail as MailIcon, MapPin, Clock } from "lucide-react";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 
 export const Route = createFileRoute("/contact")({
