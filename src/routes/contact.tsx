@@ -140,7 +140,35 @@ function Contact() {
                 </div>
               ) : (
                 <form
-                  onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.currentTarget;
+                    const fd = new FormData(form);
+                    const get = (k: string) => String(fd.get(k) ?? "").trim();
+                    const first = get("first");
+                    const last = get("last");
+                    const email = get("email");
+                    const phone = get("phone");
+                    const arr = get("arr");
+                    const dep = get("dep");
+                    const room = get("room");
+                    const msg = get("msg");
+                    const subject = `Reservation Enquiry — ${first} ${last}`.trim();
+                    const body = [
+                      `Name: ${first} ${last}`,
+                      `Email: ${email}`,
+                      `Phone / WhatsApp: ${phone}`,
+                      `Arrival: ${arr}`,
+                      `Departure: ${dep}`,
+                      `Room preference: ${room}`,
+                      "",
+                      "Message:",
+                      msg,
+                    ].join("\n");
+                    const href = `mailto:info@oroshogran.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = href;
+                    setSent(true);
+                  }}
                   className="mt-10 grid gap-6 sm:grid-cols-2"
                 >
                   {[
