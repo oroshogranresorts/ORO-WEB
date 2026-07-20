@@ -268,16 +268,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
           <div className="mt-4 text-center text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40">
-            © 2019 All Rights Reserved. Developed By Oscar Graphix (
+            © 2019 All Rights Reserved. Developed By{" "}
             <a
               href="https://www.oscargraphix.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold transition-colors hover:text-gold/80"
             >
-              www.oscargraphix.com
+              Oscar Graphix
             </a>
-            )
           </div>
         </div>
       </footer>
