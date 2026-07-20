@@ -87,7 +87,7 @@ function About() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Philosophy</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
               A house shaped by<span className="italic text-gold"> the valley itself.</span>
             </h2>
           </div>
@@ -120,9 +120,9 @@ function About() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— What we believe</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">Four quiet principles.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Four quiet principles.</h2>
           </div>
-          <div className="mt-20 grid gap-10 sm:grid-cols-2">
+          <div className="mt-12 md:mt-16 grid gap-10 sm:grid-cols-2">
             {VALUES.map((v) => (
               <div key={v.n} className="border-t border-gold/20 pt-6">
                 <div className="font-display text-2xl text-gold/50">{v.n}</div>
@@ -142,7 +142,7 @@ function About() {
           </div>
           <div className="flex flex-col justify-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Table</p>
-            <h3 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+            <h3 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
               Every plate begins<span className="italic text-gold"> in the valley.</span>
             </h3>
             <p className="mt-8 text-base font-light leading-relaxed text-ivory/75">
@@ -154,10 +154,10 @@ function About() {
           </div>
         </div>
 
-        <div className="mx-auto mt-32 grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
+        <div className="mx-auto mt-16 md:mt-14 md:mt-12 md:mt-16 grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div className="order-2 flex flex-col justify-center lg:order-1">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Trails</p>
-            <h3 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+            <h3 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
               A naturalist on staff,<span className="italic text-gold"> a valley at your feet.</span>
             </h3>
             <p className="mt-8 text-base font-light leading-relaxed text-ivory/75">
@@ -178,9 +178,9 @@ function About() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— A short history</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">Eight years, one valley.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Eight years, one valley.</h2>
           </div>
-          <div className="mt-20 space-y-14">
+          <div className="mt-12 md:mt-16 space-y-14">
             {TIMELINE.map((e) => (
               <div key={e.y} className="grid grid-cols-[80px_1fr] gap-8 border-t border-gold/15 pt-8 sm:grid-cols-[120px_1fr]">
                 <div className="font-display text-3xl text-gold">{e.y}</div>
@@ -199,7 +199,7 @@ function About() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Timings For</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
               Oro <span className="italic text-gold">Shogran</span>
             </h2>
             <p className="mt-6 text-base font-light text-ivory/70">Open every day, all day — the mountain never closes.</p>
@@ -228,7 +228,7 @@ function About() {
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
         <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
-          <h2 className="font-display text-5xl leading-[1.05] text-ivory">Come and stay awhile.</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Come and stay awhile.</h2>
           <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Three suite categories, a fire always lit, and a valley that will change the pace of everything.</p>
           <Link to="/rooms" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
             View Rooms →

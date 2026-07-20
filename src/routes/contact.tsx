@@ -99,7 +99,7 @@ function Contact() {
           {/* Contact details */}
           <aside className="lg:col-span-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Reach the desk</p>
-            <h2 className="mt-6 font-display text-4xl leading-[1.05] text-ivory">A warm line, always answered.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl leading-[1.05] text-ivory">A warm line, always answered.</h2>
 
             <div className="mt-10 space-y-8 text-sm">
               <div>
@@ -239,7 +239,7 @@ function Contact() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Before you write</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">Frequently asked.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Frequently asked.</h2>
           </div>
           <div className="mt-16 divide-y divide-gold/15 border-y border-gold/15">
             {FAQ.map((f) => (

@@ -113,7 +113,7 @@ function Rooms() {
                 <div className="absolute left-6 top-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{r.tag}</div>
               </div>
               <div>
-                <h2 className="font-display text-5xl leading-[1.05] text-ivory">{r.name}</h2>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">{r.name}</h2>
                 <p className="mt-6 text-lg font-light leading-relaxed text-ivory/80">{r.lede}</p>
                 <p className="mt-4 text-base font-light leading-relaxed text-ivory/65">{r.long}</p>
 
@@ -150,7 +150,7 @@ function Rooms() {
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Every Stay Includes</p>
-              <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+              <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
                 Small things,<span className="italic text-gold"> done well.</span>
               </h2>
               <p className="mt-8 text-base font-light leading-relaxed text-ivory/70">
@@ -174,7 +174,7 @@ function Rooms() {
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
         <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
-          <h2 className="font-display text-5xl leading-[1.05] text-ivory">Reserve your room.</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Reserve your room.</h2>
           <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Tell us your dates and how many are travelling — we'll write back within the day.</p>
           <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
             Enquire Now →
