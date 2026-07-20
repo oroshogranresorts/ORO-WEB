@@ -280,7 +280,7 @@ function Home() {
           <div className="mt-20 grid gap-12 lg:grid-cols-3 lg:gap-8">
             {SUITES.map((s, i) => (
               <article key={s.name} className={`group relative ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-32" : ""}`}>
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="img-shine relative aspect-[4/5] overflow-hidden">
                   <img src={s.img} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-rich-black/80 via-transparent to-transparent" />
                   <div className="absolute left-6 top-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{s.tag}</div>
