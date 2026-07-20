@@ -1,15 +1,15 @@
-import srv1 from "@/assets/oro/srv1.jpg.asset.json";
-import srv2 from "@/assets/oro/srv2.jpg.asset.json";
-import srv3 from "@/assets/oro/srv3.jpg.asset.json";
-import srv4 from "@/assets/oro/srv4.jpg.asset.json";
-import hero1 from "@/assets/oro/hero1.jpg.asset.json";
-import hero2 from "@/assets/oro/hero2.jpg.asset.json";
-import room1 from "@/assets/oro/room1.jpg.asset.json";
-import room2 from "@/assets/oro/room2.jpg.asset.json";
-import room3 from "@/assets/oro/room3.jpg.asset.json";
-import about from "@/assets/oro/about.jpg.asset.json";
-import t1 from "@/assets/oro/t1.jpg.asset.json";
-import t2 from "@/assets/oro/t2.jpg.asset.json";
+import blog1 from "@/assets/oro/blogs/blog1.jpg.asset.json";
+import blog2 from "@/assets/oro/blogs/blog2.jpg.asset.json";
+import blog3 from "@/assets/oro/blogs/blog3.jpg.asset.json";
+import blog4 from "@/assets/oro/blogs/blog4.jpg.asset.json";
+import blog5 from "@/assets/oro/blogs/blog5.jpg.asset.json";
+import blog6 from "@/assets/oro/blogs/blog6.jpg.asset.json";
+import blog7 from "@/assets/oro/blogs/blog7.jpg.asset.json";
+import blog8 from "@/assets/oro/blogs/blog8.jpg.asset.json";
+import blog9 from "@/assets/oro/blogs/blog9.jpg.asset.json";
+import blog10 from "@/assets/oro/blogs/blog10.jpg.asset.json";
+import blog11 from "@/assets/oro/blogs/blog11.jpg.asset.json";
+import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
 export type Blog = {
@@ -35,7 +35,7 @@ export const BLOGS: Blog[] = [
     read: "8 min",
     title: "Sunrise on Siri Paye — a photographer's walk",
     excerpt: "How to catch the first light on the meadows without the crowds, and where the wild irises grow after the last snow melts.",
-    image: srv4.url,
+    image: blog1.url,
     intro:
       "The road to Siri Paye is a slow, deliberate climb — a jeep track worn smooth by monsoon runoff and mountain hooves. Leave the retreat at 4:30 am and you'll arrive just as the ridgeline behind the meadow starts to blush a pale, almost embarrassed pink.",
     sections: [
@@ -70,7 +70,7 @@ export const BLOGS: Blog[] = [
     read: "6 min",
     title: "Trout, brown butter, walnut — the valley on a plate",
     excerpt: "Our chef Kamran on the three-ingredient dish that opens most of our dinners, and the small stream that supplies it.",
-    image: srv3.url,
+    image: blog2.url,
     intro:
       "Kamran learnt this from his grandmother, who learnt it from a Kashmiri cook in the 1960s. It is, essentially, a lesson in restraint: three ingredients, one pan, and a willingness to let the fish speak.",
     sections: [
@@ -105,7 +105,7 @@ export const BLOGS: Blog[] = [
     read: "10 min",
     title: "The night the bonfire stayed lit until dawn",
     excerpt: "A quiet essay on hospitality, silence, and the small ritual of tending a fire long past the point of usefulness.",
-    image: srv2.url,
+    image: blog3.url,
     intro:
       "There is a particular kind of guest who does not want to be entertained. They want a chair, a blanket, and a fire that someone else is quietly keeping alive. Last October we had six such guests in one week.",
     sections: [
@@ -134,7 +134,7 @@ export const BLOGS: Blog[] = [
     read: "5 min",
     title: "Packing for a Kaghan spring — a short list",
     excerpt: "Layers, boots, one book and the kind of small camera you'll actually carry. Everything else is here waiting.",
-    image: srv1.url,
+    image: blog4.url,
     intro:
       "Every spring we get the same email: what do we actually need to bring? Here, once and for all, is the honest answer — from a team that watches guests unpack (and repack) every week.",
     sections: [
@@ -168,7 +168,7 @@ export const BLOGS: Blog[] = [
     read: "9 min",
     title: "The old shepherd's path to Sharan Forest",
     excerpt: "A half-day trail few guests know about — deodar cathedrals, a hidden stream and, if you're lucky, a distant monal call.",
-    image: hero2.url,
+    image: blog5.url,
     intro:
       "The Sharan Forest is famous. The path we take to it is not. It leaves the main road about a kilometre before the usual trailhead and climbs, unmarked, through a stand of blue pine.",
     sections: [
@@ -200,7 +200,7 @@ export const BLOGS: Blog[] = [
     read: "4 min",
     title: "First snowfall — what the valley looks like from the terrace",
     excerpt: "A short letter, written the morning the valley disappeared under six inches of powder and everything at Oro went quiet.",
-    image: hero1.url,
+    image: blog6.url,
     intro:
       "It began sometime after 2 am. By six, when the kitchen team came in to light the ovens, the courtyard was already white and the deodars beyond the wall had turned into hunched, patient figures.",
     sections: [
@@ -227,7 +227,7 @@ export const BLOGS: Blog[] = [
     read: "6 min",
     title: "The kitchen garden in June — what's on the plate this week",
     excerpt: "Mint, sorrel, the first of the summer squashes, and a stubborn row of coriander that refuses to bolt. A quick tour of what our chef is picking each morning.",
-    image: room1.url,
+    image: blog7.url,
     intro:
       "Our kitchen garden is small — three raised beds along the south wall, a herb spiral by the kitchen door, and a narrow strip of squash and beans along the fence. In June, it earns its keep.",
     sections: [
@@ -253,7 +253,7 @@ export const BLOGS: Blog[] = [
     read: "12 min",
     title: "How we built the retreat — three winters, one stubborn stone wall",
     excerpt: "A long essay on what it actually takes to build a small hotel on a mountain — the timelines that lie, the local craftsmen who don't, and the wall we rebuilt three times.",
-    image: about.url,
+    image: blog8.url,
     intro:
       "When we first walked the site in the autumn of 2021, there was a stone hut, a spring, and a walnut tree. The plan, on paper, was two years. The reality was closer to four.",
     sections: [
@@ -289,7 +289,7 @@ export const BLOGS: Blog[] = [
     read: "11 min",
     title: "A short history of the Kaghan Valley",
     excerpt: "From the ancient Silk Road spurs to the Gujjar herders who still move up the slopes each summer — a compressed history for the curious guest.",
-    image: t1.url,
+    image: blog9.url,
     intro:
       "The Kaghan Valley has never been quite as remote as it feels. For at least a thousand years it has been a summer route — for herders, for traders, for the occasional army — moving between the plains of the Punjab and the high pastures of the Deosai.",
     sections: [
@@ -322,7 +322,7 @@ export const BLOGS: Blog[] = [
     read: "7 min",
     title: "Birds of the deodar forest — a field guide for the terrace",
     excerpt: "The ten birds you'll actually see from your window at Oro Shogran, in order of how often you'll see them.",
-    image: room2.url,
+    image: blog10.url,
     intro:
       "You do not have to walk far to see remarkable birds in the Kaghan Valley. Most of them will, given time, come to you. Here are the ten most common species around the retreat, ranked by frequency.",
     sections: [
@@ -354,7 +354,7 @@ export const BLOGS: Blog[] = [
     read: "5 min",
     title: "Chai at 4,000 metres — a recipe for the flask",
     excerpt: "The exact chai our jeep drivers make on the road to Lulusar Lake — cardamom-forward, faintly salty, and enough for four cold hands.",
-    image: room3.url,
+    image: blog11.url,
     intro:
       "There is a specific chai that emerges, always in a battered aluminium flask, halfway up the road to Lulusar. It is not fancy. It is exactly what the cold, the altitude, and the long drive require.",
     sections: [
@@ -381,7 +381,7 @@ export const BLOGS: Blog[] = [
     read: "9 min",
     title: "A quiet argument for slow travel",
     excerpt: "Why we ask guests to stay three nights, at least — and what actually happens on the third morning that does not happen on the first.",
-    image: t2.url,
+    image: blog12.url,
     intro:
       "Our minimum stay is three nights. This is not, primarily, a commercial decision. It is a hospitality one, and the longer we have run the retreat, the more convinced of it we have become.",
     sections: [
