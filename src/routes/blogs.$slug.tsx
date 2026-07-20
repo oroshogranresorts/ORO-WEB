@@ -153,7 +153,7 @@ function BlogDetail() {
       </section>
 
       {/* Body */}
-      <article className="mx-auto max-w-3xl px-6 py-24">
+      <article className="mx-auto max-w-3xl px-6 py-12 md:py-14">
         {/* Key takeaways */}
         {blog.takeaways && blog.takeaways.length > 0 && (
           <aside className="mb-14 border border-gold/25 bg-gold/[0.03] p-8">
@@ -219,7 +219,7 @@ function BlogDetail() {
 
         <div className="mt-14 space-y-14">
           {blog.sections.map((s: BlogSection, i: number) => (
-            <section key={s.heading} id={slugifyHeading(s.heading)} className="scroll-mt-24">
+            <section key={s.heading} id={slugifyHeading(s.heading)} className="scroll-mt-14 md:mt-12 md:mt-16">
               <div className="flex items-center gap-4">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-gold">
                   {String(i + 1).padStart(2, "0")}
@@ -244,7 +244,7 @@ function BlogDetail() {
 
         {/* Conclusion */}
         {blog.conclusion && blog.conclusion.length > 0 && (
-          <section className="mt-20 border-t border-gold/15 pt-14">
+          <section className="mt-12 md:mt-16 border-t border-gold/15 pt-14">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— In closing</p>
             <h2 className="mt-4 font-display text-3xl text-ivory sm:text-4xl">
               A last thought before you go
@@ -273,7 +273,7 @@ function BlogDetail() {
 
         {/* FAQ */}
         {blog.faqs && blog.faqs.length > 0 && (
-          <section className="mt-24 border-t border-gold/15 pt-14" id="faqs">
+          <section className="mt-14 md:mt-12 md:mt-16 border-t border-gold/15 pt-14" id="faqs">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Frequently asked</p>
             <h2 className="mt-4 font-display text-3xl text-ivory sm:text-4xl">
               Questions guests often ask
@@ -295,7 +295,7 @@ function BlogDetail() {
 
         {/* Further reading (curated by tag) */}
         {furtherReads.length > 0 && (
-          <section className="mt-20 border-t border-gold/15 pt-14">
+          <section className="mt-12 md:mt-16 border-t border-gold/15 pt-14">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Further reading</p>
             <h2 className="mt-4 font-display text-3xl text-ivory sm:text-4xl">
               If you liked this piece
@@ -336,7 +336,7 @@ function BlogDetail() {
         )}
 
         {/* Author card */}
-        <div className="mt-20 flex items-center gap-5 border-t border-gold/15 pt-10">
+        <div className="mt-12 md:mt-16 flex items-center gap-5 border-t border-gold/15 pt-10">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold/40 font-display text-xl text-gold">
             MK
           </div>
@@ -358,10 +358,10 @@ function BlogDetail() {
       </article>
 
       {/* Related */}
-      <section className="border-t border-gold/10 py-24">
+      <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Keep reading</p>
-          <h2 className="mt-4 font-display text-4xl text-ivory sm:text-5xl">More from the mountain</h2>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl text-ivory">More from the mountain</h2>
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <Link to="/blogs/$slug" params={{ slug: p.slug }} key={p.slug} className="group flex flex-col">
@@ -386,9 +386,9 @@ function BlogDetail() {
 function BlogNotFound() {
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-3xl px-6 py-32 text-center">
+      <section className="mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
         <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— 404</p>
-        <h1 className="mt-6 font-display text-5xl text-ivory">This story hasn't been written yet.</h1>
+        <h1 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl text-ivory">This story hasn't been written yet.</h1>
         <p className="mt-6 text-ivory/70">The post you were looking for is not on the shelf.</p>
         <Link to="/blogs" className="mt-10 inline-flex items-center gap-3 border border-gold/50 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-rich-black">
           ← All Blogs
@@ -401,8 +401,8 @@ function BlogNotFound() {
 function BlogError({ reset }: { reset: () => void }) {
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-3xl px-6 py-32 text-center">
-        <h1 className="font-display text-4xl text-ivory">Something went wrong loading this story.</h1>
+      <section className="mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
+        <h1 className="font-display text-3xl sm:text-4xl text-ivory">Something went wrong loading this story.</h1>
         <button onClick={reset} className="mt-8 border border-gold/50 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-rich-black">
           Try again
         </button>

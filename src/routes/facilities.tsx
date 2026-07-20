@@ -77,7 +77,7 @@ function Facilities() {
       />
 
       {/* Feature Experiences */}
-      <section className="py-24">
+      <section className="py-12 md:py-14">
         <div className="mx-auto max-w-7xl space-y-24 px-6">
           {EXPERIENCES.map((e, i) => (
             <div key={e.title} className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -86,8 +86,8 @@ function Facilities() {
                 <div className="absolute inset-0 ring-1 ring-inset ring-gold/10" />
               </div>
               <div>
-                <div className="font-display text-6xl leading-none text-gold/40">{e.n}</div>
-                <h3 className="mt-6 font-display text-4xl leading-tight text-ivory sm:text-5xl">{e.title}</h3>
+                <div className="font-display text-4xl sm:text-5xl md:text-6xl leading-none text-gold/40">{e.n}</div>
+                <h3 className="mt-6 font-display text-3xl sm:text-4xl leading-tight text-ivory md:text-5xl">{e.title}</h3>
                 <p className="mt-6 max-w-md text-base font-light leading-relaxed text-ivory/70">{e.copy}</p>
               </div>
             </div>
@@ -96,15 +96,15 @@ function Facilities() {
       </section>
 
       {/* FACILITIES GRID */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Every Detail</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
               Nine quiet<span className="italic text-gold"> comforts.</span>
             </h2>
           </div>
-          <div className="mt-20 grid gap-y-14 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 md:mt-16 grid gap-y-14 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
             {FACILITIES.map((f, i) => (
               <div key={f.title} className="border-t border-gold/20 pt-6">
                 <div className="font-display text-2xl text-gold/50">{String(i + 1).padStart(2, "0")}</div>
@@ -117,13 +117,13 @@ function Facilities() {
       </section>
 
       {/* A DAY AT ORO */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— A Day at Oro</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">The valley, hour by hour.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">The valley, hour by hour.</h2>
           </div>
-          <div className="mt-20 space-y-8">
+          <div className="mt-12 md:mt-16 space-y-8">
             {DAY.map((d) => (
               <div key={d.t} className="grid grid-cols-[80px_1fr] gap-8 border-t border-gold/15 pt-6 sm:grid-cols-[120px_1fr]">
                 <div className="font-display text-2xl text-gold">{d.t}</div>
@@ -141,8 +141,8 @@ function Facilities() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
-        <div className="relative mx-auto max-w-3xl px-6 py-32 text-center">
-          <h2 className="font-display text-5xl leading-[1.05] text-ivory">Plan your stay.</h2>
+        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Plan your stay.</h2>
           <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
             Contact Us →
           </Link>

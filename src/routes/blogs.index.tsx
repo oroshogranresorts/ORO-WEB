@@ -66,7 +66,7 @@ function Blogs() {
       />
 
       {/* FEATURED */}
-      <section className="py-24">
+      <section className="py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Featured story</p>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
@@ -78,7 +78,7 @@ function Blogs() {
               <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.3em] text-ivory/50">
                 <span>{featured.date}</span><span className="text-gold">·</span><span>{featured.read} read</span>
               </div>
-              <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">{featured.title}</h2>
+              <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">{featured.title}</h2>
               <p className="mt-6 text-lg font-light leading-relaxed text-ivory/75">{featured.excerpt}</p>
               <div className="mt-8 text-sm text-ivory/60">By <span className="text-gold">{AUTHOR}</span></div>
               <Link to="/blogs/$slug" params={{ slug: featured.slug }} className="mt-8 inline-flex w-fit items-center gap-3 border border-gold/50 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold transition-all hover:bg-gold hover:text-rich-black">
@@ -90,9 +90,9 @@ function Blogs() {
       </section>
 
       {/* GRID */}
-      <section className="border-t border-gold/10 py-24">
+      <section className="border-t border-gold/10 py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-display text-4xl text-ivory sm:text-5xl">More from the blogs</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-ivory">More from the blogs</h2>
 
           <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((p) => (

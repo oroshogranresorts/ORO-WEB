@@ -94,12 +94,12 @@ function Contact() {
       />
 
       {/* CONTACT + FORM */}
-      <section className="py-24">
+      <section className="py-12 md:py-14">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:gap-24">
           {/* Contact details */}
           <aside className="lg:col-span-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Reach the desk</p>
-            <h2 className="mt-6 font-display text-4xl leading-[1.05] text-ivory">A warm line, always answered.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl leading-[1.05] text-ivory">A warm line, always answered.</h2>
 
             <div className="mt-10 space-y-8 text-sm">
               <div>
@@ -222,7 +222,7 @@ function Contact() {
 
       {/* MAP */}
       <section className="border-t border-gold/10">
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mx-auto max-w-7xl px-6 py-10 md:py-14">
           <div className="relative aspect-[16/9] w-full overflow-hidden border border-gold/15">
             <iframe
               title="Oro Shogran location"
@@ -235,11 +235,11 @@ function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-gold/10 py-32">
+      <section className="border-t border-gold/10 py-14 md:py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Before you write</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.05] text-ivory">Frequently asked.</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Frequently asked.</h2>
           </div>
           <div className="mt-16 divide-y divide-gold/15 border-y border-gold/15">
             {FAQ.map((f) => (

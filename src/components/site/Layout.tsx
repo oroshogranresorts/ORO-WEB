@@ -290,7 +290,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       {/* Footer */}
       <footer className="border-t border-gold/15 bg-rich-black">
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-4">
@@ -301,7 +301,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   height={56}
                   className="h-14 w-14 object-contain"
                 />
-                <span className="font-display text-4xl leading-tight text-ivory">
+                <span className="font-display text-3xl sm:text-4xl leading-tight text-ivory">
                   Oro <span className="text-gold">Shogran</span>
                 </span>
               </Link>
@@ -373,7 +373,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="mt-24 flex flex-col items-start justify-between gap-4 border-t border-gold/15 pt-8 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40 sm:flex-row sm:items-center">
+          <div className="mt-14 md:mt-12 md:mt-16 flex flex-col items-start justify-between gap-4 border-t border-gold/15 pt-8 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40 sm:flex-row sm:items-center">
             <div>© {year} All Rights Reserved · Oro Shogran</div>
             <div className="flex gap-6">
               <Link to="/" className="hover:text-gold">Privacy</Link>

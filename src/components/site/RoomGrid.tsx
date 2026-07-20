@@ -2,7 +2,7 @@ import { type RoomListing } from "@/lib/room-listings";
 
 export function RoomGrid({ rooms, eyebrow }: { rooms: RoomListing[]; eyebrow: string }) {
   return (
-    <section className="py-24">
+    <section className="py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— {eyebrow}</p>
         <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
