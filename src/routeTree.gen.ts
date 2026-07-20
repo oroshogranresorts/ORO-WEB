@@ -16,6 +16,7 @@ import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
+import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
 const RoomsRoute = RoomsRouteImport.update({
@@ -53,6 +54,11 @@ const RoomsLuxuryRoute = RoomsLuxuryRouteImport.update({
   path: '/luxury',
   getParentRoute: () => RoomsRoute,
 } as any)
+const RoomsDeluxeRoute = RoomsDeluxeRouteImport.update({
+  id: '/deluxe',
+  path: '/deluxe',
+  getParentRoute: () => RoomsRoute,
+} as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/facilities': typeof FacilitiesRoute
   '/rooms': typeof RoomsRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
+    | '/rooms/deluxe'
     | '/rooms/luxury'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
+    | '/rooms/deluxe'
     | '/rooms/luxury'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/rooms'
     | '/blogs/$slug'
+    | '/rooms/deluxe'
     | '/rooms/luxury'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomsLuxuryRouteImport
       parentRoute: typeof RoomsRoute
     }
+    '/rooms/deluxe': {
+      id: '/rooms/deluxe'
+      path: '/deluxe'
+      fullPath: '/rooms/deluxe'
+      preLoaderRoute: typeof RoomsDeluxeRouteImport
+      parentRoute: typeof RoomsRoute
+    }
     '/blogs/$slug': {
       id: '/blogs/$slug'
       path: '/$slug'
@@ -204,10 +223,12 @@ const BlogsRouteChildren: BlogsRouteChildren = {
 const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 
 interface RoomsRouteChildren {
+  RoomsDeluxeRoute: typeof RoomsDeluxeRoute
   RoomsLuxuryRoute: typeof RoomsLuxuryRoute
 }
 
 const RoomsRouteChildren: RoomsRouteChildren = {
+  RoomsDeluxeRoute: RoomsDeluxeRoute,
   RoomsLuxuryRoute: RoomsLuxuryRoute,
 }
 
