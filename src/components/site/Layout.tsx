@@ -244,9 +244,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <div className="font-display text-4xl leading-tight text-ivory">
-                Oro <span className="text-gold">Shogran</span>
-              </div>
+              <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-4">
+                <img
+                  src={oroIconAsset.url}
+                  alt="Oro Shogran"
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 object-contain"
+                />
+                <span className="font-display text-4xl leading-tight text-ivory">
+                  Oro <span className="text-gold">Shogran</span>
+                </span>
+              </Link>
               <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-ivory/60">
                 A serene mountain escape offering cozy stays, breathtaking
                 views and warm hospitality in the heart of Shogran, Kaghan
