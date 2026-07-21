@@ -178,7 +178,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-gold/10 bg-rich-black/85 backdrop-blur-md">
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 md:grid-cols-3">
-          <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-3">
+          <Link to="/" aria-label="Oro Shogran — home" className="no-shine inline-flex items-center gap-3">
             <img
               src={oroIconAsset.url}
               alt="Oro Shogran"
@@ -293,7 +293,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <Link to="/" aria-label="Oro Shogran — home" className="inline-flex items-center gap-4">
+              <Link to="/" aria-label="Oro Shogran — home" className="no-shine inline-flex items-center gap-4">
                 <img
                   src={oroIconAsset.url}
                   alt="Oro Shogran"
