@@ -146,9 +146,9 @@ export const Route = createFileRoute("/")({
 });
 
 const SUITES = [
-  { tag: "01 — Signature", name: "Luxury Family Rooms", img: room1Asset.url, beds: "2 Beds", sqm: "48 sqm", view: "Motorcycle Parking", price: "₨ 22,500", copy: "Warm timber, hand-loom linens and morning light drawn through the deodars." },
-  { tag: "02 — Residence", name: "Deluxe Family Suit", img: room2Asset.url, beds: "2 Beds", sqm: "50 sqm", view: "Motorcycle Parking", price: "₨ 30,500", copy: "A cliffside residence — fireplace, oak floors and a wall of glass framing the snowline." },
-  { tag: "03 — Retreat", name: "Deluxe Family Rooms", img: room3Asset.url, beds: "2 Beds", sqm: "40 sqm", view: "Car Parking", price: "₨ 18,500", copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya." },
+  { tag: "01 — Signature", name: "Luxury Family Rooms", to: "/rooms/luxury" as const, img: room1Asset.url, beds: "2 Beds", sqm: "48 sqm", view: "Motorcycle Parking", price: "₨ 22,500", copy: "Warm timber, hand-loom linens and morning light drawn through the deodars." },
+  { tag: "02 — Residence", name: "Deluxe Family Suit", to: "/rooms/deluxe" as const, img: room2Asset.url, beds: "2 Beds", sqm: "50 sqm", view: "Motorcycle Parking", price: "₨ 30,500", copy: "A cliffside residence — fireplace, oak floors and a wall of glass framing the snowline." },
+  { tag: "03 — Retreat", name: "Deluxe Family Rooms", to: "/rooms/deluxe" as const, img: room3Asset.url, beds: "2 Beds", sqm: "40 sqm", view: "Car Parking", price: "₨ 18,500", copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya." },
 ];
 
 const TESTIMONIALS = [
