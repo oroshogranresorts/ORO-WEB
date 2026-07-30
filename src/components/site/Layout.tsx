@@ -177,7 +177,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-gold/10 bg-rich-black/85 backdrop-blur-md">
-        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 md:grid-cols-[auto_minmax(0,1fr)_auto]">
           <Link to="/" aria-label="Oro Shogran — home" className="no-shine inline-flex items-center gap-3">
             <img
               src={oroIconAsset.url}
@@ -190,7 +190,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               Oro <span className="text-gold">Shogran</span>
             </span>
           </Link>
-          <nav className="hidden items-center justify-center gap-8 md:flex">
+          <nav className="relative z-10 hidden items-center justify-center gap-6 md:flex lg:gap-8">
             {NAV.map((n) => (
               n.children ? (
                 <div key={n.to} className="group relative">
