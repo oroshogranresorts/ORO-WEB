@@ -340,23 +340,14 @@ function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Guest Feedback</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">Testimonials</h2>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory lg:text-6xl">Google Reviews</h2>
+            <p className="mt-5 text-sm font-light leading-relaxed text-ivory/60">
+              Verbatim reviews from guests who stayed at ORO Shogran.
+            </p>
           </div>
-          <div className="mt-12 md:mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {TESTIMONIALS.map((t, i) => (
-              <figure key={t.name + i} className="relative border border-gold/15 bg-rich-black/60 p-8 transition-colors hover:border-gold/40">
-                <div className="flex items-center gap-3">
-                  <img src={t.img} alt={t.name} className="h-12 w-12 rounded-full object-cover ring-1 ring-gold/30" loading="lazy" />
-                  <div>
-                    <div className="text-sm font-medium text-gold">{t.name}</div>
-                    <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.3em] text-ivory/50">{t.from}</div>
-                  </div>
-                </div>
-                <div className="mt-6 font-display text-3xl sm:text-4xl leading-none text-gold/60">&ldquo;</div>
-                <blockquote className="mt-2 text-sm font-light leading-[1.7] text-ivory/80">{t.quote}</blockquote>
-              </figure>
-            ))}
-          </div>
+        </div>
+        <div className="mt-12 md:mt-16">
+          <ReviewsMarquee />
         </div>
       </section>
 
