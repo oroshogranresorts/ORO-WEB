@@ -68,6 +68,7 @@ function TiltImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 import { SiteLayout } from "@/components/site/Layout";
+import { ReviewsMarquee } from "@/components/site/ReviewsMarquee";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
