@@ -146,9 +146,9 @@ export const Route = createFileRoute("/")({
 });
 
 const SUITES = [
-  { tag: "01 — Signature", name: "Luxury Family Rooms", img: room1Asset.url, beds: "2 Beds", sqm: "48 sqm", view: "Motorcycle Parking", price: "₨ 22,500", copy: "Warm timber, hand-loom linens and morning light drawn through the deodars." },
-  { tag: "02 — Residence", name: "Deluxe Family Suit", img: room2Asset.url, beds: "2 Beds", sqm: "50 sqm", view: "Motorcycle Parking", price: "₨ 30,500", copy: "A cliffside residence — fireplace, oak floors and a wall of glass framing the snowline." },
-  { tag: "03 — Retreat", name: "Deluxe Family Rooms", img: room3Asset.url, beds: "2 Beds", sqm: "40 sqm", view: "Car Parking", price: "₨ 18,500", copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya." },
+  { tag: "01 — Signature", name: "Luxury Family Rooms", to: "/rooms/luxury" as const, img: room1Asset.url, beds: "2 Beds", sqm: "48 sqm", view: "Motorcycle Parking", price: "₨ 22,500", copy: "Warm timber, hand-loom linens and morning light drawn through the deodars." },
+  { tag: "02 — Residence", name: "Deluxe Family Suit", to: "/rooms/deluxe" as const, img: room2Asset.url, beds: "2 Beds", sqm: "50 sqm", view: "Motorcycle Parking", price: "₨ 30,500", copy: "A cliffside residence — fireplace, oak floors and a wall of glass framing the snowline." },
+  { tag: "03 — Retreat", name: "Deluxe Family Rooms", to: "/rooms/deluxe" as const, img: room3Asset.url, beds: "2 Beds", sqm: "40 sqm", view: "Car Parking", price: "₨ 18,500", copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya." },
 ];
 
 const TESTIMONIALS = [
@@ -279,7 +279,7 @@ function Home() {
 
           <div className="mt-12 md:mt-16 grid gap-12 lg:grid-cols-3 lg:gap-8">
             {SUITES.map((s, i) => (
-              <article key={s.name} className={`group relative ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-16 md:mt-14 md:mt-12 md:mt-16" : ""}`}>
+              <Link key={s.name} to={s.to} aria-label={`${s.name} — view details`} className={`group relative block ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-16 md:mt-14 md:mt-12 md:mt-16" : ""}`}>
                 <div className="img-shine relative aspect-[4/5] overflow-hidden">
                   <img src={s.img} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-rich-black/80 via-transparent to-transparent" />
@@ -295,11 +295,11 @@ function Home() {
                     <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-ivory/50">From / night</div>
                     <div className="mt-1 font-display text-2xl text-gold">{s.price}</div>
                   </div>
-                  <Link to="/rooms" className="text-[10px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors hover:text-gold">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors group-hover:text-gold">
                     View →
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
