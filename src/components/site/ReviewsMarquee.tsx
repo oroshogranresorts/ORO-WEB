@@ -60,7 +60,7 @@ function ReviewCard({ r }: { r: GoogleReview }) {
           <path fill="#EA4335" d="M24 10.5c3.3 0 6.2 1.1 8.5 3.3l6.1-6.1C34.9 4.1 29.9 2 24 2 15.4 2 8 6.4 4.3 14l7.2 5.6C13.3 14.3 18.2 10.5 24 10.5z" />
         </svg>
       </div>
-      <blockquote className="mt-5 overflow-hidden text-sm font-light leading-[1.7] text-ivory/75">{r.text}</blockquote>
+      <blockquote className="mt-5 line-clamp-[7] text-sm font-light leading-[1.7] text-ivory/75">{r.text}</blockquote>
     </figure>
   );
 }
