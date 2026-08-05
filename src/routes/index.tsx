@@ -72,6 +72,9 @@ import { ReviewsMarquee } from "@/components/site/ReviewsMarquee";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero1Asset from "@/assets/oro/hero1.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
+import prop1Asset from "@/assets/oro/prop1.jpg.asset.json";
+import prop2Asset from "@/assets/oro/prop2.jpg.asset.json";
+import prop3Asset from "@/assets/oro/prop3.jpg.asset.json";
 import aboutAsset from "@/assets/oro/about.jpg.asset.json";
 import room1Asset from "@/assets/oro/room1.jpg.asset.json";
 import room2Asset from "@/assets/oro/room2.jpg.asset.json";
@@ -94,14 +97,14 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Luxury family hotel in Shogran, Kaghan Valley — mountain-view suites, bonfires and guided jeep tours to Siri Paye and Makra Peak." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { property: "og:image", content: hero1Asset.url },
+      { property: "og:image", content: prop1Asset.url },
       { name: "twitter:title", content: "Best Hotel in Shogran — Oro Shogran" },
       { name: "twitter:description", content: "Luxury family retreat in the Kaghan Valley — mountain-view suites, jeep tours and bonfires." },
-      { name: "twitter:image", content: hero1Asset.url },
+      { name: "twitter:image", content: prop1Asset.url },
     ],
     links: [
       { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: hero1Asset.url, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: prop1Asset.url, fetchpriority: "high" },
     ],
     scripts: [
       {
@@ -112,7 +115,7 @@ export const Route = createFileRoute("/")({
           "@id": "/#hotel",
           name: "Oro Shogran",
           description: "Best hotel in Shogran — a luxury family retreat in the Kaghan Valley, Khyber Pakhtunkhwa, Pakistan.",
-          image: [hero1Asset.url, hero2Asset.url, aboutAsset.url],
+          image: [prop1Asset.url, prop2Asset.url, prop3Asset.url],
           telephone: "+92-347-904-4301",
           priceRange: "₨18,500 – ₨30,500",
           address: {
@@ -160,7 +163,7 @@ const TESTIMONIALS = [
 ];
 
 function Home() {
-  const heroImages = [hero1Asset.url, hero2Asset.url, aboutAsset.url, srv1Asset.url, srv2Asset.url];
+  const heroImages = [prop1Asset.url, prop2Asset.url, prop3Asset.url];
   const [heroIdx, setHeroIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setHeroIdx((i) => (i + 1) % heroImages.length), 5000);
