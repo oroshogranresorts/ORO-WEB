@@ -49,12 +49,12 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
-            { "@type": "Question", name: "How do I reach Shogran?", acceptedAnswer: { "@type": "Answer", text: "Shogran is a ~7 hour drive from Islamabad via Balakot and Kiwai. The last stretch is a 45-minute jeep ride — we can arrange this from Kiwai on arrival." } },
-            { "@type": "Question", name: "Is the property open in winter?", acceptedAnswer: { "@type": "Answer", text: "Yes — we operate year-round. From late December through early March, the road may require a 4x4; we arrange transfers from Kiwai as part of a winter package." } },
-            { "@type": "Question", name: "Do you accept card payments?", acceptedAnswer: { "@type": "Answer", text: "We accept Visa and Mastercard, bank transfer and cash (PKR). A 30% deposit confirms your reservation; the balance is paid on departure." } },
-            { "@type": "Question", name: "What is your cancellation policy?", acceptedAnswer: { "@type": "Answer", text: "Full refund up to 14 days before arrival. 50% refund between 7 and 14 days. Non-refundable within 7 days — we're happy to move dates once, free of charge." } },
-            { "@type": "Question", name: "Do you welcome children?", acceptedAnswer: { "@type": "Answer", text: "Absolutely — our family rooms are built for it. High chairs, cribs and a simpler children's menu are all available on request." } },
-            { "@type": "Question", name: "Can you help arrange jeep tours?", acceptedAnswer: { "@type": "Answer", text: "Yes. Half-day and full-day tours to Siri Paye, Sharan Forest, Naran and Lake Saif ul Malook are arranged through our concierge, with vetted local drivers." } },
+            { "@type": "Question", name: "How do I reach Shogran?", acceptedAnswer: { "@type": "Answer", text: "Shogran is a scenic drive from Islamabad via Hazara Motorway (M-15), Balakot, and Kiwai. The final leg from Kiwai to Shogran is accessible via 4x4 jeep, and our team can assist with coordinating jeep transfers upon your arrival at Kiwai." } },
+            { "@type": "Question", name: "Is the property open in winter?", acceptedAnswer: { "@type": "Answer", text: "Yes — we operate year-round. During snowy winter months (December through March), road access requires 4x4 vehicles, and our team is ready to assist with winter transport arrangements from Kiwai." } },
+            { "@type": "Question", name: "What payment methods do you accept?", acceptedAnswer: { "@type": "Answer", text: "Please contact ORO SHOGRAN directly for available payment options, bank transfer details, and booking confirmation." } },
+            { "@type": "Question", name: "What is your cancellation policy?", acceptedAnswer: { "@type": "Answer", text: "Free cancellation is available up to 48 hours before your scheduled check-in date for bookings with eligible advance payment. Cancellations made within 48 hours of check-in will forfeit the advance deposit. In case of a no-show, 100% of the advance is non-refundable. Eligible refunds are processed within 5 to 7 working days." } },
+            { "@type": "Question", name: "Do you welcome children?", acceptedAnswer: { "@type": "Answer", text: "Absolutely — Oro Shogran is a dedicated family hotel designed to accommodate families with children comfortably." } },
+            { "@type": "Question", name: "Can you help arrange jeep tours?", acceptedAnswer: { "@type": "Answer", text: "Yes. Jeep excursions to Siri Paye Meadows, Sharan Forest, and surrounding scenic spots can be coordinated through our front desk with trusted local drivers." } },
           ],
         }),
       },
@@ -75,12 +75,12 @@ export const Route = createFileRoute("/contact")({
 });
 
 const FAQ = [
-  { q: "How do I reach Shogran?", a: "Shogran is a ~7 hour drive from Islamabad via Balakot and Kiwai. The last stretch is a 45-minute jeep ride — we can arrange this from Kiwai on arrival." },
-  { q: "Is the property open in winter?", a: "Yes — we operate year-round. From late December through early March, the road may require a 4x4; we arrange transfers from Kiwai as part of a winter package." },
-  { q: "Do you accept card payments?", a: "We accept Visa and Mastercard, bank transfer and cash (PKR). A 30% deposit confirms your reservation; the balance is paid on departure." },
-  { q: "What is your cancellation policy?", a: "Full refund up to 14 days before arrival. 50% refund between 7 and 14 days. Non-refundable within 7 days — we're happy to move dates once, free of charge." },
-  { q: "Do you welcome children?", a: "Absolutely — our family rooms are built for it. High chairs, cribs and a simpler children's menu are all available on request." },
-  { q: "Can you help arrange jeep tours?", a: "Yes. Half-day and full-day tours to Siri Paye, Sharan Forest, Naran and Lake Saif ul Malook are arranged through our concierge, with vetted local drivers." },
+  { q: "How do I reach Shogran?", a: "Shogran is a scenic drive from Islamabad via Hazara Motorway (M-15), Balakot, and Kiwai. The final leg from Kiwai to Shogran is accessible via 4x4 jeep, and our team can assist with coordinating jeep transfers upon your arrival at Kiwai." },
+  { q: "Is the property open in winter?", a: "Yes — we operate year-round. During snowy winter months (December through March), road access requires 4x4 vehicles, and our team is ready to assist with winter transport arrangements from Kiwai." },
+  { q: "What payment methods do you accept?", a: "Please contact ORO SHOGRAN directly for available payment options, bank transfer details, and booking confirmation." },
+  { q: "What is your cancellation policy?", a: "Free cancellation is available up to 48 hours before your scheduled check-in date for bookings with eligible advance payment. Cancellations made within 48 hours of check-in will forfeit the advance deposit. In case of a no-show, 100% of the advance is non-refundable. Eligible refunds are processed within 5 to 7 working days." },
+  { q: "Do you welcome children?", a: "Absolutely — Oro Shogran is a dedicated family hotel designed to accommodate families with children comfortably." },
+  { q: "Can you help arrange jeep tours?", a: "Yes. Jeep excursions to Siri Paye Meadows, Sharan Forest, and surrounding scenic spots can be coordinated through our front desk with trusted local drivers." },
 ];
 
 function Contact() {
@@ -202,9 +202,9 @@ function Contact() {
                   <label className="block sm:col-span-2">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Room preference</span>
                     <select name="room" className="mt-2 block w-full border-b border-gold/25 bg-transparent py-3 text-sm text-ivory focus:border-gold focus:outline-none">
-                      <option className="bg-rich-black">Luxury Family Rooms</option>
-                      <option className="bg-rich-black">Deluxe Family Suit</option>
-                      <option className="bg-rich-black">Deluxe Family Rooms</option>
+                      <option className="bg-rich-black">Luxury Room</option>
+                      <option className="bg-rich-black">Deluxe Family Suite</option>
+                      <option className="bg-rich-black">Deluxe Family Room</option>
                       <option className="bg-rich-black">Let us recommend</option>
                     </select>
                   </label>

@@ -133,9 +133,9 @@ export const Route = createFileRoute("/")({
           starRating: { "@type": "Rating", ratingValue: "4" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.7", reviewCount: "184", bestRating: "5", worstRating: "1" },
           makesOffer: [
-            { "@type": "Offer", name: "Luxury Family Rooms", price: "22500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/luxury", availability: "https://schema.org/InStock" },
-            { "@type": "Offer", name: "Deluxe Family Suit", price: "30500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
-            { "@type": "Offer", name: "Deluxe Family Rooms", price: "18500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Luxury Room", price: "12500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/luxury", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Deluxe Family Suite", price: "26500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Deluxe Family Rooms", price: "12500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
           ],
         }),
       },
@@ -155,9 +155,9 @@ export const Route = createFileRoute("/")({
 });
 
 const SUITES = [
-  { tag: "01 — Signature", name: "Luxury Family Rooms", to: "/rooms/luxury" as const, img: room1Asset.url, beds: "2 Beds", sqm: "48 sqm", view: "Motorcycle Parking", price: "₨ 22,500", copy: "Warm timber, hand-loom linens and morning light drawn through the deodars." },
-  { tag: "02 — Residence", name: "Deluxe Family Suit", to: "/rooms/deluxe" as const, img: room2Asset.url, beds: "2 Beds", sqm: "50 sqm", view: "Motorcycle Parking", price: "₨ 30,500", copy: "A cliffside residence — fireplace, oak floors and a wall of glass framing the snowline." },
-  { tag: "03 — Retreat", name: "Deluxe Family Rooms", to: "/rooms/deluxe" as const, img: room3Asset.url, beds: "2 Beds", sqm: "40 sqm", view: "Car Parking", price: "₨ 18,500", copy: "Walnut walls, a low platform bed and a single quiet window onto the Himalaya." },
+  { tag: "01 — Featured", name: "Luxury Room", to: "/rooms/luxury" as const, img: "/oro/room-deluxe-master-1.jpg", beds: "King + Sofa Bed", sqm: "Spacious", view: "Car Parking", price: "₨ 12,500", copy: "Private balcony with mountain views, comfortable bedding, and dedicated service." },
+  { tag: "02 — Family Suite", name: "Deluxe Family Suite", to: "/rooms/deluxe" as const, img: "/oro/room-deluxe-suite-1.jpg", beds: "Multiple Beds", sqm: "Family-friendly", view: "Car Parking", price: "₨ 26,500", copy: "Spacious family suite with attached modern bath, scenic valley surroundings and peaceful atmosphere." },
+  { tag: "03 — Standard", name: "Deluxe Family Rooms", to: "/rooms/deluxe" as const, img: "/oro/room-four-seater-1.jpg", beds: "Family Bedding", sqm: "Comfortable", view: "Car Parking", price: "₨ 12,500", copy: "Comfortable rooms with scenic mountain views, clean interiors, and warm hospitality." },
 ];
 
 const TESTIMONIALS = [

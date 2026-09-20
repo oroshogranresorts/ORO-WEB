@@ -78,10 +78,10 @@ const RAW_BLOGS: Blog[] = [
     date: "April 30, 2026",
     read: "6 min",
     title: "Trout, brown butter, walnut — the valley on a plate",
-    excerpt: "Our chef Kamran on the three-ingredient dish that opens most of our dinners, and the small stream that supplies it.",
+    excerpt: "Our head chef on the three-ingredient dish that opens most of our dinners, and the small stream that supplies it.",
     image: blog2.url,
     intro:
-      "Kamran learnt this from his grandmother, who learnt it from a Kashmiri cook in the 1960s. It is, essentially, a lesson in restraint: three ingredients, one pan, and a willingness to let the fish speak.",
+      "Our kitchen team crafts this traditional valley specialty with utmost restraint: three fresh ingredients, one pan, and a willingness to let the fresh mountain trout speak.",
     sections: [
       {
         heading: "The fish",
@@ -775,10 +775,10 @@ const TAG_DEFAULTS: Record<
         ],
       },
       {
-        heading: "The people who make this",
+        heading: "The team behind Oro",
         body: [
-          "Kamran in the kitchen. Ismail on the night watch. Nazir at the wheel of the jeep. Bashir on the wall. The retreat is, in the end, the sum of a small number of people who have decided to be very good at a small number of things.",
-          "If any of them is ever kind to you during your stay — and they will be — please tell us. Their pride in this work is one of the quiet reasons the place holds together.",
+          "Our kitchen team in the morning light, dedicated front desk hosts, and trusted local drivers on the mountain road. The retreat is, in the end, the sum of a hardworking team who take genuine pride in caring for your family.",
+          "If any of them is ever kind to you during your stay — and they will be — please tell us. Their warmth and hospitality are the true spirit of Oro Shogran.",
         ],
       },
       {

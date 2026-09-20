@@ -2,18 +2,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 import aboutAsset from "@/assets/oro/about.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
-import srv1Asset from "@/assets/oro/srv1.jpg.asset.json";
-import srv3Asset from "@/assets/oro/srv3.jpg.asset.json";
+import prop1Asset from "@/assets/oro/prop1.jpg.asset.json";
+import prop2Asset from "@/assets/oro/prop2.jpg.asset.json";
+import srv2Asset from "@/assets/oro/srv2.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Oro Shogran | Luxury Hotel in Shogran, Kaghan" },
-      { name: "description", content: "Meet the family behind Oro Shogran — a luxury hotel in Shogran, Kaghan Valley, built on quiet hospitality, local craft and love of the Himalayan slopes." },
-      { name: "keywords", content: "About Oro Shogran, Luxury Hotel in Shogran, Family Hotel in Shogran, Kaghan Valley hotel story, Shogran resort owners" },
-      { property: "og:title", content: "About Oro Shogran — Luxury Family Hotel in Shogran" },
-      { property: "og:description", content: "A family-run luxury hotel in Shogran, Kaghan Valley — quiet hospitality, local craft and warmth on the Himalayan slopes." },
-      { property: "og:type", content: "article" },
+      { title: "About Oro Shogran | Boutique Mountain Resort in Kaghan Valley" },
+      { name: "description", content: "Learn about ORO SHOGRAN — a boutique mountain resort in Shogran, Kaghan Valley offering comfortable stays, mountain views, and warm hospitality." },
+      { name: "keywords", content: "About Oro Shogran, Hotel in Shogran, Boutique Resort Shogran, Kaghan Valley hotel, Shogran Accommodation" },
+      { property: "og:title", content: "About Oro Shogran — Boutique Resort in Shogran" },
+      { property: "og:description", content: "A boutique mountain resort in Shogran, Kaghan Valley — comfortable stays, family spaces and peaceful mountain surroundings." },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/about" },
       { property: "og:image", content: aboutAsset.url },
       { name: "twitter:image", content: aboutAsset.url },
@@ -27,15 +28,16 @@ export const Route = createFileRoute("/about")({
           "@type": "AboutPage",
           name: "About Oro Shogran",
           url: "https://www.oroshogran.com/about",
-          description: "The story, philosophy and team behind Oro Shogran — a luxury family hotel in Shogran, Kaghan Valley.",
+          description: "About ORO SHOGRAN — a boutique mountain resort in Shogran, Kaghan Valley.",
           mainEntity: {
-            "@type": "LodgingBusiness",
+            "@type": "Hotel",
             name: "Oro Shogran",
             url: "https://www.oroshogran.com/",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Shogran",
               addressRegion: "Khyber Pakhtunkhwa",
+              postalCode: "21210",
               addressCountry: "PK",
             },
           },
@@ -57,77 +59,73 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const VALUES = [
-  { n: "01", title: "Rooted in the Valley", copy: "Every stone, timber beam and hand-woven throw was sourced within a day's walk of Shogran. Our home is built from the mountain that surrounds it." },
-  { n: "02", title: "Quiet Hospitality", copy: "Our team greets you by name, remembers how you take your chai, and disappears when you want the fireplace and the silence to yourselves." },
-  { n: "03", title: "Slow, Local, Honest", copy: "Trout from the Kunhar, honey from Naran's hives, apples pressed the morning you arrive — the pantry is a love letter to the region." },
-  { n: "04", title: "Guardians of the Land", copy: "We plant more deodars than we cut, filter every drop of grey-water, and pack out every visitor's trace so the next family sees what we did." },
-];
-
-const TIMELINE = [
-  { y: "2018", t: "A dream is drawn on a napkin", c: "Two brothers, one sketchbook and a spring hillside outside Shogran. The first plans for a warm, honest lodge take shape." },
-  { y: "2019", t: "Oro Shogran opens its doors", c: "Six rooms, a wood stove and a single copper kettle. Our first guests arrive on horseback in a spring hailstorm." },
-  { y: "2021", t: "The Deluxe wing", c: "We double the property and build the glass-walled dining room facing the snowline." },
-  { y: "2023", t: "The Journal begins", c: "We start documenting the valley — trails, artisans, wild recipes — and share it with every guest." },
-  { y: "2026", t: "Today", c: "Three suite categories, a full-time naturalist on staff, and a valley we love more than the day we opened." },
+const PILLARS = [
+  { n: "01", title: "Comfort & Cleanliness", copy: "Clean, well-maintained rooms and comfortable bedding designed to provide a restful stay in the high mountains." },
+  { n: "02", title: "Warm Hospitality", copy: "Attentive front desk service, dependable 24/7 hot water, power backup, and assistance whenever you need it." },
+  { n: "03", title: "Mountain & Valley Views", copy: "Stunning alpine panoramas of Shogran and the surrounding peaks right from our property and terrace." },
+  { n: "04", title: "Memorable Stays", copy: "Peaceful environment, evening bonfires, delicious dining, and an ideal base to explore Siri Paye and Kaghan Valley." },
 ];
 
 function About() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Our Story"
-        title="A family retreat, "
-        italic="rooted in the mountain."
-        subtitle="Oro Shogran began as a quiet promise — to build a place in the Kaghan Valley where warmth, craft and the wildness of the Himalaya could meet under one roof."
+        eyebrow="About Oro Shogran"
+        title="Boutique mountain resort"
+        italic="in Kaghan Valley."
+        subtitle="Comfort, cleanliness, and peaceful mountain surroundings in the heart of Shogran."
         image={aboutAsset.url}
       />
 
-      {/* INTRO */}
-      <section className="py-14 md:py-14">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Philosophy</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
-              A house shaped by<span className="italic text-gold"> the valley itself.</span>
-            </h2>
-          </div>
-          <div className="space-y-6 text-base font-light leading-relaxed text-ivory/75 lg:col-span-7">
+      {/* INTRO STORY */}
+      <section className="py-14 md:py-16">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Who We Are</p>
+          <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-ivory">
+            About <span className="italic text-gold">ORO SHOGRAN</span>
+          </h2>
+          <div className="mt-8 space-y-6 text-base sm:text-lg font-light leading-relaxed text-ivory/80 text-left sm:text-center">
             <p>
-              We do not think of Oro Shogran as a hotel. It is a family home
-              that we happen to share with travellers — a house whose windows
-              are cut to frame Malika Parbat at dawn, whose fires are lit before
-              you arrive, and whose kitchen answers to the season rather than
-              the menu card.
+              ORO SHOGRAN is a boutique mountain resort located in the beautiful hills of Shogran, Kaghan Valley, Khyber Pakhtunkhwa.
             </p>
             <p>
-              Every corner of the property is designed to slow you down: a
-              reading nook tucked beneath the staircase, a copper bath that
-              looks straight into the pines, a terrace where the only schedule
-              is when the light turns gold across the ridge.
-            </p>
-            <p>
-              We are a small, quietly obsessive team of eleven — a chef, a
-              naturalist, three housekeepers who could teach masterclasses in
-              linen, and a night watchman who knows every star above the
-              valley by name.
+              We offer comfortable accommodation, beautiful mountain surroundings, family-friendly spaces and a peaceful environment for guests looking to relax and enjoy the natural beauty of Shogran.
             </p>
           </div>
+
+          <div className="mt-12 rounded-xl border border-gold/20 bg-gold/[0.04] p-8 shadow-lg">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold">Our Focus Is Simple</p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-sm sm:text-base font-medium tracking-wide text-ivory">
+              <span>Comfort</span>
+              <span className="text-gold">•</span>
+              <span>Cleanliness</span>
+              <span className="text-gold">•</span>
+              <span>Hospitality</span>
+              <span className="text-gold">•</span>
+              <span>Mountain Views</span>
+              <span className="text-gold">•</span>
+              <span>Memorable Stays</span>
+            </div>
+          </div>
+
+          <p className="mt-10 text-base sm:text-lg font-light leading-relaxed text-ivory/80">
+            Whether you are travelling with family, friends or as a couple, ORO SHOGRAN provides a comfortable base to explore Shogran and the surrounding Kaghan Valley.
+          </p>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section className="border-t border-gold/10 py-14 md:py-14">
+      {/* PILLARS / VALUES */}
+      <section className="border-t border-gold/10 py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— What we believe</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Four quiet principles.</h2>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— What Guides Us</p>
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Our Core Commitments</h2>
           </div>
           <div className="mt-12 md:mt-16 grid gap-10 sm:grid-cols-2">
-            {VALUES.map((v) => (
+            {PILLARS.map((v) => (
               <div key={v.n} className="border-t border-gold/20 pt-6">
-                <div className="font-display text-2xl text-gold/50">{v.n}</div>
-                <h3 className="mt-3 font-display text-3xl text-ivory">{v.title}</h3>
+                <div className="font-display text-2xl text-gold/60">{v.n}</div>
+                <h3 className="mt-3 font-display text-2xl sm:text-3xl text-ivory">{v.title}</h3>
                 <p className="mt-4 text-base font-light leading-relaxed text-ivory/70">{v.copy}</p>
               </div>
             ))}
@@ -135,77 +133,38 @@ function About() {
         </div>
       </section>
 
-      {/* SPLIT IMAGE STORY */}
-      <section className="border-t border-gold/10 py-14 md:py-14">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
-          <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={srv3Asset.url} alt="Kitchen" className="h-full w-full object-cover" loading="lazy" />
+      {/* PROPERTY PHOTO SHOWCASE */}
+      <section className="border-t border-gold/10 py-14 md:py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Property</p>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl text-ivory">Serenity in the Pines</h2>
           </div>
-          <div className="flex flex-col justify-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Table</p>
-            <h3 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
-              Every plate begins<span className="italic text-gold"> in the valley.</span>
-            </h3>
-            <p className="mt-8 text-base font-light leading-relaxed text-ivory/75">
-              Our chef Kamran walks the meadows most mornings before service — foraging morels in May, wild watercress from the streams, and the small purple berries that turn our late-summer sorbet.
-            </p>
-            <p className="mt-6 text-base font-light leading-relaxed text-ivory/75">
-              Breakfast is the only fixed meal. Everything after that is a conversation between what the mountain offered that day and what you feel like eating.
-            </p>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-16 md:mt-14 md:mt-12 md:mt-16 grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
-          <div className="order-2 flex flex-col justify-center lg:order-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— The Trails</p>
-            <h3 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
-              A naturalist on staff,<span className="italic text-gold"> a valley at your feet.</span>
-            </h3>
-            <p className="mt-8 text-base font-light leading-relaxed text-ivory/75">
-              Zain, our resident naturalist, has spent fourteen years mapping the ridgelines between Shogran and Siri Paye. He walks with guests who want the geology and the folklore, and quietly stays behind when you'd rather have the trail to yourself.
-            </p>
-            <p className="mt-6 text-base font-light leading-relaxed text-ivory/75">
-              Ask him about the Himalayan monal at sunrise — you'll never look at a bird the same way again.
-            </p>
-          </div>
-          <div className="relative order-1 aspect-[4/5] overflow-hidden lg:order-2">
-            <img src={srv1Asset.url} alt="Naturalist" className="h-full w-full object-cover" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      {/* TIMELINE */}
-      <section className="border-t border-gold/10 py-14 md:py-14">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— A short history</p>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Eight years, one valley.</h2>
-          </div>
-          <div className="mt-12 md:mt-16 space-y-14">
-            {TIMELINE.map((e) => (
-              <div key={e.y} className="grid grid-cols-[80px_1fr] gap-8 border-t border-gold/15 pt-8 sm:grid-cols-[120px_1fr]">
-                <div className="font-display text-3xl text-gold">{e.y}</div>
-                <div>
-                  <h3 className="font-display text-2xl text-ivory">{e.t}</h3>
-                  <p className="mt-3 text-base font-light leading-relaxed text-ivory/70">{e.c}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-gold/15">
+              <img src={prop1Asset.url} alt="Oro Shogran exterior view" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-gold/15">
+              <img src={prop2Asset.url} alt="Oro Shogran surroundings" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-gold/15">
+              <img src={srv2Asset.url} alt="Evening bonfire at Oro Shogran" className="h-full w-full object-cover" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* TIMINGS */}
-      <section className="border-t border-gold/10 py-14 md:py-14">
+      <section className="border-t border-gold/10 py-14 md:py-16">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Our Timings For</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Operating Hours</p>
             <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
-              Oro <span className="italic text-gold">Shogran</span>
+              ORO <span className="italic text-gold">SHOGRAN</span>
             </h2>
-            <p className="mt-6 text-base font-light text-ivory/70">Open every day, all day — the mountain never closes.</p>
+            <p className="mt-6 text-base font-light text-ivory/70">24/7 Front Desk assistance throughout the year.</p>
           </div>
-          <ul className="mx-auto mt-16 max-w-xl divide-y divide-gold/15 border-y border-gold/15">
+          <ul className="mx-auto mt-12 max-w-xl divide-y divide-gold/15 border-y border-gold/15">
             {[
               "Monday",
               "Tuesday",
@@ -215,9 +174,9 @@ function About() {
               "Saturday",
               "Sunday",
             ].map((d) => (
-              <li key={d} className="flex items-center justify-between py-4 text-sm font-light text-ivory/80">
+              <li key={d} className="flex items-center justify-between py-3.5 text-sm font-light text-ivory/80">
                 <span className="font-medium uppercase tracking-[0.24em] text-ivory">{d}</span>
-                <span className="tracking-wide text-gold">12:00 AM – 11:59 PM</span>
+                <span className="tracking-wide text-gold">24 Hours (Open)</span>
               </li>
             ))}
           </ul>
@@ -228,9 +187,9 @@ function About() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
-        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Come and stay awhile.</h2>
-          <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Three suite categories, a fire always lit, and a valley that will change the pace of everything.</p>
+        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Plan Your Mountain Getaway.</h2>
+          <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Comfortable rooms, scenic views, and warm hospitality await you in Shogran.</p>
           <Link to="/rooms" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
             View Rooms →
           </Link>

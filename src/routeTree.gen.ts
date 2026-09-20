@@ -9,35 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as RoomsRouteImport } from './routes/rooms'
-import { Route as FacilitiesRouteImport } from './routes/facilities'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FacilitiesRouteImport } from './routes/facilities'
+import { Route as RoomsRouteImport } from './routes/rooms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
-import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
-import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
+import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoomsRoute = RoomsRouteImport.update({
-  id: '/rooms',
-  path: '/rooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FacilitiesRoute = FacilitiesRouteImport.update({
-  id: '/facilities',
-  path: '/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -45,9 +30,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitiesRoute = FacilitiesRouteImport.update({
+  id: '/facilities',
+  path: '/facilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoomsRoute = RoomsRouteImport.update({
+  id: '/rooms',
+  path: '/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsIndexRoute = BlogsIndexRouteImport.update({
@@ -55,20 +55,20 @@ const BlogsIndexRoute = BlogsIndexRouteImport.update({
   path: '/blogs/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RoomsLuxuryRoute = RoomsLuxuryRouteImport.update({
-  id: '/luxury',
-  path: '/luxury',
-  getParentRoute: () => RoomsRoute,
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/blogs/$slug',
+  path: '/blogs/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const RoomsDeluxeRoute = RoomsDeluxeRouteImport.update({
   id: '/deluxe',
   path: '/deluxe',
   getParentRoute: () => RoomsRoute,
 } as any)
-const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/blogs/$slug',
-  path: '/blogs/$slug',
-  getParentRoute: () => rootRouteImport,
+const RoomsLuxuryRoute = RoomsLuxuryRouteImport.update({
+  id: '/luxury',
+  path: '/luxury',
+  getParentRoute: () => RoomsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -160,32 +160,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rooms': {
-      id: '/rooms'
-      path: '/rooms'
-      fullPath: '/rooms'
-      preLoaderRoute: typeof RoomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/facilities': {
-      id: '/facilities'
-      path: '/facilities'
-      fullPath: '/facilities'
-      preLoaderRoute: typeof FacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -195,11 +174,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facilities': {
+      id: '/facilities'
+      path: '/facilities'
+      fullPath: '/facilities'
+      preLoaderRoute: typeof FacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rooms': {
+      id: '/rooms'
+      path: '/rooms'
+      fullPath: '/rooms'
+      preLoaderRoute: typeof RoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs/': {
@@ -209,12 +209,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/rooms/luxury': {
-      id: '/rooms/luxury'
-      path: '/luxury'
-      fullPath: '/rooms/luxury'
-      preLoaderRoute: typeof RoomsLuxuryRouteImport
-      parentRoute: typeof RoomsRoute
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/blogs/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/rooms/deluxe': {
       id: '/rooms/deluxe'
@@ -223,12 +223,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomsDeluxeRouteImport
       parentRoute: typeof RoomsRoute
     }
-    '/blogs/$slug': {
-      id: '/blogs/$slug'
-      path: '/blogs/$slug'
-      fullPath: '/blogs/$slug'
-      preLoaderRoute: typeof BlogsSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/rooms/luxury': {
+      id: '/rooms/luxury'
+      path: '/luxury'
+      fullPath: '/rooms/luxury'
+      preLoaderRoute: typeof RoomsLuxuryRouteImport
+      parentRoute: typeof RoomsRoute
     }
   }
 }
@@ -258,3 +258,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

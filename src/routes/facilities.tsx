@@ -38,31 +38,31 @@ export const Route = createFileRoute("/facilities")({
 });
 
 const EXPERIENCES = [
-  { n: "I", title: "Comfortable Stay & Warm Hospitality", img: srv1Asset.url, copy: "Well-furnished rooms with breathtaking views, clean interiors and modern amenities. Our small team greets you by name and remembers how you take your tea by the second morning." },
-  { n: "II", title: "Bonfire & Outdoor Evenings", img: srv2Asset.url, copy: "Cozy evenings under the stars — our bonfire is lit on request, weather permitting, with warm shawls, seasonal chai and, if you'd like, a local musician on the rabab." },
-  { n: "III", title: "Local Cuisine & Slow Dining", img: srv3Asset.url, copy: "Trout from the Kunhar, honey from Naran, and slow-cooked chapli kebabs over open flame. Our kitchen writes the day's menu the morning of, based on what the mountain has offered." },
-  { n: "IV", title: "Guided Jeep Tours", img: srv4Asset.url, copy: "Discover Siri Paye's alpine plateau, Sharan Forest and the upper Kaghan Valley with experienced local drivers. Half-day and full-day itineraries, private guide on request." },
+  { n: "I", title: "Comfortable Stay & Warm Hospitality", img: srv1Asset.url, copy: "Well-furnished rooms with breathtaking valley views, clean interiors, and genuine mountain hospitality to make your family feel at home." },
+  { n: "II", title: "Bonfire & Outdoor Evenings", img: srv2Asset.url, copy: "Cozy evenings under the stars — bonfire setups arranged on request (weather permitting) with warm tea and crisp pine air." },
+  { n: "III", title: "Fresh Local Cuisine & Dining", img: srv3Asset.url, copy: "Freshly prepared home-style meals, local trout, and traditional Pakistani favorites cooked fresh daily for our guests." },
+  { n: "IV", title: "Jeep Tours & Excursions", img: srv4Asset.url, copy: "Assistance with jeep arrangements for Siri Paye Meadows, Sharan Forest, and scenic viewpoints across Kaghan Valley with trusted local drivers." },
 ];
 
 const FACILITIES = [
-  { title: "Guided Tours & Excursions", copy: "Curated half-day and full-day itineraries to Siri Paye, Sharan Forest, Naran and Lake Saif ul Malook." },
-  { title: "Secure Parking", copy: "Covered on-site parking with 24/7 attendant for cars and motorcycles." },
-  { title: "In-Room Dining", copy: "A quiet knock, a hot meal — full-menu room service through the day and evening." },
-  { title: "24/7 Hot Water", copy: "Solar-boosted, gas-backed hot water — dependable in every season, including snowfall." },
-  { title: "High-Speed Internet", copy: "Fibre-backed valley Wi-Fi in every room and across the property, verified daily." },
-  { title: "Slow Breakfast", copy: "Fresh eggs, warm parathas, spiced chai and seasonal fruit — served until you are ready." },
-  { title: "Concierge & Trip Desk", copy: "Trail advice, jeep hire, local artisans and quiet spots the guidebooks miss." },
-  { title: "Laundry & Pressing", copy: "Same-day laundry, hand-pressed and folded — perfect for longer stays and hikes." },
-  { title: "Naturalist On Staff", copy: "Walks with our resident naturalist Zain — birds, geology and local folklore, at your pace." },
+  { title: "Jeep Tours & Excursions", copy: "Assistance with booking jeep trips to Siri Paye Meadows, Sharan Forest, and surrounding Kaghan Valley viewpoints." },
+  { title: "Secure On-Site Parking", copy: "Dedicated and secure on-site parking for guests traveling with cars and vehicles." },
+  { title: "Dining & Fresh Meals", copy: "Delicious home-style meals, local delicacies, and hot tea prepared fresh daily." },
+  { title: "24/7 Hot Water", copy: "Reliable hot water supply throughout your stay, essential for crisp mountain mornings and chilly nights." },
+  { title: "Free Wi-Fi", copy: "Complimentary wireless internet available across the hotel to keep you connected with loved ones." },
+  { title: "Standby Generator", copy: "Uninterrupted power backup ensuring continuous lighting and essential services during mountain outages." },
+  { title: "24/7 Front Desk", copy: "Warm local hospitality with round-the-clock desk support to assist with room needs, luggage, and travel guidance." },
+  { title: "Bonfire Nights", copy: "Cozy outdoor bonfire arrangements made upon request (weather permitting) under starlit skies." },
+  { title: "Outdoor Sitting Area", copy: "Spacious seating area with breathtaking panoramic views of Malika Parbat and lush pine forests." },
 ];
 
 const DAY = [
-  { t: "07:00", h: "Sunrise & first light chai", c: "Warm cardamom chai delivered to your door as the first light lands on Malika Parbat." },
-  { t: "08:30", h: "Slow breakfast on the terrace", c: "Cooked-to-order eggs, freshly-milled parathas, wildflower honey and a valley view." },
-  { t: "10:30", h: "Trail or jeep expedition", c: "Choose between a naturalist-led walk to the deodar ridge or a jeep up to Siri Paye." },
-  { t: "13:30", h: "Long lunch, valley-side", c: "Trout, mountain vegetables and slow-braised meats — served under the cedars." },
-  { t: "16:00", h: "Reading hour", c: "Return to the fireplace, a book from the library and the smell of woodsmoke." },
-  { t: "19:30", h: "Bonfire & dinner", c: "A four-course menu written that morning, followed by a fire under the stars." },
+  { t: "07:00", h: "Sunrise & Morning Chai", c: "Wake up to crisp pine air and fresh morning tea with panoramic mountain views." },
+  { t: "08:30", h: "Hearty Mountain Breakfast", c: "Enjoy fresh eggs, warm parathas, and hot tea before setting out for your daily adventure." },
+  { t: "10:30", h: "Jeep Excursion to Siri Paye", c: "Board a local 4x4 jeep for an unforgettable ride through alpine forests up to the Paye meadows." },
+  { t: "14:00", h: "Fresh Lunch & Valley Views", c: "Return to Shogran for freshly prepared lunch and relax on the hotel grounds." },
+  { t: "17:00", h: "Pine Walk & Evening Breeze", c: "Enjoy a relaxed stroll along Shogran's scenic pine trails as the afternoon cools." },
+  { t: "19:30", h: "Dinner & Evening Bonfire", c: "Savor a warm freshly cooked dinner followed by a relaxing bonfire under the stars on request." },
 ];
 
 function Facilities() {

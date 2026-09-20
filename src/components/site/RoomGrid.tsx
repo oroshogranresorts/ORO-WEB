@@ -18,7 +18,7 @@ export function RoomGrid({ rooms, eyebrow }: { rooms: RoomListing[]; eyebrow: st
                 <h3 className="font-display text-3xl leading-tight text-ivory transition-colors group-hover:text-gold">{r.name}</h3>
                 <p className="mt-4 text-sm font-light leading-relaxed text-ivory/70">{r.blurb}</p>
                 <div className="mt-6 flex items-center gap-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-ivory/60">
-                  <span>{r.beds} Beds</span>
+                  <span>{typeof r.beds === "number" ? `${r.beds} Beds` : r.beds}</span>
                   <span className="text-gold">·</span>
                   <span>{r.size}</span>
                 </div>

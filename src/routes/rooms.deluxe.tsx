@@ -7,11 +7,11 @@ import { RoomGrid } from "@/components/site/RoomGrid";
 export const Route = createFileRoute("/rooms/deluxe")({
   head: () => ({
     meta: [
-      { title: "Deluxe Rooms in Shogran | Oro Shogran Kaghan Valley" },
-      { name: "description", content: "Deluxe family rooms at Oro Shogran, a mountain hotel in Shogran, Kaghan Valley — cosy interiors, valley views and warm hospitality from ₨18,500 per night." },
-      { name: "keywords", content: "Deluxe Rooms Shogran, Hotel in Shogran, Family Hotel in Shogran, Shogran Accommodation, Hotels in Kaghan Valley, Hotels near Makra Peak" },
-      { property: "og:title", content: "Deluxe Rooms in Shogran — Oro Shogran" },
-      { property: "og:description", content: "Comfortable deluxe family rooms with balconies and Kaghan Valley views — from ₨18,500 per night at Oro Shogran." },
+      { title: "Deluxe Rooms & Suites in Shogran | Oro Shogran Kaghan Valley" },
+      { name: "description", content: "Deluxe family rooms and suites at Oro Shogran, Kaghan Valley — cosy interiors, valley views and warm hospitality from ₨12,500 per night." },
+      { name: "keywords", content: "Deluxe Rooms Shogran, Deluxe Family Suite Shogran, Hotel in Shogran, Family Hotel in Shogran, Shogran Accommodation, Hotels in Kaghan Valley" },
+      { property: "og:title", content: "Deluxe Rooms & Suites in Shogran — Oro Shogran" },
+      { property: "og:description", content: "Comfortable deluxe family rooms and suites with scenic Kaghan Valley views — from ₨12,500 per night at Oro Shogran." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/rooms/deluxe" },
       { property: "og:image", content: hero.url },
@@ -43,7 +43,7 @@ function DeluxeRooms() {
         eyebrow="Deluxe Rooms"
         title="Comfortable stays"
         italic="above the valley."
-        subtitle="Well-appointed rooms and family suites — three considered spaces, each with its own character."
+        subtitle="Well-appointed rooms and family suites — comfortable spaces for an unforgettable stay in Kaghan Valley."
         image={hero.url}
       />
       <RoomGrid rooms={ROOM_LISTINGS} eyebrow="Our Deluxe Rooms" />
