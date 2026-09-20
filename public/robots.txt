@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /lovable/
-
 Sitemap: https://www.oroshogran.com/sitemap.xml

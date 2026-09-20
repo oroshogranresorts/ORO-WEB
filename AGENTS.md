@@ -1,10 +1,12 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Oro Shogran Website Guidelines
+
+This project is the official website for **Oro Shogran**, a luxury hotel located in Shogran, Kaghan Valley.
+
+## Tech Stack
+- TanStack Start (SSR / File-based routing)
+- Vite + React + TypeScript
+- Tailwind CSS
+
+## Deployment
+- Deployed on Vercel via GitHub continuous deployment (`main` branch).
+- All canonical and Open Graph URLs must remain absolute HTTPS (`https://www.oroshogran.com/...`).
