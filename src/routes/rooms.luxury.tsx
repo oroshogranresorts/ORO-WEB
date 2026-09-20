@@ -15,8 +15,8 @@ export const Route = createFileRoute("/rooms/luxury")({
       { property: "og:description", content: "Luxury rooms with private balconies and Kaghan Valley views. Reserve at Oro Shogran." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/rooms/luxury" },
-      { property: "og:image", content: hero.url },
-      { name: "twitter:image", content: hero.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/rooms/luxury/1.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/rooms/luxury/1.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/rooms/luxury" }],
     scripts: [

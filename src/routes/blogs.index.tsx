@@ -13,8 +13,8 @@ export const Route = createFileRoute("/blogs/")({
       { property: "og:description", content: "Guides, recipes and journal entries from Shogran, Kaghan Valley — written from the mountain by our team." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/blogs" },
-      { property: "og:image", content: hero2Asset.url },
-      { name: "twitter:image", content: hero2Asset.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/hero2.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/hero2.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/blogs" }],
     scripts: [

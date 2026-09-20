@@ -14,8 +14,8 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: "Reserve a mountain-view suite at Oro Shogran. Phone, WhatsApp or email — a warm reply within the day." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/contact" },
-      { property: "og:image", content: hero2Asset.url },
-      { name: "twitter:image", content: hero2Asset.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/hero2.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/hero2.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/contact" }],
     scripts: [

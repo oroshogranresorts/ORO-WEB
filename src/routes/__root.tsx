@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportAppError } from "../lib/error-reporting";
+import { HOTEL_JSON_LD } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -82,7 +83,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { property: "og:site_name", content: "Oro Shogran" },
       { property: "og:locale", content: "en_US" },
-      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/prop1.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/prop1.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@oroshogran" },
       { name: "geo.region", content: "PK-KP" },
@@ -106,62 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": ["Hotel", "LodgingBusiness"],
-          "@id": "https://www.oroshogran.com/#hotel",
-          name: "Oro Shogran",
-          alternateName: "ORO Shogran Hotel & Resort",
-          description:
-            "Luxury family hotel in Shogran, Kaghan Valley — mountain-view suites, guided jeep tours to Siri Paye, bonfires and slow local cuisine.",
-          url: "https://www.oroshogran.com/",
-          telephone: "+92-347-904-4301",
-          email: "info@oroshogran.com",
-          priceRange: "₨16,500 – ₨33,500",
-          currenciesAccepted: "PKR",
-          paymentAccepted: "Cash, Credit Card, Bank Transfer",
-          starRating: { "@type": "Rating", ratingValue: "4" },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.6",
-            reviewCount: "128",
-            bestRating: "5",
-            worstRating: "1",
-          },
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Shogran",
-            addressLocality: "Shogran",
-            addressRegion: "Khyber Pakhtunkhwa",
-            postalCode: "21210",
-            addressCountry: "PK",
-          },
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: 34.6397,
-            longitude: 73.4577,
-          },
-          areaServed: ["Shogran", "Kaghan Valley", "Siri Paye", "Makra Peak", "Naran"],
-          amenityFeature: [
-            { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
-            { "@type": "LocationFeatureSpecification", name: "24/7 Hot Water", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Bonfire", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Guided Jeep Tours", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Mountain View", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Family Rooms", value: true },
-            { "@type": "LocationFeatureSpecification", name: "On-site Parking", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Room Service", value: true },
-          ],
-          checkinTime: "14:00",
-          checkoutTime: "11:00",
-          numberOfRooms: 12,
-          petsAllowed: false,
-          smokingAllowed: false,
-          sameAs: [
-            "https://www.facebook.com/oroshogran",
-            "https://www.instagram.com/oroshogran",
-          ],
-        }),
+        children: JSON.stringify(HOTEL_JSON_LD),
       },
       {
         type: "application/ld+json",

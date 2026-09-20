@@ -15,8 +15,8 @@ export const Route = createFileRoute("/rooms/deluxe")({
       { property: "og:description", content: "Comfortable deluxe family rooms and suites with scenic Kaghan Valley views — from ₨16,500 per night at Oro Shogran." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/rooms/deluxe" },
-      { property: "og:image", content: hero.url },
-      { name: "twitter:image", content: hero.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/rooms/deluxe-suite/1.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/rooms/deluxe-suite/1.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/rooms/deluxe" }],
     scripts: [

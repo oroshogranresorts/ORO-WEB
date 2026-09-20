@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import { BLOGS, AUTHOR, getBlog, type Blog, type BlogSection } from "@/lib/blogs";
+import { toAbsoluteUrl } from "@/lib/seo";
 
 function toISO(date: string): string {
   const d = new Date(date);
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/blogs/$slug")({
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const { blog } = loaderData;
     const url = `https://www.oroshogran.com/blogs/${params.slug}`;
+    const imageUrl = toAbsoluteUrl(blog.image);
     const published = toISO(blog.date);
     const modified = toISO(blog.updated ?? blog.date);
     const wordCount = blog.sections.reduce(
@@ -32,7 +34,7 @@ export const Route = createFileRoute("/blogs/$slug")({
       "@type": "Article",
       headline: blog.title,
       description: blog.excerpt,
-      image: [blog.image],
+      image: [imageUrl],
       datePublished: published,
       dateModified: modified,
       author: { "@type": "Person", name: AUTHOR },
@@ -78,7 +80,7 @@ export const Route = createFileRoute("/blogs/$slug")({
         { property: "og:description", content: blog.excerpt },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: blog.image },
+        { property: "og:image", content: imageUrl },
         { property: "article:published_time", content: published },
         { property: "article:modified_time", content: modified },
         { property: "article:author", content: AUTHOR },
@@ -87,7 +89,7 @@ export const Route = createFileRoute("/blogs/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: blog.title },
         { name: "twitter:description", content: blog.excerpt },
-        { name: "twitter:image", content: blog.image },
+        { name: "twitter:image", content: imageUrl },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

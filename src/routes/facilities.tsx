@@ -16,8 +16,8 @@ export const Route = createFileRoute("/facilities")({
       { property: "og:description", content: "Bonfires under the stars, guided jeep trails to Siri Paye and Makra Peak, mountain cuisine and 24/7 hot water at Oro Shogran." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/facilities" },
-      { property: "og:image", content: srv2Asset.url },
-      { name: "twitter:image", content: srv2Asset.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/srv2.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/srv2.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/facilities" }],
     scripts: [

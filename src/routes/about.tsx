@@ -16,8 +16,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "A boutique mountain resort in Shogran, Kaghan Valley — comfortable stays, family spaces and peaceful mountain surroundings." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/about" },
-      { property: "og:image", content: aboutAsset.url },
-      { name: "twitter:image", content: aboutAsset.url },
+      { property: "og:image", content: "https://www.oroshogran.com/oro/about.jpg" },
+      { name: "twitter:image", content: "https://www.oroshogran.com/oro/about.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.oroshogran.com/about" }],
     scripts: [
