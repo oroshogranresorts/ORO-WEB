@@ -5,7 +5,7 @@ import room2Asset from "@/assets/oro/room2.jpg.asset.json";
 import room3Asset from "@/assets/oro/room3.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 
-export const Route = createFileRoute("/rooms")({
+export const Route = createFileRoute("/rooms/")({
   head: () => ({
     meta: [
       { title: "Rooms & Suites in Shogran | Oro Shogran Family Hotel" },

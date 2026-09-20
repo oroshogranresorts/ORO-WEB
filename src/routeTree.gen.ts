@@ -13,10 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
-import { Route as RoomsRouteImport } from './routes/rooms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as RoomsIndexRouteImport } from './routes/rooms.index'
 import { Route as RoomsDeluxeRouteImport } from './routes/rooms.deluxe'
 import { Route as RoomsLuxuryRouteImport } from './routes/rooms.luxury'
 
@@ -40,11 +40,6 @@ const FacilitiesRoute = FacilitiesRouteImport.update({
   path: '/facilities',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RoomsRoute = RoomsRouteImport.update({
-  id: '/rooms',
-  path: '/rooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -60,15 +55,20 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   path: '/blogs/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoomsIndexRoute = RoomsIndexRouteImport.update({
+  id: '/rooms/',
+  path: '/rooms/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoomsDeluxeRoute = RoomsDeluxeRouteImport.update({
-  id: '/deluxe',
-  path: '/deluxe',
-  getParentRoute: () => RoomsRoute,
+  id: '/rooms/deluxe',
+  path: '/rooms/deluxe',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const RoomsLuxuryRoute = RoomsLuxuryRouteImport.update({
-  id: '/luxury',
-  path: '/luxury',
-  getParentRoute: () => RoomsRoute,
+  id: '/rooms/luxury',
+  path: '/rooms/luxury',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -76,24 +76,24 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
-  '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
   '/blogs/': typeof BlogsIndexRoute
+  '/rooms/': typeof RoomsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
-  '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
   '/blogs': typeof BlogsIndexRoute
+  '/rooms': typeof RoomsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -101,12 +101,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/facilities': typeof FacilitiesRoute
-  '/rooms': typeof RoomsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/rooms/deluxe': typeof RoomsDeluxeRoute
   '/rooms/luxury': typeof RoomsLuxuryRoute
   '/blogs/': typeof BlogsIndexRoute
+  '/rooms/': typeof RoomsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -115,36 +115,36 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/facilities'
-    | '/rooms'
     | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
     | '/blogs/'
+    | '/rooms/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
     | '/facilities'
-    | '/rooms'
     | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
     | '/blogs'
+    | '/rooms'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/facilities'
-    | '/rooms'
     | '/sitemap.xml'
     | '/blogs/$slug'
     | '/rooms/deluxe'
     | '/rooms/luxury'
     | '/blogs/'
+    | '/rooms/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -152,10 +152,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FacilitiesRoute: typeof FacilitiesRoute
-  RoomsRoute: typeof RoomsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogsSlugRoute: typeof BlogsSlugRoute
+  RoomsDeluxeRoute: typeof RoomsDeluxeRoute
+  RoomsLuxuryRoute: typeof RoomsLuxuryRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
+  RoomsIndexRoute: typeof RoomsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -188,13 +190,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacilitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/rooms': {
-      id: '/rooms'
-      path: '/rooms'
-      fullPath: '/rooms'
-      preLoaderRoute: typeof RoomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -216,44 +211,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rooms/': {
+      id: '/rooms/'
+      path: '/rooms'
+      fullPath: '/rooms/'
+      preLoaderRoute: typeof RoomsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rooms/deluxe': {
       id: '/rooms/deluxe'
-      path: '/deluxe'
+      path: '/rooms/deluxe'
       fullPath: '/rooms/deluxe'
       preLoaderRoute: typeof RoomsDeluxeRouteImport
-      parentRoute: typeof RoomsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/rooms/luxury': {
       id: '/rooms/luxury'
-      path: '/luxury'
+      path: '/rooms/luxury'
       fullPath: '/rooms/luxury'
       preLoaderRoute: typeof RoomsLuxuryRouteImport
-      parentRoute: typeof RoomsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface RoomsRouteChildren {
-  RoomsDeluxeRoute: typeof RoomsDeluxeRoute
-  RoomsLuxuryRoute: typeof RoomsLuxuryRoute
-}
-
-const RoomsRouteChildren: RoomsRouteChildren = {
-  RoomsDeluxeRoute: RoomsDeluxeRoute,
-  RoomsLuxuryRoute: RoomsLuxuryRoute,
-}
-
-const RoomsRouteWithChildren = RoomsRoute._addFileChildren(RoomsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FacilitiesRoute: FacilitiesRoute,
-  RoomsRoute: RoomsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogsSlugRoute: BlogsSlugRoute,
+  RoomsDeluxeRoute: RoomsDeluxeRoute,
+  RoomsLuxuryRoute: RoomsLuxuryRoute,
   BlogsIndexRoute: BlogsIndexRoute,
+  RoomsIndexRoute: RoomsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
