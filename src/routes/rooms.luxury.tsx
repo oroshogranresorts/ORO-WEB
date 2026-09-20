@@ -3,6 +3,7 @@ import { SiteLayout, PageHero } from "@/components/site/Layout";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero from "@/assets/oro/hero1.jpg.asset.json";
 import { RoomGrid } from "@/components/site/RoomGrid";
+import { RoomShowcase } from "@/components/site/RoomShowcase";
 
 export const Route = createFileRoute("/rooms/luxury")({
   head: () => ({
@@ -37,6 +38,9 @@ export const Route = createFileRoute("/rooms/luxury")({
 });
 
 function LuxuryRooms() {
+  const luxuryRoom = ROOM_LISTINGS.find((r) => r.slug === "luxury-rooms") || ROOM_LISTINGS[0];
+  const otherRooms = ROOM_LISTINGS.filter((r) => r.slug !== "luxury-rooms");
+
   return (
     <SiteLayout>
       <PageHero
@@ -46,7 +50,8 @@ function LuxuryRooms() {
         subtitle="Thoughtfully designed rooms with private balconies, mountain views, and warm hospitality."
         image={hero.url}
       />
-      <RoomGrid rooms={ROOM_LISTINGS} eyebrow="Our Luxury Rooms" />
+      <RoomShowcase room={luxuryRoom} tag="01 — Featured Luxury Room" />
+      <RoomGrid rooms={otherRooms} eyebrow="Other Accommodations" />
     </SiteLayout>
   );
 }

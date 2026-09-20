@@ -3,6 +3,7 @@ import { SiteLayout, PageHero } from "@/components/site/Layout";
 import { ROOM_LISTINGS } from "@/lib/room-listings";
 import hero from "@/assets/oro/hero2.jpg.asset.json";
 import { RoomGrid } from "@/components/site/RoomGrid";
+import { RoomShowcase } from "@/components/site/RoomShowcase";
 
 export const Route = createFileRoute("/rooms/deluxe")({
   head: () => ({
@@ -37,16 +38,23 @@ export const Route = createFileRoute("/rooms/deluxe")({
 });
 
 function DeluxeRooms() {
+  const deluxeSuite = ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suite") || ROOM_LISTINGS[1];
+  const deluxeRoom = ROOM_LISTINGS.find((r) => r.slug === "deluxe-rooms") || ROOM_LISTINGS[2];
+  const luxuryRoom = ROOM_LISTINGS.filter((r) => r.slug === "luxury-rooms");
+
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Deluxe Rooms"
+        eyebrow="Deluxe Rooms & Suites"
         title="Comfortable stays"
         italic="above the valley."
         subtitle="Well-appointed rooms and family suites — comfortable spaces for an unforgettable stay in Kaghan Valley."
         image={hero.url}
       />
-      <RoomGrid rooms={ROOM_LISTINGS} eyebrow="Our Deluxe Rooms" />
+      <RoomShowcase room={deluxeSuite} tag="02 — Deluxe Family Suite" />
+      <div className="border-t border-gold/10" />
+      <RoomShowcase room={deluxeRoom} tag="03 — Deluxe Room" />
+      <RoomGrid rooms={luxuryRoom} eyebrow="Also Available: Luxury Rooms" />
     </SiteLayout>
   );
 }

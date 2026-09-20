@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 import room1Asset from "@/assets/oro/room1.jpg.asset.json";
 import room2Asset from "@/assets/oro/room2.jpg.asset.json";
-import room3Asset from "@/assets/oro/room3.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
+import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
 
 export const Route = createFileRoute("/rooms/")({
   head: () => ({
@@ -55,7 +56,22 @@ const ROOMS = [
   {
     tag: "01 — Featured",
     name: "Luxury Room",
-    img: "/oro/luxury-family.jpg",
+    slug: "luxury-rooms",
+    link: "/rooms/luxury" as const,
+    img: "/oro/rooms/luxury/1.jpg",
+    images: [
+      "/oro/rooms/luxury/1.jpg",
+      "/oro/rooms/luxury/2.jpg",
+      "/oro/rooms/luxury/3.jpg",
+      "/oro/rooms/luxury/4.jpg",
+      "/oro/rooms/luxury/5.jpg",
+      "/oro/rooms/luxury/6.jpg",
+      "/oro/rooms/luxury/7.jpg",
+      "/oro/rooms/luxury/8.jpg",
+      "/oro/rooms/luxury/9.jpg",
+      "/oro/rooms/luxury/10.jpg",
+      "/oro/rooms/luxury/11.jpg",
+    ],
     beds: "King + Sofa Bed",
     sqm: "Spacious",
     view: "Mountain View",
@@ -64,17 +80,26 @@ const ROOMS = [
     features: [
       "King Bed + Sofa Bed",
       "Private balcony with mountain view",
-      "Rain shower & attached bath",
+      "Rain shower & modern bath",
       "Complimentary breakfast for 2",
       "Free Wi-Fi & 24/7 Hot Water",
-      "Car parking",
+      "Secure car parking",
     ],
     long: "The Luxury Room is designed for guests seeking quiet relaxation, featuring an exclusive private balcony overlooking the Shogran valley. Complete with comfortable bedding, warm lighting, and dedicated hospitality.",
   },
   {
     tag: "02 — Family Suite",
     name: "Deluxe Family Suite",
-    img: "/oro/deluxe-suit.jpg",
+    slug: "deluxe-family-suite",
+    link: "/rooms/deluxe" as const,
+    img: "/oro/rooms/deluxe-suite/1.jpg",
+    images: [
+      "/oro/rooms/deluxe-suite/1.jpg",
+      "/oro/rooms/deluxe-suite/2.jpg",
+      "/oro/rooms/deluxe-suite/3.jpg",
+      "/oro/rooms/deluxe-suite/4.jpg",
+      "/oro/rooms/deluxe-suite/5.jpg",
+    ],
     beds: "Multiple Beds",
     sqm: "Family-friendly",
     view: "Scenic Valley",
@@ -86,14 +111,31 @@ const ROOMS = [
       "Attached modern bathroom",
       "Complimentary breakfast for 2",
       "24/7 Hot Water & Power Backup",
-      "Car parking",
+      "Secure car parking",
     ],
     long: "Designed for families and groups travelling together, the Deluxe Family Suite combines ample space with practical comforts. An ideal mountain retreat for families looking to relax and enjoy the scenic beauty of Shogran.",
   },
   {
     tag: "03 — Standard",
     name: "Deluxe Room",
-    img: "/oro/deluxe-family.jpg",
+    slug: "deluxe-rooms",
+    link: "/rooms/deluxe" as const,
+    img: "/oro/rooms/deluxe/1.jpg",
+    images: [
+      "/oro/rooms/deluxe/1.jpg",
+      "/oro/rooms/deluxe/2.jpg",
+      "/oro/rooms/deluxe/3.jpg",
+      "/oro/rooms/deluxe/4.jpg",
+      "/oro/rooms/deluxe/5.jpg",
+      "/oro/rooms/deluxe/6.jpg",
+      "/oro/rooms/deluxe/7.jpg",
+      "/oro/rooms/deluxe/8.jpg",
+      "/oro/rooms/deluxe/9.jpg",
+      "/oro/rooms/deluxe/10.jpg",
+      "/oro/rooms/deluxe/11.jpg",
+      "/oro/rooms/deluxe/12.jpg",
+      "/oro/rooms/deluxe/13.jpg",
+    ],
     beds: "Family Bedding",
     sqm: "Comfortable",
     view: "Valley View",
@@ -105,7 +147,7 @@ const ROOMS = [
       "Scenic mountain surroundings",
       "Complimentary breakfast for 2",
       "24/7 Hot Water & Free Wi-Fi",
-      "Car parking",
+      "Secure car parking",
     ],
     long: "The Deluxe Rooms offer dependable comfort and essentials in a restful alpine setting, providing a relaxing base to explore Shogran and Kaghan Valley.",
   },
@@ -122,6 +164,75 @@ const INCLUDED = [
   "Hiking & local tour assistance",
 ];
 
+function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: string; tag: string }) {
+  const [idx, setIdx] = useState(0);
+
+  const prev = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIdx((i) => (i - 1 + images.length) % images.length);
+  };
+
+  const next = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIdx((i) => (i + 1) % images.length);
+  };
+
+  return (
+    <div className="relative aspect-[4/5] overflow-hidden rounded border border-gold/15 bg-rich-black/60 shadow-xl select-none">
+      <img
+        src={images[idx]}
+        alt={`${name} - Photo ${idx + 1}`}
+        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        loading="lazy"
+      />
+      <div className="absolute left-6 top-6 z-10 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold bg-rich-black/85 px-3 py-1.5 backdrop-blur-sm">
+        {tag}
+      </div>
+
+      {images.length > 1 && (
+        <>
+          <div className="absolute right-6 top-6 z-10 rounded bg-rich-black/85 px-2.5 py-1 text-[10px] font-semibold tracking-wider text-ivory/90 backdrop-blur-sm">
+            {idx + 1} / {images.length}
+          </div>
+
+          <button
+            type="button"
+            onClick={prev}
+            aria-label="Previous photo"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            aria-label="Next photo"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 max-w-[80%] overflow-hidden py-1">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setIdx(i)}
+                aria-label={`Go to photo ${i + 1}`}
+                className={`transition-all ${
+                  i === idx
+                    ? "h-1.5 w-5 bg-gold rounded-full"
+                    : "h-1.5 w-1.5 bg-ivory/40 rounded-full hover:bg-ivory/80"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function Rooms() {
   return (
     <SiteLayout>
@@ -134,21 +245,28 @@ function Rooms() {
       />
 
       {/* ROOMS */}
-      <section className="py-12 md:py-14">
-        <div className="mx-auto max-w-7xl space-y-32 px-6">
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-7xl space-y-28 px-6">
           {ROOMS.map((r, i) => (
-            <article key={r.name} className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-20 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <img src={r.img} alt={r.name} className="h-full w-full object-cover" loading="lazy" />
-                <div className="absolute left-6 top-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{r.tag}</div>
-              </div>
+            <article
+              key={r.name}
+              className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-20 ${
+                i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <RoomPhotoCarousel images={r.images} name={r.name} tag={r.tag} />
+
               <div>
-                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">{r.name}</h2>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
+                  {r.name}
+                </h2>
                 <p className="mt-6 text-lg font-light leading-relaxed text-ivory/80">{r.lede}</p>
                 <p className="mt-4 text-base font-light leading-relaxed text-ivory/65">{r.long}</p>
 
                 <div className="mt-8 grid grid-cols-3 border-y border-gold/15 py-4 text-[10px] font-medium uppercase tracking-[0.25em] text-ivory/60">
-                  <span>{r.beds}</span><span className="text-center">{r.sqm}</span><span className="text-right">{r.view}</span>
+                  <span>{r.beds}</span>
+                  <span className="text-center">{r.sqm}</span>
+                  <span className="text-right">{r.view}</span>
                 </div>
 
                 <ul className="mt-8 grid grid-cols-1 gap-2 text-sm font-light text-ivory/75 sm:grid-cols-2">
@@ -159,14 +277,28 @@ function Rooms() {
                   ))}
                 </ul>
 
-                <div className="mt-10 flex items-baseline justify-between border-t border-gold/15 pt-6">
+                <div className="mt-10 flex flex-wrap items-baseline justify-between gap-4 border-t border-gold/15 pt-6">
                   <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/50">From / night</div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ivory/50">
+                      From / night
+                    </div>
                     <div className="mt-2 font-display text-3xl text-gold">{r.price}</div>
                   </div>
-                  <Link to="/contact" className="inline-flex items-center gap-3 bg-gold px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
-                    Reserve
-                  </Link>
+                  <div className="flex items-center gap-3">
+                    <Link
+                      to={r.link}
+                      className="inline-flex items-center gap-2 border border-gold/50 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold transition-colors hover:bg-gold hover:text-rich-black"
+                    >
+                      <Eye className="h-3.5 w-3.5" />
+                      View Gallery
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 bg-gold px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-rich-black transition-colors hover:bg-ivory"
+                    >
+                      Reserve Now
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>
@@ -175,11 +307,13 @@ function Rooms() {
       </section>
 
       {/* INCLUDED */}
-      <section className="border-t border-gold/10 py-14 md:py-14">
+      <section className="border-t border-gold/10 py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">— Every Stay Includes</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-gold">
+                — Every Stay Includes
+              </p>
               <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
                 Small things,<span className="italic text-gold"> done well.</span>
               </h2>
@@ -203,10 +337,17 @@ function Rooms() {
       <section className="relative overflow-hidden border-t border-gold/10">
         <img src={hero2Asset.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/80 to-rich-black/40" />
-        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-14 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">Reserve your room.</h2>
-          <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">Tell us your dates and how many are travelling — we'll write back within the day.</p>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory">
+        <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-16 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
+            Reserve your room.
+          </h2>
+          <p className="mx-auto mt-6 max-w-lg text-base font-light text-ivory/75">
+            Tell us your dates and how many are travelling — we'll write back within the day.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex items-center gap-3 bg-gold px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-rich-black transition-colors hover:bg-ivory"
+          >
             Enquire Now →
           </Link>
         </div>

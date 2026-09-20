@@ -155,9 +155,9 @@ export const Route = createFileRoute("/")({
 });
 
 const SUITES = [
-  { tag: "01 — Featured", name: "Luxury Room", to: "/rooms/luxury" as const, img: "/oro/luxury-family.jpg", beds: "King + Sofa Bed", sqm: "Spacious", view: "Car Parking", price: "₨ 18,500", copy: "Private balcony with mountain views, comfortable bedding, and dedicated service." },
-  { tag: "02 — Family Suite", name: "Deluxe Family Suite", to: "/rooms/deluxe" as const, img: "/oro/deluxe-suit.jpg", beds: "Multiple Beds", sqm: "Family-friendly", view: "Car Parking", price: "₨ 33,500", copy: "Spacious family suite with attached modern bath, scenic valley surroundings and peaceful atmosphere." },
-  { tag: "03 — Standard", name: "Deluxe Room", to: "/rooms/deluxe" as const, img: "/oro/deluxe-family.jpg", beds: "Family Bedding", sqm: "Comfortable", view: "Car Parking", price: "₨ 16,500", copy: "Comfortable rooms with scenic mountain views, clean interiors, and warm hospitality." },
+  { tag: "01 — Featured", name: "Luxury Room", to: "/rooms/luxury" as const, img: "/oro/rooms/luxury/1.jpg", beds: "King + Sofa Bed", sqm: "Spacious", view: "Car Parking", price: "₨ 18,500", copy: "Private balcony with mountain views, comfortable bedding, and dedicated service." },
+  { tag: "02 — Family Suite", name: "Deluxe Family Suite", to: "/rooms/deluxe" as const, img: "/oro/rooms/deluxe-suite/1.jpg", beds: "Multiple Beds", sqm: "Family-friendly", view: "Car Parking", price: "₨ 33,500", copy: "Spacious family suite with attached modern bath, scenic valley surroundings and peaceful atmosphere." },
+  { tag: "03 — Standard", name: "Deluxe Room", to: "/rooms/deluxe" as const, img: "/oro/rooms/deluxe/1.jpg", beds: "Family Bedding", sqm: "Comfortable", view: "Car Parking", price: "₨ 16,500", copy: "Comfortable rooms with scenic mountain views, clean interiors, and warm hospitality." },
 ];
 
 const TESTIMONIALS = [
@@ -390,12 +390,12 @@ function todayISO(offset = 0) {
 function matchRoom(guests: number, bedsPref: string) {
   // bedsPref: "any" | "1" | "2" | "3"
   if (bedsPref === "3" || guests >= 5) {
-    return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suit")!;
+    return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suite") || ROOM_LISTINGS[1] || ROOM_LISTINGS[0];
   }
   if (guests >= 3) {
-    return ROOM_LISTINGS.find((r) => r.slug === "luxury-family-rooms")!;
+    return ROOM_LISTINGS.find((r) => r.slug === "luxury-rooms") || ROOM_LISTINGS[0];
   }
-  return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-rooms")!;
+  return ROOM_LISTINGS.find((r) => r.slug === "deluxe-rooms") || ROOM_LISTINGS[2] || ROOM_LISTINGS[0];
 }
 
 function BookingWidget() {
@@ -532,7 +532,7 @@ function BookingWidget() {
                     Reserve on WhatsApp
                   </a>
                   <Link
-                    to={match.slug === "luxury-family-rooms" ? "/rooms/luxury" : "/rooms/deluxe"}
+                    to={match.slug === "luxury-rooms" ? "/rooms/luxury" : "/rooms/deluxe"}
                     className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ivory underline decoration-gold decoration-1 underline-offset-8 transition-colors hover:text-gold"
                   >
                     View Room →
