@@ -20,7 +20,7 @@ export const Route = createFileRoute("/blogs/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const { blog } = loaderData;
-    const url = `/blogs/${params.slug}`;
+    const url = `https://www.oroshogran.com/blogs/${params.slug}`;
     const published = toISO(blog.date);
     const modified = toISO(blog.updated ?? blog.date);
     const wordCount = blog.sections.reduce(
@@ -39,6 +39,7 @@ export const Route = createFileRoute("/blogs/$slug")({
       publisher: {
         "@type": "Organization",
         name: "Oro Shogran",
+        url: "https://www.oroshogran.com/",
       },
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       articleSection: blog.tag,
@@ -49,8 +50,8 @@ export const Route = createFileRoute("/blogs/$slug")({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-        { "@type": "ListItem", position: 2, name: "Blogs", item: "/blogs" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+        { "@type": "ListItem", position: 2, name: "Blogs", item: "https://www.oroshogran.com/blogs" },
         { "@type": "ListItem", position: 3, name: blog.title, item: url },
       ],
     };

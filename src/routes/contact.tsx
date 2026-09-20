@@ -13,11 +13,11 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Book Oro Shogran — Best Hotel in Shogran" },
       { property: "og:description", content: "Reserve a mountain-view suite at Oro Shogran. Phone, WhatsApp or email — a warm reply within the day." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://www.oroshogran.com/contact" },
       { property: "og:image", content: hero2Asset.url },
       { name: "twitter:image", content: hero2Asset.url },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://www.oroshogran.com/contact" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -25,10 +25,11 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact & Reservations — Oro Shogran",
-          url: "/contact",
+          url: "https://www.oroshogran.com/contact",
           mainEntity: {
             "@type": "LodgingBusiness",
             name: "Oro Shogran",
+            url: "https://www.oroshogran.com/",
             telephone: "+92-347-904-4301",
             email: "info@oroshogran.com",
             address: {
@@ -36,6 +37,7 @@ export const Route = createFileRoute("/contact")({
               streetAddress: "Shogran",
               addressLocality: "Shogran",
               addressRegion: "Khyber Pakhtunkhwa",
+              postalCode: "21210",
               addressCountry: "PK",
             },
           },
@@ -62,8 +64,8 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Contact", item: "/contact" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+            { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.oroshogran.com/contact" },
           ],
         }),
       },

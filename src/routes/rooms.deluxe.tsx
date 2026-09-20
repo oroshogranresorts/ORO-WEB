@@ -13,11 +13,11 @@ export const Route = createFileRoute("/rooms/deluxe")({
       { property: "og:title", content: "Deluxe Rooms in Shogran — Oro Shogran" },
       { property: "og:description", content: "Comfortable deluxe family rooms with balconies and Kaghan Valley views — from ₨18,500 per night at Oro Shogran." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/rooms/deluxe" },
+      { property: "og:url", content: "https://www.oroshogran.com/rooms/deluxe" },
       { property: "og:image", content: hero.url },
       { name: "twitter:image", content: hero.url },
     ],
-    links: [{ rel: "canonical", href: "/rooms/deluxe" }],
+    links: [{ rel: "canonical", href: "https://www.oroshogran.com/rooms/deluxe" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/rooms/deluxe")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Rooms", item: "/rooms" },
-            { "@type": "ListItem", position: 3, name: "Deluxe Rooms", item: "/rooms/deluxe" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+            { "@type": "ListItem", position: 2, name: "Rooms", item: "https://www.oroshogran.com/rooms" },
+            { "@type": "ListItem", position: 3, name: "Deluxe Rooms", item: "https://www.oroshogran.com/rooms/deluxe" },
           ],
         }),
       },

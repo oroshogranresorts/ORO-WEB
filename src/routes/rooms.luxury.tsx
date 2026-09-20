@@ -13,11 +13,11 @@ export const Route = createFileRoute("/rooms/luxury")({
       { property: "og:title", content: "Luxury Rooms in Shogran — Oro Shogran" },
       { property: "og:description", content: "Family suites with private balconies and Kaghan Valley views. Reserve at Oro Shogran, the best luxury hotel in Shogran." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/rooms/luxury" },
+      { property: "og:url", content: "https://www.oroshogran.com/rooms/luxury" },
       { property: "og:image", content: hero.url },
       { name: "twitter:image", content: hero.url },
     ],
-    links: [{ rel: "canonical", href: "/rooms/luxury" }],
+    links: [{ rel: "canonical", href: "https://www.oroshogran.com/rooms/luxury" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/rooms/luxury")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Rooms", item: "/rooms" },
-            { "@type": "ListItem", position: 3, name: "Luxury Rooms", item: "/rooms/luxury" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+            { "@type": "ListItem", position: 2, name: "Rooms", item: "https://www.oroshogran.com/rooms" },
+            { "@type": "ListItem", position: 3, name: "Luxury Rooms", item: "https://www.oroshogran.com/rooms/luxury" },
           ],
         }),
       },

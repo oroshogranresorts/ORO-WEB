@@ -15,11 +15,11 @@ export const Route = createFileRoute("/facilities")({
       { property: "og:title", content: "Facilities & Experiences — Oro Shogran, Shogran" },
       { property: "og:description", content: "Bonfires under the stars, guided jeep trails to Siri Paye and Makra Peak, mountain cuisine and 24/7 hot water at Oro Shogran." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/facilities" },
+      { property: "og:url", content: "https://www.oroshogran.com/facilities" },
       { property: "og:image", content: srv2Asset.url },
       { name: "twitter:image", content: srv2Asset.url },
     ],
-    links: [{ rel: "canonical", href: "/facilities" }],
+    links: [{ rel: "canonical", href: "https://www.oroshogran.com/facilities" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -27,8 +27,8 @@ export const Route = createFileRoute("/facilities")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Facilities", item: "/facilities" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+            { "@type": "ListItem", position: 2, name: "Facilities", item: "https://www.oroshogran.com/facilities" },
           ],
         }),
       },

@@ -14,11 +14,11 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Oro Shogran — Luxury Family Hotel in Shogran" },
       { property: "og:description", content: "A family-run luxury hotel in Shogran, Kaghan Valley — quiet hospitality, local craft and warmth on the Himalayan slopes." },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://www.oroshogran.com/about" },
       { property: "og:image", content: aboutAsset.url },
       { name: "twitter:image", content: aboutAsset.url },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://www.oroshogran.com/about" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -26,11 +26,12 @@ export const Route = createFileRoute("/about")({
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "About Oro Shogran",
-          url: "/about",
+          url: "https://www.oroshogran.com/about",
           description: "The story, philosophy and team behind Oro Shogran — a luxury family hotel in Shogran, Kaghan Valley.",
           mainEntity: {
             "@type": "LodgingBusiness",
             name: "Oro Shogran",
+            url: "https://www.oroshogran.com/",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Shogran",
@@ -46,8 +47,8 @@ export const Route = createFileRoute("/about")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "About", item: "/about" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oroshogran.com/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "https://www.oroshogran.com/about" },
           ],
         }),
       },

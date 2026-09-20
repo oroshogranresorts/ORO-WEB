@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /lovable/
 
-Sitemap: /sitemap.xml
+Sitemap: https://www.oroshogran.com/sitemap.xml
