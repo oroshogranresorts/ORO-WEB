@@ -133,9 +133,9 @@ export const Route = createFileRoute("/")({
           starRating: { "@type": "Rating", ratingValue: "4" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.7", reviewCount: "184", bestRating: "5", worstRating: "1" },
           makesOffer: [
-            { "@type": "Offer", name: "Luxury Room", price: "12500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/luxury", availability: "https://schema.org/InStock" },
-            { "@type": "Offer", name: "Deluxe Family Suite", price: "26500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
-            { "@type": "Offer", name: "Deluxe Family Rooms", price: "12500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Luxury Room", price: "18500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/luxury", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Deluxe Family Suite", price: "33500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
+            { "@type": "Offer", name: "Deluxe Room", price: "16500", priceCurrency: "PKR", url: "https://www.oroshogran.com/rooms/deluxe", availability: "https://schema.org/InStock" },
           ],
         }),
       },
@@ -155,9 +155,9 @@ export const Route = createFileRoute("/")({
 });
 
 const SUITES = [
-  { tag: "01 — Featured", name: "Luxury Room", to: "/rooms/luxury" as const, img: "/oro/room-deluxe-master-1.jpg", beds: "King + Sofa Bed", sqm: "Spacious", view: "Car Parking", price: "₨ 12,500", copy: "Private balcony with mountain views, comfortable bedding, and dedicated service." },
-  { tag: "02 — Family Suite", name: "Deluxe Family Suite", to: "/rooms/deluxe" as const, img: "/oro/room-deluxe-suite-1.jpg", beds: "Multiple Beds", sqm: "Family-friendly", view: "Car Parking", price: "₨ 26,500", copy: "Spacious family suite with attached modern bath, scenic valley surroundings and peaceful atmosphere." },
-  { tag: "03 — Standard", name: "Deluxe Family Rooms", to: "/rooms/deluxe" as const, img: "/oro/room-four-seater-1.jpg", beds: "Family Bedding", sqm: "Comfortable", view: "Car Parking", price: "₨ 12,500", copy: "Comfortable rooms with scenic mountain views, clean interiors, and warm hospitality." },
+  { tag: "01 — Featured", name: "Luxury Room", to: "/rooms/luxury" as const, img: "/oro/luxury-family.jpg", beds: "King + Sofa Bed", sqm: "Spacious", view: "Car Parking", price: "₨ 18,500", copy: "Private balcony with mountain views, comfortable bedding, and dedicated service." },
+  { tag: "02 — Family Suite", name: "Deluxe Family Suite", to: "/rooms/deluxe" as const, img: "/oro/deluxe-suit.jpg", beds: "Multiple Beds", sqm: "Family-friendly", view: "Car Parking", price: "₨ 33,500", copy: "Spacious family suite with attached modern bath, scenic valley surroundings and peaceful atmosphere." },
+  { tag: "03 — Standard", name: "Deluxe Room", to: "/rooms/deluxe" as const, img: "/oro/deluxe-family.jpg", beds: "Family Bedding", sqm: "Comfortable", view: "Car Parking", price: "₨ 16,500", copy: "Comfortable rooms with scenic mountain views, clean interiors, and warm hospitality." },
 ];
 
 const TESTIMONIALS = [

@@ -8,10 +8,10 @@ export const Route = createFileRoute("/rooms/deluxe")({
   head: () => ({
     meta: [
       { title: "Deluxe Rooms & Suites in Shogran | Oro Shogran Kaghan Valley" },
-      { name: "description", content: "Deluxe family rooms and suites at Oro Shogran, Kaghan Valley — cosy interiors, valley views and warm hospitality from ₨12,500 per night." },
+      { name: "description", content: "Deluxe family rooms and suites at Oro Shogran, Kaghan Valley — cosy interiors, valley views and warm hospitality from ₨16,500 per night." },
       { name: "keywords", content: "Deluxe Rooms Shogran, Deluxe Family Suite Shogran, Hotel in Shogran, Family Hotel in Shogran, Shogran Accommodation, Hotels in Kaghan Valley" },
       { property: "og:title", content: "Deluxe Rooms & Suites in Shogran — Oro Shogran" },
-      { property: "og:description", content: "Comfortable deluxe family rooms and suites with scenic Kaghan Valley views — from ₨12,500 per night at Oro Shogran." },
+      { property: "og:description", content: "Comfortable deluxe family rooms and suites with scenic Kaghan Valley views — from ₨16,500 per night at Oro Shogran." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/rooms/deluxe" },
       { property: "og:image", content: hero.url },

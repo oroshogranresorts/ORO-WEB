@@ -9,10 +9,10 @@ export const Route = createFileRoute("/rooms")({
   head: () => ({
     meta: [
       { title: "Rooms & Suites in Shogran | Oro Shogran Family Hotel" },
-      { name: "description", content: "Comfortable suite and room categories at Oro Shogran, a luxury family hotel in Shogran — mountain-view rooms, warm hospitality, and modern amenities from ₨12,500 per night." },
+      { name: "description", content: "Comfortable suite and room categories at Oro Shogran, a luxury family hotel in Shogran — mountain-view rooms, warm hospitality, and modern amenities from ₨16,500 per night." },
       { name: "keywords", content: "Rooms in Shogran, Suites in Shogran, Family Hotel in Shogran, Luxury Hotel in Shogran, Shogran Accommodation, Mountain View Hotel Shogran, Hotels in Kaghan Valley" },
       { property: "og:title", content: "Rooms & Suites in Shogran — Oro Shogran" },
-      { property: "og:description", content: "Mountain-view family rooms and suites at Oro Shogran, Kaghan Valley — from ₨12,500 per night." },
+      { property: "og:description", content: "Mountain-view family rooms and suites at Oro Shogran, Kaghan Valley — from ₨16,500 per night." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.oroshogran.com/rooms" },
       { property: "og:image", content: room1Asset.url },
@@ -29,9 +29,9 @@ export const Route = createFileRoute("/rooms")({
           url: "https://www.oroshogran.com/rooms",
           description: "Rooms and suites at Oro Shogran, a boutique hotel in Shogran, Kaghan Valley.",
           hasPart: [
-            { "@type": "HotelRoom", name: "Luxury Room", url: "https://www.oroshogran.com/rooms/luxury", occupancy: { "@type": "QuantitativeValue", maxValue: 3 }, offers: { "@type": "Offer", price: "12500", priceCurrency: "PKR" } },
-            { "@type": "HotelRoom", name: "Deluxe Family Suite", url: "https://www.oroshogran.com/rooms/deluxe", occupancy: { "@type": "QuantitativeValue", maxValue: 6 }, offers: { "@type": "Offer", price: "26500", priceCurrency: "PKR" } },
-            { "@type": "HotelRoom", name: "Deluxe Family Rooms", url: "https://www.oroshogran.com/rooms/deluxe", occupancy: { "@type": "QuantitativeValue", maxValue: 4 }, offers: { "@type": "Offer", price: "12500", priceCurrency: "PKR" } },
+            { "@type": "HotelRoom", name: "Luxury Room", url: "https://www.oroshogran.com/rooms/luxury", occupancy: { "@type": "QuantitativeValue", maxValue: 3 }, offers: { "@type": "Offer", price: "18500", priceCurrency: "PKR" } },
+            { "@type": "HotelRoom", name: "Deluxe Family Suite", url: "https://www.oroshogran.com/rooms/deluxe", occupancy: { "@type": "QuantitativeValue", maxValue: 6 }, offers: { "@type": "Offer", price: "33500", priceCurrency: "PKR" } },
+            { "@type": "HotelRoom", name: "Deluxe Room", url: "https://www.oroshogran.com/rooms/deluxe", occupancy: { "@type": "QuantitativeValue", maxValue: 4 }, offers: { "@type": "Offer", price: "16500", priceCurrency: "PKR" } },
           ],
         }),
       },
@@ -55,11 +55,11 @@ const ROOMS = [
   {
     tag: "01 — Featured",
     name: "Luxury Room",
-    img: "/oro/room-deluxe-master-1.jpg",
+    img: "/oro/luxury-family.jpg",
     beds: "King + Sofa Bed",
     sqm: "Spacious",
     view: "Mountain View",
-    price: "₨ 12,500",
+    price: "₨ 18,500",
     lede: "Refined comfort featuring an exclusive private balcony and panoramic mountain views.",
     features: [
       "King Bed + Sofa Bed",
@@ -74,11 +74,11 @@ const ROOMS = [
   {
     tag: "02 — Family Suite",
     name: "Deluxe Family Suite",
-    img: "/oro/room-deluxe-suite-1.jpg",
+    img: "/oro/deluxe-suit.jpg",
     beds: "Multiple Beds",
     sqm: "Family-friendly",
     view: "Scenic Valley",
-    price: "₨ 26,500",
+    price: "₨ 33,500",
     lede: "Expansive family suite offering generous space, comfort, and peaceful mountain surroundings.",
     features: [
       "Multiple family beds",
@@ -92,12 +92,12 @@ const ROOMS = [
   },
   {
     tag: "03 — Standard",
-    name: "Deluxe Family Rooms",
-    img: "/oro/room-four-seater-1.jpg",
+    name: "Deluxe Room",
+    img: "/oro/deluxe-family.jpg",
     beds: "Family Bedding",
     sqm: "Comfortable",
     view: "Valley View",
-    price: "₨ 12,500",
+    price: "₨ 16,500",
     lede: "Cozy mountain-view rooms with clean interiors and comfortable family bedding.",
     features: [
       "Multiple comfortable beds",
@@ -107,7 +107,7 @@ const ROOMS = [
       "24/7 Hot Water & Free Wi-Fi",
       "Car parking",
     ],
-    long: "The Deluxe Family Rooms offer dependable comfort and essentials in a restful alpine setting, providing a relaxing base to explore Shogran and Kaghan Valley.",
+    long: "The Deluxe Rooms offer dependable comfort and essentials in a restful alpine setting, providing a relaxing base to explore Shogran and Kaghan Valley.",
   },
 ];
 
