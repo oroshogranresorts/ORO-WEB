@@ -69,7 +69,7 @@ function TiltImage({ src, alt }: { src: string; alt: string }) {
 }
 import { SiteLayout } from "@/components/site/Layout";
 import { ReviewsMarquee } from "@/components/site/ReviewsMarquee";
-import { ROOM_LISTINGS } from "@/lib/room-listings";
+import { ROOM_LISTINGS, useLiveRooms, RoomListing } from "@/lib/room-listings";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 import prop1Asset from "@/assets/oro/prop1.jpg.asset.json";
 import prop2Asset from "@/assets/oro/prop2.jpg.asset.json";
@@ -135,12 +135,26 @@ const TESTIMONIALS = [
 ];
 
 function Home() {
+  const { rooms } = useLiveRooms();
   const heroImages = [prop1Asset.url, prop2Asset.url, prop3Asset.url];
   const [heroIdx, setHeroIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setHeroIdx((i) => (i + 1) % heroImages.length), 5000);
     return () => clearInterval(id);
   }, [heroImages.length]);
+
+  const displaySuites = (rooms.length > 0 ? rooms : SUITES).map((s: any, i: number) => ({
+    tag: s.tag || `0${i + 1} — Category`,
+    name: s.name,
+    to: (s.slug === "luxury-rooms" ? "/rooms/luxury" : "/rooms/deluxe") as const,
+    img: s.image || s.images?.[0] || s.img || "/oro/rooms/luxury/1.jpg",
+    beds: s.beds,
+    sqm: s.size || s.sqm || "Spacious",
+    view: s.view || "Car Parking",
+    price: typeof s.price === "string" && s.price.startsWith("₨") ? s.price : `₨ ${s.price}`,
+    copy: s.blurb || s.copy || "",
+  }));
+
   return (
     <SiteLayout>
       {/* HERO */}
@@ -190,7 +204,7 @@ function Home() {
           </div>
 
           {/* Booking Widget */}
-          <BookingWidget />
+          <BookingWidget rooms={rooms} />
         </div>
 
         <div className="relative border-y border-gold/15 bg-rich-black/90 py-4">
@@ -254,7 +268,7 @@ function Home() {
           </div>
 
           <div className="mt-12 md:mt-16 grid gap-12 lg:grid-cols-3 lg:gap-8">
-            {SUITES.map((s, i) => (
+            {displaySuites.map((s, i) => (
               <Link key={s.name} to={s.to} aria-label={`${s.name} — view details`} className={`group relative block ${i === 1 ? "lg:mt-16" : ""} ${i === 2 ? "lg:mt-16 md:mt-14 md:mt-12 md:mt-16" : ""}`}>
                 <div className="img-shine relative aspect-[4/5] overflow-hidden">
                   <img src={s.img} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
@@ -354,18 +368,18 @@ function todayISO(offset = 0) {
   return d.toISOString().slice(0, 10);
 }
 
-function matchRoom(guests: number, bedsPref: string) {
-  // bedsPref: "any" | "1" | "2" | "3"
+function matchRoom(guests: number, bedsPref: string, roomsList?: RoomListing[]) {
+  const list = roomsList && roomsList.length > 0 ? roomsList : ROOM_LISTINGS;
   if (bedsPref === "3" || guests >= 5) {
-    return ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suite") || ROOM_LISTINGS[1] || ROOM_LISTINGS[0];
+    return list.find((r) => r.slug === "deluxe-family-suite") || list[1] || list[0];
   }
   if (guests >= 3) {
-    return ROOM_LISTINGS.find((r) => r.slug === "luxury-rooms") || ROOM_LISTINGS[0];
+    return list.find((r) => r.slug === "luxury-rooms") || list[0];
   }
-  return ROOM_LISTINGS.find((r) => r.slug === "deluxe-rooms") || ROOM_LISTINGS[2] || ROOM_LISTINGS[0];
+  return list.find((r) => r.slug === "deluxe-rooms") || list[2] || list[0];
 }
 
-function BookingWidget() {
+function BookingWidget({ rooms }: { rooms?: RoomListing[] }) {
   const [checkIn, setCheckIn] = useState(todayISO(1));
   const [checkOut, setCheckOut] = useState(todayISO(2));
   const [guests, setGuests] = useState(2);
@@ -380,7 +394,7 @@ function BookingWidget() {
     return Math.max(0, Math.round((b - a) / (1000 * 60 * 60 * 24)));
   }, [checkIn, checkOut]);
 
-  const match = useMemo(() => matchRoom(guests, beds), [guests, beds]);
+  const match = useMemo(() => matchRoom(guests, beds, rooms), [guests, beds, rooms]);
   const pricePerNight = useMemo(() => Number(match.price.replace(/[^0-9.]/g, "")), [match]);
   const total = nights > 0 ? pricePerNight * nights : 0;
   const fmt = new Intl.NumberFormat("en-PK", { maximumFractionDigits: 0 });

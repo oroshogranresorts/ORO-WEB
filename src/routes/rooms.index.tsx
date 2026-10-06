@@ -5,6 +5,7 @@ import room1Asset from "@/assets/oro/room1.jpg.asset.json";
 import room2Asset from "@/assets/oro/room2.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
 import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { useLiveRooms } from "@/lib/room-listings";
 
 export const Route = createFileRoute("/rooms/")({
   head: () => ({
@@ -234,6 +235,28 @@ function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: stri
 }
 
 function Rooms() {
+  const { rooms } = useLiveRooms();
+
+  const displayRooms = (rooms.length > 0 ? rooms : ROOMS).map((r: any, idx: number) => ({
+    tag: r.tag || `0${idx + 1} — Category`,
+    name: r.name,
+    slug: r.slug,
+    link: (r.slug === "luxury-rooms" ? "/rooms/luxury" : "/rooms/deluxe") as const,
+    img: r.image || r.images?.[0] || "/oro/rooms/luxury/1.jpg",
+    images: r.images && r.images.length > 0 ? r.images : [r.image || "/oro/rooms/luxury/1.jpg"],
+    beds: r.beds,
+    sqm: r.size || r.sqm || "Spacious",
+    view: r.view || "Mountain View",
+    price: typeof r.price === "string" && r.price.startsWith("₨") ? r.price : `₨ ${r.price}`,
+    lede: r.blurb || r.lede || "",
+    features: r.features || [
+      "24/7 Hot Water & Standby Generator",
+      "Secure on-site car parking",
+      "Complimentary breakfast for 2",
+    ],
+    long: r.long || r.blurb || "",
+  }));
+
   return (
     <SiteLayout>
       <PageHero
@@ -247,7 +270,7 @@ function Rooms() {
       {/* ROOMS */}
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl space-y-28 px-6">
-          {ROOMS.map((r, i) => (
+          {displayRooms.map((r, i) => (
             <article
               key={r.name}
               className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-20 ${

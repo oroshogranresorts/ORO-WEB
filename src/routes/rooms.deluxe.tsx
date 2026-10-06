@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
-import { ROOM_LISTINGS } from "@/lib/room-listings";
+import { ROOM_LISTINGS, useLiveRooms } from "@/lib/room-listings";
 import hero from "@/assets/oro/hero2.jpg.asset.json";
 import { RoomGrid } from "@/components/site/RoomGrid";
 import { RoomShowcase } from "@/components/site/RoomShowcase";
@@ -38,9 +38,10 @@ export const Route = createFileRoute("/rooms/deluxe")({
 });
 
 function DeluxeRooms() {
-  const deluxeSuite = ROOM_LISTINGS.find((r) => r.slug === "deluxe-family-suite") || ROOM_LISTINGS[1];
-  const deluxeRoom = ROOM_LISTINGS.find((r) => r.slug === "deluxe-rooms") || ROOM_LISTINGS[2];
-  const luxuryRoom = ROOM_LISTINGS.filter((r) => r.slug === "luxury-rooms");
+  const { rooms } = useLiveRooms();
+  const deluxeSuite = rooms.find((r) => r.slug === "deluxe-family-suite") || rooms[1] || ROOM_LISTINGS[1];
+  const deluxeRoom = rooms.find((r) => r.slug === "deluxe-rooms") || rooms[2] || ROOM_LISTINGS[2];
+  const luxuryRoom = rooms.filter((r) => r.slug === "luxury-rooms");
 
   return (
     <SiteLayout>
