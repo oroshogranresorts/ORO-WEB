@@ -10,6 +10,8 @@ import blog9 from "@/assets/oro/blogs/blog9.jpg.asset.json";
 import blog10 from "@/assets/oro/blogs/blog10.jpg.asset.json";
 import blog11 from "@/assets/oro/blogs/blog11.jpg.asset.json";
 import blog12 from "@/assets/oro/blogs/blog12.jpg.asset.json";
+import blogShogranGuide from "@/assets/oro/blogs/shogran-travel-guide.jpg.asset.json";
+import blogSiriPaye from "@/assets/oro/blogs/siri-paye-meadows.jpg.asset.json";
 
 export type BlogSection = { heading: string; body: string[] };
 export type BlogFaq = { q: string; a: string };
@@ -37,6 +39,248 @@ export type Blog = {
 export const AUTHOR = "Mazhar Khan";
 
 const RAW_BLOGS: Blog[] = [
+  {
+    slug: "shogran-valley-ultimate-travel-guide",
+    tag: "Guide",
+    date: "October 10, 2026",
+    updated: "October 10, 2026",
+    read: "12 min",
+    title: "The Ultimate Shogran Valley Travel Guide: Road Conditions, Jeeps, Weather & Hotel Tips",
+    excerpt: "Everything you need to plan the perfect trip to Shogran in 2026 — Islamabad to Kiwai driving routes, 4x4 jeep fares, best season for snowfall and greenery, and how Oro Shogran elevates your mountain stay.",
+    image: blogShogranGuide.url,
+    intro:
+      "Perched on a green plateau at 7,749 feet (2,362 meters) above sea level, Shogran is one of the most enchanting hill stations in Pakistan's Kaghan Valley. Surrounded by dense deodar pine forests and offering uninterrupted vistas of Musa ka Musalla and Makra Peak, it strikes the rare balance between accessible alpine wilderness and serene luxury. Whether you are planning a family holiday, a romantic mountain escape, or an adventure up into the meadows of Siri Paye, this comprehensive travel guide covers every practical detail you need for 2026.",
+    sections: [
+      {
+        heading: "How to Reach Shogran: Islamabad to Kiwai & The Mountain Road",
+        body: [
+          "Reaching Shogran from Islamabad has never been smoother thanks to the Hazara Motorway (M-15). The journey begins with a fast 2-hour drive through Havelian, Abbottabad, and Mansehra, before joining the scenic N-15 National Highway towards Balakot and Kiwai.",
+          "Total travel time from Islamabad to Kiwai is typically 4.5 to 5 hours on well-carpeted tarmac. Kiwai, famous for its gushing roadside waterfall where travelers sit with their feet in icy mountain streams, marks the diversion point where the climb to Shogran begins.",
+          "From Kiwai, a steep 7.5-kilometer winding track ascends into the pine-covered ridge of Shogran. While paved in several segments, this narrow mountain incline features sharp switchbacks and loose stones. Passenger cars (such as sedans and hatchbacks) must be parked at Kiwai; only 4x4 vehicles, local Willy jeeps, and high-clearance SUVs should attempt the climb.",
+        ],
+      },
+      {
+        heading: "Kiwai to Shogran 4x4 Jeep Fares & Practical Logistics",
+        body: [
+          "At Kiwai bazaar, you will find the official jeep stand where licensed 4x4 drivers operate. For 2026, standard round-trip fares between Kiwai and Shogran typically range between PKR 5,000 and PKR 7,000, depending on waiting duration and whether your return is on the same day or following days.",
+          "If you are staying at Oro Shogran, our front desk can coordinate private, vetted mountain drivers to meet you at Kiwai and assist with luggage transfer directly to our reception.",
+          "Pro Tip: If visiting during peak summer weekends or snowy winter months, arrange your jeep transfer in advance through the retreat to avoid negotiating during rush hours.",
+        ],
+      },
+      {
+        heading: "Best Time to Visit: Weather, Greenery, and Winter Snowfall",
+        body: [
+          "Shogran experiences four distinct seasons, each offering a totally different visual atmosphere:",
+          "Spring & Summer (May to August): Temperatures hover pleasantly between 16°C and 25°C. The alpine meadows are carpeted with wild buttercups, and refreshing breezes sweep up from the Kunhar River. This is the prime season for families escaping the sweltering heat of the plains.",
+          "Golden Autumn (September to November): Days are crisp and clear, night temperatures drop to 5°C–8°C, and tourist crowds thin out significantly. The golden light across the pine canopies makes autumn an absolute haven for photographers and slow travelers.",
+          "Winter Wonderland (December to March): Snowfall blankets Shogran in several feet of pure white powder. Temperatures routinely drop below -5°C. Access is strictly by chained 4x4 jeeps, and the village transforms into a fairytale ski-chalet retreat centered around warm hearths and roaring bonfires.",
+        ],
+      },
+      {
+        heading: "Where to Stay: Why Oro Shogran Defines Ridge Hospitality",
+        body: [
+          "Choosing the right hotel in Shogran determines the entire mood of your vacation. While the main bazaar can become noisy during summer evenings, staying along the peaceful upper ridge gives you absolute silence, panoramic sunrise views, and direct forest access.",
+          "Oro Shogran was purpose-built to offer authentic boutique comfort: heated rooms with private mountain-view balconies, 24/7 hot water, uninterrupted generator backup, and chef-curated dining featuring fresh Kunhar trout and traditional mountain specialties.",
+          "Guests enjoy our open-air courtyard bonfires, panoramic terrace lounge, and personalized guided excursions up to Siri Paye and hidden forest trails.",
+        ],
+      },
+      {
+        heading: "Essential Packing & Cash Checklist for Kaghan Valley",
+        body: [
+          "Cash is Essential: The last reliable 24/7 bank ATMs are in Balakot (approx. 45 minutes before Kiwai). While Oro Shogran accepts electronic and card payments, local jeep drivers, horse handlers, and tea stalls operate strictly on cash.",
+          "Layered Clothing: Mountain weather shifts quickly. Even in mid-July, keep a fleece pullover or windbreaker handy for breezy evenings.",
+          "Footwear & Gear: Bring sturdy walking shoes with rubber grip for forest paths, a portable power bank, UV-protection sunglasses, and personal motion-sickness medication for the winding mountain roads.",
+          "Mobile Connectivity: Jazz and Zong offer the most reliable 4G/3G data coverage along the Shogran ridge.",
+        ],
+      },
+    ],
+    pullquote:
+      "At 7,749 feet, Shogran is not just a transit stop on the Kaghan highway — it is the serene, beating heart of the entire mountain range.",
+    keywords: [
+      "shogran travel guide",
+      "islamabad to shogran road",
+      "kiwai to shogran jeep fare",
+      "best time to visit shogran",
+      "best hotels in shogran",
+      "shogran weather 2026",
+      "kaghan valley tour packages",
+      "siri paye tour plan",
+    ],
+    takeaways: [
+      "Follow the Hazara Motorway (M-15) to Balakot and Kiwai for the smoothest 4.5-hour drive from Islamabad.",
+      "Park sedans and standard cars at Kiwai; hire an authorized 4x4 jeep for the steep mountain ascent to Shogran.",
+      "Withdraw cash in Balakot before heading up the mountain, as roadside vendors operate on cash only.",
+      "Book your room at Oro Shogran in advance for heated suites, private balconies, and dedicated mountain concierge service.",
+    ],
+    faqs: [
+      {
+        q: "Can I drive my own sedan (Civic, Corolla, Yaris) directly to Shogran?",
+        a: "Sedans and standard passenger cars can easily reach Kiwai along the paved N-15 highway. However, the 7.5 km steep, rocky incline from Kiwai to Shogran is strictly suited for 4x4 SUVs and local jeeps. You can safely park your car at secure paid parking stands in Kiwai and hire a local jeep.",
+      },
+      {
+        q: "How much does a 4x4 jeep charge from Kiwai to Shogran in 2026?",
+        a: "Standard round-trip jeep fares typically range between PKR 5,000 to PKR 7,000 depending on your schedule and return date. Guests staying at Oro Shogran can have transfers arranged directly by the hotel.",
+      },
+      {
+        q: "Is Shogran suitable for families with children and elderly parents?",
+        a: "Yes, Shogran is one of the safest and most comfortable hill stations in northern Pakistan. With paved paths, gentle walks, and cozy luxury accommodation at Oro Shogran, it is ideal for family retreats.",
+      },
+      {
+        q: "What is the best season to see snowfall in Shogran?",
+        a: "Peak snowfall season begins in late December and lasts through February. Heavy snow turns the pine forests and wooden chalets into a breathtaking winter landscape.",
+      },
+    ],
+    quickFacts: [
+      { label: "Altitude", value: "2,362 m (7,749 ft)" },
+      { label: "Distance from Islamabad", value: "235 km (4.5 – 5 hrs)" },
+      { label: "Kiwai to Shogran track", value: "7.5 km (35 mins by 4x4)" },
+      { label: "Best networks", value: "Jazz, Zong (4G LTE)" },
+    ],
+    conclusion: [
+      "Whether you are chasing the golden light of sunrise over Siri Paye, sipping spiced cardamom chai by a crackling night bonfire, or simply breathing the fragrant pine air away from city traffic, Shogran will captivate your senses.",
+      "Plan your getaway early, travel responsibly, and let Oro Shogran be your warm mountain home in the Kaghan Valley.",
+    ],
+    furtherReading: [
+      "siri-paye-meadows-top-things-to-do",
+      "sunrise-on-siri-paye",
+      "packing-for-a-kaghan-spring",
+    ],
+  },
+  {
+    slug: "siri-paye-meadows-top-things-to-do",
+    tag: "Trail",
+    date: "October 08, 2026",
+    updated: "October 08, 2026",
+    read: "10 min",
+    title: "Top 10 Things to Do in Shogran & Siri Paye: Hidden Gems, Hikes & Photography Spots",
+    excerpt: "From galloping across the emerald plateau of Siri Paye to summiting Makra Peak and night stargazing — discover the top 10 unforgettable experiences in Shogran and Kaghan Valley for families, photographers, and adventurers.",
+    image: blogSiriPaye.url,
+    intro:
+      "Rising majestically above Shogran plateau at over 10,000 feet (3,058 meters), the alpine meadows of Siri Paye are among the most celebrated high-altitude landscapes in the Himalayas. With rolling emerald pasturelands dotted with grazing mountain horses, blooming yellow wildflowers, and the dramatic snowy pyramid of Makra Peak standing guard against the azure sky, Siri Paye feels like an untouched highland sanctuary. Here is your definitive guide to the top 10 things to do in Shogran and Siri Paye.",
+    sections: [
+      {
+        heading: "1. Catch the Magical Sunrise over Siri Paye Meadows",
+        body: [
+          "There is no experience in Kaghan Valley that compares to witnessing first light on Siri Paye. Depart Oro Shogran at 5:00 AM by jeep, and you will arrive just as the morning sun casts a warm golden hue over the frosted grass.",
+          "Before the mid-day tourist jeeps arrive, the plateau is completely silent save for the whistling wind and distant calls of mountain birds. Photographers will find this early morning window the best time of day for panoramic landscape captures.",
+        ],
+      },
+      {
+        heading: "2. Ride Mountain Horses Across the Alpine Plateau",
+        body: [
+          "Local Gujjar shepherds offer horse riding across the rolling hills of Paye. Whether you are an experienced rider looking to canter along open ridges or a family with children enjoying a gentle, guided trot, riding horseback against the backdrop of snow-capped peaks is an unforgettable highlight.",
+          "Standard horse riding charges typically range from PKR 1,500 to PKR 2,500 for a guided loop around the meadow and lake.",
+        ],
+      },
+      {
+        heading: "3. Summit Makra Peak (For Hiking & Trekking Enthusiasts)",
+        body: [
+          "For adventurers seeking a rewarding mountain climb, the Makra Peak trail begins directly from the edge of Paye meadow. Reaching the summit at 3,885 meters (12,746 feet) takes approximately 3 to 4 hours of steady uphill hiking.",
+          "The summit offers a staggering 360-degree panorama stretching all the way to Azad Kashmir, the Kunhar River gorge, and the distant giants of Nanga Parbat on exceptionally clear days.",
+          "Safety Note: Always hire an experienced local guide from Shogran, start before 8:00 AM, and turn back immediately if afternoon storm clouds gather over the ridgeline.",
+        ],
+      },
+      {
+        heading: "4. Photograph Siri Lake and its Mountain Reflection",
+        body: [
+          "Situated about 20 minutes before the main Paye plateau, Siri Lake is a quaint alpine pond nestled beside ancient deodar trees. On calm, windless mornings, the lake acts as a pristine mirror reflecting the sky and surrounding mountain peaks.",
+          "Small wooden tea stalls along the water's edge serve steaming cups of Doodh Patti chai and hot pakoras, making it the ideal spot for a mid-morning rest.",
+        ],
+      },
+      {
+        heading: "5. Explore the Untouched Trails of Sharan Forest",
+        body: [
+          "If you want to escape all crowds, take a day excursion to nearby Sharan Forest. Known for its towering 400-year-old virgin pine and deodar trees, Sharan features pristine nature trails, bubbling glacial streams, and wooden suspension bridges.",
+          "It is also one of the prime habitats in Pakistan for the rare Himalayan Monal pheasant — keep your ears open for its distinct, melodious morning call.",
+        ],
+      },
+      {
+        heading: "6. Stargazing and Milky Way Astrophotography",
+        body: [
+          "Thanks to minimal light pollution and high atmospheric transparency, the night skies above Shogran are world-class for stargazing. On moonless nights between May and October, the Milky Way core arches brilliantly across the sky directly over Makra Peak.",
+          "Guests at Oro Shogran can set up tripods on our private open-air terrace to capture deep-sky photography while enjoying warm mountain hospitality.",
+        ],
+      },
+      {
+        heading: "7. Evenings Around the Fireplace & Bonfire at Oro Shogran",
+        body: [
+          "After an active day on the trails, there is nothing more comforting than gathering around an outdoor deodar wood bonfire. The crackling embers, mountain breeze, roasted corn, and warm conversation create memories that linger for years.",
+          "Oro Shogran hosts evening bonfires for guests, accompanied by soothing acoustic melodies and traditional kahwa tea.",
+        ],
+      },
+      {
+        heading: "8. Taste Fresh River Trout at the Valley Restaurant",
+        body: [
+          "The glacial streams of Kaghan Valley are world-famous for rainbow and brown trout. Prepared fresh with mountain spices, crushed walnuts, and clarified butter, freshly caught trout is the culinary pride of Shogran.",
+          "Our kitchen team sources trout straight from local crystal-clear river farms to ensure unforgettable taste and freshness.",
+        ],
+      },
+      {
+        heading: "9. Visit the Historic Shogran Forest Rest House Grounds",
+        body: [
+          "Established during the colonial era, the Shogran Forest Rest House features sprawling manicured green lawns surrounded by century-old pines. The panoramic edge overlooks the entire Kawai and Balakot valleys thousands of feet below, making it an iconic family picnic and stroll destination.",
+        ],
+      },
+      {
+        heading: "10. Forest Bathing & Digital Detox",
+        body: [
+          "Sometimes the most profound thing to do in the mountains is to do nothing at all. Practice Japanese Shinrin-yoku (forest bathing) by strolling unhurriedly beneath the fragrant pines, listening to the wind through the needles, and letting the stress of city life melt away.",
+          "At Oro Shogran, our spacious balconies and quiet garden corners are intentionally designed for peaceful contemplation, reading, and deep restorative rest.",
+        ],
+      },
+    ],
+    pullquote:
+      "To stand in the morning breeze of Siri Paye with Makra Peak soaring above you is to understand why travelers lose their hearts to Shogran.",
+    keywords: [
+      "things to do in shogran",
+      "siri paye meadows",
+      "makra peak hike",
+      "siri lake kaghan",
+      "shogran tourist spots",
+      "horse riding siri paye",
+      "shogran photography",
+      "sharan forest trek",
+    ],
+    takeaways: [
+      "Head to Siri Paye before 8:30 AM for untouched morning serenity and spectacular mountain photography.",
+      "Wear sturdy hiking shoes with solid tread, as alpine meadows can be slippery with morning dew.",
+      "Makra Peak is a rewarding day hike, but always hike with a vetted local guide and monitor afternoon weather.",
+      "Relax in the evening with freshly prepared trout and a crackling bonfire at Oro Shogran.",
+    ],
+    faqs: [
+      {
+        q: "How long does it take to reach Siri Paye from Shogran?",
+        a: "The 6-kilometer mountain track from Shogran to Siri Paye takes approximately 40 to 50 minutes by 4x4 jeep. Adventurous hikers can also walk the scenic trail in about 2.5 to 3 hours.",
+      },
+      {
+        q: "Is horse riding safe for beginners and kids at Siri Paye?",
+        a: "Yes, local horse handlers walk alongside the horses holding the reins at all times, making it safe and enjoyable for young children and first-time riders.",
+      },
+      {
+        q: "What should I wear when going up to Siri Paye?",
+        a: "Dress in comfortable layers. Temperatures at 10,000 feet can be significantly cooler and windier than Shogran. Always carry a windbreaker jacket, hat, sunglasses, and wear sports or trekking shoes.",
+      },
+      {
+        q: "Are food and refreshments available at Siri Paye?",
+        a: "Yes, small seasonal wooden huts and tea stalls at Siri and Paye serve hot chai, coffee, mineral water, instant noodles, and pakoras.",
+      },
+    ],
+    quickFacts: [
+      { label: "Paye Elevation", value: "3,058 m (10,032 ft)" },
+      { label: "Makra Peak Height", value: "3,885 m (12,746 ft)" },
+      { label: "Jeep track from Shogran", value: "6 km (45 mins)" },
+      { label: "Recommended Visit Duration", value: "Half day (4 – 5 hrs)" },
+    ],
+    conclusion: [
+      "From tranquil alpine meadows and panoramic summits to cozy fireside dinners and stargazing, Shogran and Siri Paye deliver an unforgettable Himalayan escape.",
+      "Reserve your stay at Oro Shogran today and let us help you experience the very best of Kaghan Valley.",
+    ],
+    furtherReading: [
+      "shogran-valley-ultimate-travel-guide",
+      "sunrise-on-siri-paye",
+      "old-shepherds-path-to-sharan",
+    ],
+  },
   {
     slug: "sunrise-on-siri-paye",
     tag: "Trail",
