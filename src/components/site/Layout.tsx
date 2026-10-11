@@ -373,8 +373,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="mt-14 md:mt-12 md:mt-16 flex flex-col items-start justify-between gap-4 border-t border-gold/15 pt-8 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40 sm:flex-row sm:items-center">
-            <div>© {year} All Rights Reserved · Oro Shogran</div>
+          <div className="mt-14 md:mt-12 md:mt-16 flex flex-col items-center justify-center gap-4 border-t border-gold/15 pt-8 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/40 sm:flex-row">
             <div className="flex gap-6">
               <Link to="/" className="hover:text-gold">Privacy</Link>
               <Link to="/" className="hover:text-gold">Terms</Link>

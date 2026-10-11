@@ -4,7 +4,7 @@ import { SiteLayout, PageHero } from "@/components/site/Layout";
 import room1Asset from "@/assets/oro/room1.jpg.asset.json";
 import room2Asset from "@/assets/oro/room2.jpg.asset.json";
 import hero2Asset from "@/assets/oro/hero2.jpg.asset.json";
-import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { ChevronLeft, ChevronRight, Eye, X, Maximize2 } from "lucide-react";
 import { useLiveRooms } from "@/lib/room-listings";
 
 export const Route = createFileRoute("/rooms/")({
@@ -165,30 +165,60 @@ const INCLUDED = [
   "Hiking & local tour assistance",
 ];
 
-function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: string; tag: string }) {
+function RoomPhotoCarousel({
+  images,
+  name,
+  tag,
+  onOpenGallery,
+}: {
+  images: string[];
+  name: string;
+  tag: string;
+  onOpenGallery?: (index: number) => void;
+}) {
   const [idx, setIdx] = useState(0);
 
   const prev = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     setIdx((i) => (i - 1 + images.length) % images.length);
   };
 
   const next = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     setIdx((i) => (i + 1) % images.length);
   };
 
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded border border-gold/15 bg-rich-black/60 shadow-xl select-none">
+    <div className="relative aspect-[4/5] overflow-hidden rounded border border-gold/15 bg-rich-black/60 shadow-xl select-none group">
       <img
         src={images[idx]}
         alt={`${name} - Photo ${idx + 1}`}
-        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        onClick={() => onOpenGallery?.(idx)}
+        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
         loading="lazy"
+        title="Click to view full photo gallery"
       />
-      <div className="absolute left-6 top-6 z-10 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold bg-rich-black/85 px-3 py-1.5 backdrop-blur-sm">
+      <div className="pointer-events-none absolute left-6 top-6 z-10 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold bg-rich-black/85 px-3 py-1.5 backdrop-blur-sm">
         {tag}
       </div>
+
+      {/* Expand Fullscreen / Gallery Button */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onOpenGallery?.(idx);
+        }}
+        title="Open photo gallery"
+        aria-label="Open photo gallery"
+        className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 rounded bg-rich-black/85 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-ivory/90 backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black cursor-pointer shadow-lg"
+      >
+        <Maximize2 className="h-3.5 w-3.5" />
+        <span className="hidden sm:inline">Gallery</span>
+      </button>
 
       {images.length > 1 && (
         <>
@@ -200,7 +230,7 @@ function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: stri
             type="button"
             onClick={prev}
             aria-label="Previous photo"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black cursor-pointer"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -208,19 +238,23 @@ function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: stri
             type="button"
             onClick={next}
             aria-label="Next photo"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-rich-black/75 text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-rich-black cursor-pointer"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 max-w-[80%] overflow-hidden py-1">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 max-w-[65%] overflow-hidden py-1">
             {images.map((_, i) => (
               <button
                 key={i}
                 type="button"
-                onClick={() => setIdx(i)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIdx(i);
+                }}
                 aria-label={`Go to photo ${i + 1}`}
-                className={`transition-all ${
+                className={`transition-all cursor-pointer ${
                   i === idx
                     ? "h-1.5 w-5 bg-gold rounded-full"
                     : "h-1.5 w-1.5 bg-ivory/40 rounded-full hover:bg-ivory/80"
@@ -236,6 +270,7 @@ function RoomPhotoCarousel({ images, name, tag }: { images: string[]; name: stri
 
 function Rooms() {
   const { rooms } = useLiveRooms();
+  const [lightbox, setLightbox] = useState<{ room: { name: string; images: string[] }; index: number } | null>(null);
 
   const displayRooms = (rooms.length > 0 ? rooms : ROOMS).map((r: any, idx: number) => ({
     tag: r.tag || `0${idx + 1} — Category`,
@@ -277,7 +312,12 @@ function Rooms() {
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              <RoomPhotoCarousel images={r.images} name={r.name} tag={r.tag} />
+              <RoomPhotoCarousel
+                images={r.images}
+                name={r.name}
+                tag={r.tag}
+                onOpenGallery={(idx) => setLightbox({ room: { name: r.name, images: r.images }, index: idx })}
+              />
 
               <div>
                 <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
@@ -308,13 +348,19 @@ function Rooms() {
                     <div className="mt-2 font-display text-3xl text-gold">{r.price}</div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Link
-                      to={r.link}
-                      className="inline-flex items-center gap-2 border border-gold/50 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold transition-colors hover:bg-gold hover:text-rich-black"
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightbox({
+                          room: { name: r.name, images: r.images },
+                          index: 0,
+                        })
+                      }
+                      className="inline-flex items-center gap-2 border border-gold/50 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold transition-colors hover:bg-gold hover:text-rich-black cursor-pointer"
                     >
                       <Eye className="h-3.5 w-3.5" />
                       View Gallery
-                    </Link>
+                    </button>
                     <Link
                       to="/contact"
                       className="inline-flex items-center gap-2 bg-gold px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-rich-black transition-colors hover:bg-ivory"
@@ -375,6 +421,104 @@ function Rooms() {
           </Link>
         </div>
       </section>
+
+      {/* Lightbox Gallery Modal */}
+      {lightbox && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-rich-black/95 p-4 backdrop-blur-md"
+          onClick={() => setLightbox(null)}
+        >
+          <div
+            className="relative flex max-h-[94vh] max-w-5xl flex-col items-center justify-center overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setLightbox(null)}
+              aria-label="Close photo gallery"
+              className="absolute right-2 top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rich-black/85 text-ivory transition-colors hover:bg-gold hover:text-rich-black cursor-pointer shadow-xl"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Lightbox Image */}
+            <div className="relative overflow-hidden rounded bg-black/60 shadow-2xl">
+              <img
+                src={lightbox.room.images[lightbox.index]}
+                alt={`${lightbox.room.name} - Photo ${lightbox.index + 1}`}
+                className="max-h-[74vh] w-auto object-contain"
+              />
+            </div>
+
+            {/* Lightbox Bar */}
+            <div className="mt-4 flex w-full items-center justify-between px-3 text-ivory">
+              <div>
+                <h4 className="font-display text-xl text-gold">{lightbox.room.name}</h4>
+                <p className="text-xs text-ivory/60 mt-0.5">
+                  Photo {lightbox.index + 1} of {lightbox.room.images.length}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setLightbox({
+                      ...lightbox,
+                      index:
+                        (lightbox.index - 1 + lightbox.room.images.length) %
+                        lightbox.room.images.length,
+                    })
+                  }
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-ivory transition-colors hover:bg-gold hover:text-rich-black cursor-pointer"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setLightbox({
+                      ...lightbox,
+                      index: (lightbox.index + 1) % lightbox.room.images.length,
+                    })
+                  }
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-ivory transition-colors hover:bg-gold hover:text-rich-black cursor-pointer"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Thumbnail Strip */}
+            {lightbox.room.images.length > 1 && (
+              <div className="mt-3 flex max-w-full gap-2 overflow-x-auto py-2">
+                {lightbox.room.images.map((img, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setLightbox({ ...lightbox, index: i })}
+                    className={`relative h-14 w-20 shrink-0 overflow-hidden rounded border transition-all cursor-pointer ${
+                      i === lightbox.index
+                        ? "border-gold ring-2 ring-gold/40 scale-102"
+                        : "border-gold/20 opacity-50 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={img} alt="" className="h-full w-full object-cover" />
+                    <span className="absolute bottom-0.5 right-0.5 rounded bg-black/70 px-1 text-[8px] font-medium text-white">
+                      {i + 1}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </SiteLayout>
   );
 }
